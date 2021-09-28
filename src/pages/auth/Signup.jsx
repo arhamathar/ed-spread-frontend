@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, Button, Input, Label } from "reactstrap";
+import "./Login.css";
 import axios from "axios";
 
 const Signup = () => {
@@ -31,60 +31,104 @@ const Signup = () => {
     }, [password, confirmPassword]);
 
     return (
-        <div>
-            <h1 className='text-center mt-5'>Signup</h1>
-            <Card className='w-25 p-3 mx-auto margin-top: 100 mb-5'>
-                <CardBody>
-                    <Label>Full Name</Label>
-                    <Input
-                        type='full name'
-                        placeholder='Enter full name'
-                        onChange={(e) => setFullName(e.target.value)}
-                    />
-
-                    <Label className='mt-3'>Email</Label>
-                    <Input
-                        type='email'
-                        placeholder='Enter full name'
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <Label className='mt-3'>Phone no.</Label>
-                    <Input
-                        type='tel'
-                        placeholder='Enter phone no.'
-                        onChange={(e) => setPhone(e.target.value)}
-                    />
-                    <p>we will never share your phone number with anyone</p>
-
-                    <Label className='mt-3'>Password</Label>
-                    <Input
-                        type='password'
-                        placeholder='Enter password'
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <Label className='mt-3'>Confirm Password</Label>
-                    <Input
-                        type='password'
-                        placeholder='Enter password'
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                    />
-                    <Button
-                        className='mt-3'
-                        disabled={disabled}
-                        color={`${disabled ? "secondary" : "primary"}`}
-                        type='submit'
-                        onClick={() => onSubmit()}
-                    >
-                        Submit
-                    </Button>
-
-                    <div>
-                        <p>
-                            Already a member? <a href='/login'>Login</a>
-                        </p>
+        <div className='container'>
+            <div className='d-flex justify-content-center h-100'>
+                <div className='card'>
+                    <div className='card-header'>
+                        <h3>Sign Up</h3>
                     </div>
-                </CardBody>
-            </Card>
+                    <div className='card-body'>
+                        <form>
+                            <div className='input-group form-group'>
+                                <div className='input-group-prepend'>
+                                    <span className='input-group-text'>
+                                        <i className='fas fa-user'></i>
+                                    </span>
+                                </div>
+                                <input
+                                    type='text'
+                                    className='form-control'
+                                    placeholder='Full name'
+                                    onChange={(e) =>
+                                        setFullName(e.target.value)
+                                    }
+                                />
+                            </div>
+
+                            <div className='input-group form-group'>
+                                <div className='input-group-prepend'>
+                                    <span className='input-group-text'>
+                                        <i className='fas fa-envelope'></i>
+                                    </span>
+                                </div>
+                                <input
+                                    type='email'
+                                    className='form-control'
+                                    placeholder='Email'
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </div>
+                            <div className='input-group form-group'>
+                                <div className='input-group-prepend'>
+                                    <span className='input-group-text'>
+                                        <i className='fas fa-phone-square'></i>
+                                    </span>
+                                </div>
+                                <input
+                                    type='tel'
+                                    className='form-control'
+                                    placeholder='Phone no.'
+                                    onChange={(e) => setPhone(e.target.value)}
+                                />
+                            </div>
+                            <div className='input-group form-group'>
+                                <div className='input-group-prepend'>
+                                    <span className='input-group-text'>
+                                        <i className='fas fa-key'></i>
+                                    </span>
+                                </div>
+                                <input
+                                    type='password'
+                                    className='form-control'
+                                    placeholder='Password'
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
+                                />
+                            </div>
+                            <div className='input-group form-group'>
+                                <div className='input-group-prepend'>
+                                    <span className='input-group-text'>
+                                        <i className='fas fa-key'></i>
+                                    </span>
+                                </div>
+                                <input
+                                    type='password'
+                                    className='form-control'
+                                    placeholder='Confirm password'
+                                    onChange={(e) =>
+                                        setConfirmPassword(e.target.value)
+                                    }
+                                />
+                            </div>
+                            <div className='form-group'>
+                                <input
+                                    type='submit'
+                                    value='Signup'
+                                    className='btn float-right login_btn'
+                                    disabled={disabled}
+                                    onClick={() => onSubmit()}
+                                />
+                            </div>
+                        </form>
+                    </div>
+                    <div className='card-footer'>
+                        <div className='d-flex justify-content-center links'>
+                            Don't have an account?<a href='./login'>Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

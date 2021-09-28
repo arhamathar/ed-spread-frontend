@@ -1,6 +1,6 @@
 import React from "react";
+import "./Login.css";
 import axios from "axios";
-import { Card, CardBody, Label, Button, Input } from "reactstrap";
 
 const Login = () => {
     const [email, setEmail] = React.useState("");
@@ -20,44 +20,59 @@ const Login = () => {
     };
 
     return (
-        <div>
-            <h1 className='text-center mt-5'>Login</h1>
-            <Card className='w-25 p-3 mx-auto margin-top: 100'>
-                <CardBody>
-                    <Label>Email</Label>
-                    <Input
-                        type='email'
-                        placeholder='Enter email'
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <Label className='mt-3'>Password</Label>
-                    <Input
-                        type='email'
-                        placeholder='Enter password'
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <Button
-                        color='primary'
-                        className='mt-3 mb-1'
-                        type='submit'
-                        onClick={() => onSubmit()}
-                    >
-                        Submit
-                    </Button>
-
-                    <div>
-                        <p>
-                            No account?{" "}
-                            <a
-                                // className='text-green-400 cursor-pointer'
-                                href='/signup'
-                            >
-                                Signup
-                            </a>
-                        </p>
+        <div className='container'>
+            <div className='d-flex justify-content-center h-100'>
+                <div className='card logheight'>
+                    <div className='card-header'>
+                        <h3>Sign In</h3>
                     </div>
-                </CardBody>
-            </Card>
+                    <div className='card-body'>
+                        <form>
+                            <div className='input-group form-group'>
+                                <div className='input-group-prepend'>
+                                    <span className='input-group-text'>
+                                        <i className='fas fa-envelope'></i>
+                                    </span>
+                                </div>
+                                <input
+                                    type='email'
+                                    className='form-control'
+                                    placeholder='Email'
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </div>
+                            <div className='input-group form-group'>
+                                <div className='input-group-prepend'>
+                                    <span className='input-group-text'>
+                                        <i className='fas fa-key'></i>
+                                    </span>
+                                </div>
+                                <input
+                                    type='password'
+                                    className='form-control'
+                                    placeholder='Password'
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
+                                />
+                            </div>
+                            <div className='form-group'>
+                                <input
+                                    type='submit'
+                                    value='Login'
+                                    className='btn float-right login_btn'
+                                    onClick={() => onSubmit()}
+                                />
+                            </div>
+                        </form>
+                    </div>
+                    <div className='card-footer'>
+                        <div className='d-flex justify-content-center links'>
+                            Don't have an account?<a href='/signup'>Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
