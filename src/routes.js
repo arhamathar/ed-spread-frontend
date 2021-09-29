@@ -1,11 +1,14 @@
 import React from 'react'
 import {Switch, Route} from 'react-router-dom'
+import Login from './Pages/auth/login'
 
 const Routes = () => {
     return (
-        <div>
-            All routes
-        </div>
+        <Switch>
+            <Route path='/login'>
+                <Login />
+            </Route>
+        </Switch>
     )
 }
 
