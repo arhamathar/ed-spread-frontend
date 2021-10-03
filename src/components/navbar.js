@@ -16,7 +16,7 @@ const Navba = () => {
 
     return (
         <div>
-            <Navbar color='light' light expand='md'>
+            <Navbar style={{ backgroundColor: "#f1f1f1" }} light expand='md'>
                 <NavbarBrand>ED SPREAD</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
