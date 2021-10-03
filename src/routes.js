@@ -8,16 +8,16 @@ import Dashboard from "./Pages/Dashboard";
 const Routes = () => {
     return (
         <Switch>
-            <Route path="/login">
+            <Route path='/login'>
                 <Login />
             </Route>
-            <Route path="/signup">
+            <Route path='/signup'>
                 <Signup />
             </Route>
-            <Route path="/courses">
+            <Route path='/courses'>
                 <Courses />
             </Route>
-            <Route path="/dashboard">
+            <Route path='/dashboard'>
                 <Dashboard />
             </Route>
         </Switch>
