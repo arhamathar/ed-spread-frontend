@@ -1,20 +1,26 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import { BrowserRouter } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/footer";
-import Navba from "./components/navbar";
-
+import Navbar from "./components/navbar";
 import Routes from "./routes";
+import useAuth from "./hooks/useAuth";
+import { AuthContext } from "./context/authContext";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
+    const { token, login, logout, userId } = useAuth();
+
     return (
-        <BrowserRouter>
-            <Navba />
-            <Routes />
-            <ToastContainer />
-            <Footer />
-        </BrowserRouter>
+        <AuthContext.Provider value={{ token, userId, login, logout }}>
+            <BrowserRouter>
+                <Navbar />
+                <Routes />
+                <ToastContainer />
+                <Footer />
+            </BrowserRouter>
+        </AuthContext.Provider>
     );
 };
 
