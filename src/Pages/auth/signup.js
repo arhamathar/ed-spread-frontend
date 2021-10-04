@@ -1,19 +1,20 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import axios from "axios";
 import { Button, Card } from "reactstrap";
 import { AvForm, AvField } from "availity-reactstrap-validation";
 
+import useHttp from "../../hooks/useHttp";
+
 const Signup = () => {
+    const { loading, sendRequest } = useHttp();
+
     const [signupUser, setSignupUser] = useState({
         email: "",
         password: "",
         name: "",
-        phone: "",
+        mobile: "",
     });
-
-    const history = useHistory();
 
     const onChangeHandler = (e) => {
         setSignupUser((prev) => ({
@@ -24,66 +25,67 @@ const Signup = () => {
 
     const onSubmitHandler = async () => {
         try {
-            const response = await axios.post("/api/user/signup", signupUser);
-            toast.success("Signup Succesful");
-            history.push("/");
+            const response = await sendRequest(
+                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/signup`,
+                "POST",
+                signupUser
+            );
+            console.log(response);
         } catch (e) {
+            console.log(e.response);
             toast.error("Something went Wrong!");
         }
     };
 
     return (
-        <div className='w-100 vh-100 bg-info py-5' style={{ height: "130vh" }}>
-            <Card
-                style={{}}
-                className=' login-card w-50 p-4 mx-auto mt-5 shadow'
-            >
-                <p className='h3 text-info center'>SIGN UP </p>
+        <div className="w-100 vh-100 bg-light py-5" style={{ height: "92vh" }}>
+            <Card className=" login-card w-50 p-4 mx-auto mt-5 shadow">
+                <p className="h3 text-dark center">SIGN UP TO A NEW ACCOUNT </p>
                 <AvForm>
                     <AvField
-                        name='name'
-                        label='Full Name'
-                        type='text'
+                        name="name"
+                        label="Full Name"
+                        type="text"
                         required
-                        placeholder='John Smith'
+                        placeholder="John Smith"
                         onChange={(e) => onChangeHandler(e)}
                     />
                     <AvField
-                        name='email'
-                        label='Email'
-                        type='email'
+                        name="email"
+                        label="Email"
+                        type="email"
                         required
-                        placeholder='john@gmail.com'
+                        placeholder="john@gmail.com"
                         onChange={(e) => onChangeHandler(e)}
                     />
                     <AvField
-                        name='phone'
-                        label='Phone No.'
-                        type='phone'
-                        placeholder='9999999999'
-                        pattern='^[0-9]*$'
+                        name="mobile"
+                        label="Mobile No."
+                        type="mobile"
+                        placeholder="9999999999"
+                        pattern="^[0-9]*$"
                         onChange={(e) => onChangeHandler(e)}
                         validate={{
                             required: {
                                 value: true,
-                                errorMessage: "Please enter your phone number",
+                                errorMessage: "Please enter your mobile number",
                             },
                             minLength: {
                                 value: 10,
                                 errorMessage:
-                                    "Your phone number must be 10 digits long",
+                                    "Your mobile number must be 10 digits long",
                             },
                             maxLength: {
                                 value: 10,
                                 errorMessage:
-                                    "Your phone number must be 10 digits long",
+                                    "Your mobile number must be 10 digits long",
                             },
                         }}
                     />
                     <AvField
-                        name='password'
-                        label='Password'
-                        type='password'
+                        name="password"
+                        label="Password"
+                        type="password"
                         onChange={(e) => onChangeHandler(e)}
                         validate={{
                             required: {
@@ -97,16 +99,16 @@ const Signup = () => {
                             },
                         }}
                     />
-                    <Button color='info' onClick={onSubmitHandler}>
+                    <Button color="dark" onClick={onSubmitHandler}>
                         SIGN UP
                     </Button>
                 </AvForm>
-                <div className='d-flex justify-content-between my-2'>
-                    <a href='/'>Forgot Password ?</a>
+                <div className="d-flex justify-content-between my-2">
+                    <a href="/">Forgot Password ?</a>
                     <Link
                         style={{ textDecoration: "none" }}
-                        className=''
-                        to='/login'
+                        className=""
+                        to="/login"
                     >
                         LOG IN
                     </Link>

@@ -16,24 +16,35 @@ const Navba = () => {
 
     return (
         <div>
-            <Navbar style={{ backgroundColor: "#f1f1f1" }} light expand='md'>
-                <NavbarBrand>ED SPREAD</NavbarBrand>
+            <Navbar className="bg-dark" light expand="md">
+                <NavbarBrand className="text-light">ED SPREAD</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
-                    <Nav className='ml-auto' color='black' navbar>
+                    <Nav className="ml-auto text-light" navbar>
                         <NavItem>
-                            <NavLink color='black' to='/courses'>
+                            <NavLink className="text-light" to="/">
                                 Home
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink to='/courses'>Courses</NavLink>
+                            <NavLink className="text-light" to="/courses">
+                                Courses
+                            </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink to='/courses'>About</NavLink>
+                            <NavLink className="text-light" to="/about">
+                                About
+                            </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink to='/login'>Login</NavLink>
+                            <NavLink className="text-light" to="/login">
+                                Log In
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink className="text-light" to="/signup">
+                                Sign Up
+                            </NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
