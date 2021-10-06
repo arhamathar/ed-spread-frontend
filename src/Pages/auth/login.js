@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Button, Card, Spinner } from "reactstrap";
+import { Button, Card } from "reactstrap";
 import { AvForm, AvField } from "availity-reactstrap-validation";
 import useHttp from "../../hooks/useHttp";
 
@@ -36,7 +36,6 @@ const Login = () => {
 
     return (
         <div className="w-100 vh-100 bg-light py-5" style={{ height: "92vh" }}>
-            <Spinner color="primary" />
             <Card className="login-card w-50 p-4 mx-auto mt-5 shadow">
                 <p className="h3 text-dark center">LOG INTO YOUR ACCOUNT</p>
                 <AvForm>
