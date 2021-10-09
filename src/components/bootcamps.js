@@ -10,7 +10,6 @@ const Bootcamps = () => {
             <div>
                 <Bootcamp />
                 <Bootcamp />
-                <Bootcamp />
             </div>
         </div>
     );

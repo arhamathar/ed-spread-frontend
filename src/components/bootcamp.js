@@ -31,7 +31,7 @@ const Bootcamp = (props) => {
                     className='cardimage'
                     top
                     width='100%'
-                    src='https://impreza23.us-themes.com/wp-content/uploads/2020/08/teemu-paananen-bzdhc5b3Bxs-unsplash.jpg'
+                    src='https://impreza23.us-themes.com/wp-content/uploads/2020/08/christopher-gower-m_HRfLhgABo-unsplash.jpg'
                     alt='Card image cap'
                 />
                 <CardBody className='cardbody'>
@@ -57,7 +57,7 @@ const Bootcamp = (props) => {
                         </div>
                         <div className='card-buttons' Name>
                             <Button color='info' className='cardbutton'>
-                                79$
+                                Register
                             </Button>
                             <Button
                                 onClick={toggle}

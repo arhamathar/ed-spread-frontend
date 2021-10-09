@@ -8,6 +8,7 @@ import {
     NavItem,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
+import Logo from "../assests/symbol.png";
 
 const Navba = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -16,8 +17,15 @@ const Navba = () => {
 
     return (
         <div>
-            <Navbar className='bg-dark navbar-dark' light expand='md'>
-                <NavbarBrand className='text-light'>ED SPREAD</NavbarBrand>
+            <Navbar
+                className='navbar-stick bg-dark navbar-dark'
+                light
+                expand='md'
+            >
+                <NavbarBrand className='logo text-light'>
+                    <img src={Logo} alt='logo' />
+                    ED SPREAD
+                </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav
