@@ -35,40 +35,67 @@ code {
 }
 
 .coursecard {
+    display: flex;
+    flex-direction: row;
     position: relative;
     border: "1px solid #d3cede";
-    margin: 40px 0 40px 0;
-    width: 70%;
-    border-radius: 30px;
+    width: 100%;
+    border-radius: 10px;
 }
 
 .carddiv {
     display: flex;
+    padding: 40px;
     flex-wrap: wrap;
-    width: 50%;
+    width: 100%;
     align-self: center;
     justify-content: center;
 }
 
-@media only screen and (max-width: 600px) {
-    .carddiv {
-        width: 100%;
-    }
-    .coursecard {
-        margin: 10px 0 10px 0;
-    }
+.card-buttons {
+    display: flex;
+    margin-top: 20px;
+    bottom: 0;
+    width: 100%;
 }
 
-.courses {
-    display: flex;
-    flex-wrap: wrap;
+.cardbutton {
+    margin-right: 10px;
 }
 
 .cardimage {
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px 0 0 10px;
+    width: 40%;
+}
+
+.cardicons {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardicons i {
+    padding-top: 8px;
 }
 
 .courseh1 {
     text-align: center;
     margin: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+    .carddiv {
+        width: 100%;
+        padding: 10px;
+    }
+    .coursecard {
+        margin: 10px 0 10px 0;
+        flex-direction: column;
+    }
+    .cardimage {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+    }
+    .cardtext {
+        font-size: small;
+    }
 }

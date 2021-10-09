@@ -14,9 +14,9 @@ import {
     ModalFooter,
 } from "reactstrap";
 import { AvForm, AvField } from "availity-reactstrap-validation";
-import useData from "./../Pages/Course/data";
+import useData from "./data";
 
-const Bootcamp = (props) => {
+const Course = (props) => {
     const {
         course: { title, description, price, type },
         showModal,
@@ -161,4 +161,4 @@ const Bootcamp = (props) => {
     );
 };
 
-export default Bootcamp;
+export default Course;

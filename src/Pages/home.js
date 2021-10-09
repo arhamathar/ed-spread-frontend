@@ -5,7 +5,7 @@ import Bootcamps from "../components/bootcamps";
 const Home = () => {
     return (
         <div className='home'>
-            <Learn />
+            {/* <Learn /> */}
             <Bootcamps />
         </div>
     );

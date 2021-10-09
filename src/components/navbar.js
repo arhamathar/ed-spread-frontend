@@ -6,10 +6,6 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    DropdownItem,
-    DropdownMenu,
-    DropdownToggle,
-    UncontrolledDropdown,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
@@ -20,36 +16,56 @@ const Navba = () => {
 
     return (
         <div>
-            <Navbar className="bg-dark navbar-dark" light expand="md">
-                <NavbarBrand className="text-light">ED SPREAD</NavbarBrand>
+            <Navbar className='bg-dark navbar-dark' light expand='md'>
+                <NavbarBrand className='text-light'>ED SPREAD</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav
-                        className="ml-auto text-light d-flex align-items-center largeText"
+                        className='ml-auto text-light d-flex align-items-center largeText'
                         navbar
                     >
                         <NavItem>
-                            <NavLink className="text-light" to="/">
+                            <NavLink
+                                onClick={() => setIsOpen(false)}
+                                className='text-light'
+                                to='/'
+                            >
                                 Home
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="text-light" to="/courses">
+                            <NavLink
+                                onClick={() => setIsOpen(false)}
+                                className='text-light'
+                                to='/courses'
+                            >
                                 Courses
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="text-light" to="/dashboard">
+                            <NavLink
+                                onClick={() => setIsOpen(false)}
+                                className='text-light'
+                                to='/dashboard'
+                            >
                                 Dashboard
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="text-light" to="/login">
+                            <NavLink
+                                onClick={() => setIsOpen(false)}
+                                className='text-light'
+                                to='/login'
+                            >
                                 Log In
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="text-light" to="/signup">
+                            <NavLink
+                                onClick={() => setIsOpen(false)}
+                                className='text-light'
+                                to='/signup'
+                            >
                                 Sign Up
                             </NavLink>
                         </NavItem>

@@ -1,5 +1,5 @@
 import React from "react";
-import Course from "../components/course";
+import Course from "./course";
 
 const Courses = () => {
     return (
@@ -8,8 +8,6 @@ const Courses = () => {
                 <h1 className='inline-block'>Our Courses</h1>
             </div>
             <div className='courses'>
-                <Course />
-                <Course />
                 <Course />
                 <Course />
                 <Course />
