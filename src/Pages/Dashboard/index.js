@@ -24,7 +24,7 @@ const Dashboard = () => {
 
     return (
         <div className="routes-height">
-            <div className="mt-5 mx-4 d-flex justify-content-between">
+            <div className="mx-4 d-flex justify-content-between top-margin">
                 <p className="h5 text-muted">ALL USERS INFORMATION</p>
                 <Button onClick={toggle} color="info">
                     Add Course

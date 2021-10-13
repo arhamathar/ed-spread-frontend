@@ -6,6 +6,7 @@ const SocialIconLinks = (props) => {
             class='btn btn-outline-light btn-floating m-1'
             href={props.href}
             role='button'
+            target="_blank"
         >
             <i class={props.icon}></i>
         </a>

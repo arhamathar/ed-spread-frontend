@@ -35,7 +35,7 @@ const Login = () => {
     };
 
     return (
-        <div className="w-100 vh-100 bg-light py-5" style={{ height: "92vh" }}>
+        <div className="w-100 vh-100 bg-light py-5 routes-height">
             <Card className="login-card w-50 p-4 mx-auto mt-5 shadow">
                 <p className="h3 text-dark center">LOG INTO YOUR ACCOUNT</p>
                 <AvForm>
