@@ -20,42 +20,39 @@ const Bootcamp = (props) => {
     } = useData();
 
     return (
-        <div className="carddiv">
-            <Card className="coursecard">
+        <div className='carddiv'>
+            <Card className='coursecard'>
                 <CardImg
-                    className="cardimage"
+                    className='cardimage'
                     top
-                    width="100%"
-                    src="https://impreza23.us-themes.com/wp-content/uploads/2020/08/christopher-gower-m_HRfLhgABo-unsplash.jpg"
-                    alt="Card image cap"
+                    width='100%'
+                    src='https://impreza23.us-themes.com/wp-content/uploads/2020/08/christopher-gower-m_HRfLhgABo-unsplash.jpg'
+                    alt='Card image cap'
                 />
-                <CardBody className="cardbody">
-                    <CardTitle tag="h5">Card title</CardTitle>
-                    <CardText className="cardtext">
-                        In publishing and graphic design, Lorem ipsum is a
-                        placeholder text commonly used to demonstrate the visual
-                        form of a document or a typeface without relying on
-                        meaningful content.
+                <CardBody className='cardbody'>
+                    <CardTitle tag='h5'>{props.bootcamp.title}</CardTitle>
+                    <CardText className='cardtext'>
+                        {props.bootcamp.description}
                     </CardText>
                     <div>
-                        <div className="cardicons">
-                            <i class="fa fa-map-marker" aria-hidden="true">
+                        <div className='cardicons'>
+                            <i class='fa fa-map-marker' aria-hidden='true'>
                                 online
                             </i>
-                            <i class="fas fa-calendar-alt"> 28 oct, 8:00pm</i>
+                            <i class='fas fa-calendar-alt'> 28 oct, 8:00pm</i>
                         </div>
-                        <div className="card-buttons" Name>
-                            <Button color="info" className="cardbutton">
+                        <div className='card-buttons' Name>
+                            <Button color='info' className='cardbutton'>
                                 Register
                             </Button>
                             <Button
                                 onClick={toggle}
-                                color="info"
-                                className="cardbutton"
+                                color='info'
+                                className='cardbutton'
                             >
                                 Edit
                             </Button>
-                            <Button color="info" className="cardbutton">
+                            <Button color='info' className='cardbutton'>
                                 Delete
                             </Button>
                         </div>

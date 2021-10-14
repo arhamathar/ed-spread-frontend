@@ -7,7 +7,7 @@ const useData = () => {
         description: "",
         price: 0,
         image: "",
-        type: "BOOTCAMP",
+        type: "FREE",
     };
 
     const { loading, sendRequest } = useHttp();
@@ -29,7 +29,8 @@ const useData = () => {
         console.log(course);
         try {
             const response = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/create`,
+                // `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/create`,
+                `http://localhost:5000/api/course/create`,
                 "POST",
                 course,
                 "/" // also send formData headers

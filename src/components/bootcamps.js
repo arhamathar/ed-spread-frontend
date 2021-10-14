@@ -11,12 +11,14 @@ const Bootcamps = () => {
     const getAllBootcamps = async () => {
         try {
             const resp = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/bootcamps`,
+                // `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/bootcamps`,
+                `http://localhost:5000/api/course/bootcamps`,
                 "GET",
                 null,
                 "/"
             );
-            setBootcamps(resp.bootcamps);
+            setBootcamps(resp.courses);
+            console.log(bootcamps);
         } catch (e) {}
     };
 
@@ -26,13 +28,15 @@ const Bootcamps = () => {
 
     return (
         <div>
-            <div className="courseh1">
-                <h1 className="inline-block">Bootcamps</h1>
+            <div className='courseh1'>
+                <h1 className='inline-block'>Bootcamps</h1>
             </div>
             <div>
-                <BootcampCard />
+                {/* <BootcampCard /> */}
                 {bootcamps.map((bootcamp) => {
-                    return <BootcampCard key={"fd"} />;
+                    return (
+                        <BootcampCard bootcamp={bootcamp} key={bootcamp._id} />
+                    );
                 })}
             </div>
         </div>

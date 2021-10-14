@@ -24,16 +24,16 @@ const Dashboard = () => {
     } = useData();
 
     return (
-        <div className="routes-height">
-            <div className="mx-4 d-flex justify-content-between top-margin">
-                <p className="h5 text-muted">ALL USERS INFORMATION</p>
-                <Button onClick={toggle} color="info">
+        <div className='routes-height'>
+            <div className='mx-4 d-flex justify-content-between top-margin'>
+                <p className='h5 text-muted'>ALL USERS INFORMATION</p>
+                <Button onClick={toggle} color='info'>
                     Add Course
                 </Button>
             </div>
-            <div className="mx-4">
-                <Table responsive hover striped bordered className="my-5">
-                    <thead className="thead-light">
+            <div className='mx-4'>
+                <Table responsive hover striped bordered className='my-5'>
+                    <thead className='thead-light'>
                         <tr>
                             <th>S.No.</th>
                             <th>Name</th>
@@ -47,7 +47,7 @@ const Dashboard = () => {
                             const { id, name, mobile, email, title } = user;
                             return (
                                 <tr key={id}>
-                                    <th scope="row">{ind + 1}</th>
+                                    <th scope='row'>{ind + 1}</th>
                                     <td>{name}</td>
                                     <td>{email}</td>
                                     <td>{mobile}</td>
@@ -58,8 +58,8 @@ const Dashboard = () => {
                     </tbody>
                 </Table>
             </div>
-            <Modal isOpen={showModal} toggle={toggle} size="lg">
-                <ModalHeader as="h4" toggle={toggle}>
+            <Modal isOpen={showModal} toggle={toggle} size='lg'>
+                <ModalHeader as='h4' toggle={toggle}>
                     Add New Courses
                 </ModalHeader>
                 <ModalBody>
@@ -67,10 +67,10 @@ const Dashboard = () => {
                         <Row>
                             <Col md={6}>
                                 <AvField
-                                    label="Title"
-                                    name="title"
-                                    type="text"
-                                    placeholder="Programming"
+                                    label='Title'
+                                    name='title'
+                                    type='text'
+                                    placeholder='Programming'
                                     required
                                     onChange={onChangeHandler}
                                     value={title}
@@ -78,10 +78,10 @@ const Dashboard = () => {
                             </Col>
                             <Col md={3}>
                                 <AvField
-                                    label="Price"
-                                    name="price"
-                                    type="number"
-                                    placeholder="$500"
+                                    label='Price'
+                                    name='price'
+                                    type='number'
+                                    placeholder='$500'
                                     required
                                     onChange={onChangeHandler}
                                     value={price}
@@ -89,25 +89,25 @@ const Dashboard = () => {
                             </Col>
                             <Col md={3}>
                                 <AvField
-                                    label="Type"
-                                    name="type"
-                                    type="select"
-                                    placeholder="BOOTCAMP"
+                                    label='Type'
+                                    name='type'
+                                    type='select'
+                                    placeholder='BOOTCAMP'
                                     required
                                     onChange={onChangeHandler}
                                     value={type}
                                 >
-                                    <option>BOOTCAMP</option>
-                                    <option>COURSE</option>
+                                    <option>FREE</option>
+                                    <option>PAID</option>
                                 </AvField>
                             </Col>
                         </Row>
                         <Row>
                             <Col>
                                 <AvField
-                                    label="Image"
-                                    name="image"
-                                    type="file"
+                                    label='Image'
+                                    name='image'
+                                    type='file'
                                     required
                                     onChange={onChangeHandler}
                                 />
@@ -116,11 +116,11 @@ const Dashboard = () => {
                         <Row>
                             <Col md={12}>
                                 <AvField
-                                    label="Description"
-                                    name="decription"
-                                    type="textarea"
+                                    label='Description'
+                                    name='description'
+                                    type='textarea'
                                     col={5}
-                                    placeholder="Enter Course details"
+                                    placeholder='Enter Course details'
                                     required
                                     onChange={onChangeHandler}
                                     value={description}
@@ -130,11 +130,11 @@ const Dashboard = () => {
                     </AvForm>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="secondary" onClick={toggle}>
+                    <Button color='secondary' onClick={toggle}>
                         Close
                     </Button>
                     <Button
-                        color="primary"
+                        color='primary'
                         isLoading={loading}
                         onClick={onSubmitHandler}
                     >
