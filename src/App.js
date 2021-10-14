@@ -1,17 +1,27 @@
-import React from 'react'
-import { ToastContainer } from 'react-toastify'
-import {BrowserRouter} from 'react-router-dom'
+import React from "react";
+import { ToastContainer } from "react-toastify";
+import { BrowserRouter } from "react-router-dom";
+import Footer from "./components/footer";
+import Navbar from "./components/navbar";
+import Routes from "./routes";
+import useAuth from "./hooks/useAuth";
+import { AuthContext } from "./context/authContext";
+
 import "react-toastify/dist/ReactToastify.css";
 
-import Routes from './routes';
-
 const App = () => {
-    return (
-        <BrowserRouter>
-            <Routes />
-            <ToastContainer />
-        </BrowserRouter>
-    )
-}
+    const { token, login, logout, userId } = useAuth();
 
-export default App
+    return (
+        <AuthContext.Provider value={{ token, userId, login, logout }}>
+            <BrowserRouter>
+                <Navbar />
+                <Routes />
+                <ToastContainer />
+                <Footer />
+            </BrowserRouter>
+        </AuthContext.Provider>
+    );
+};
+
+export default App;

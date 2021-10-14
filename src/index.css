@@ -17,36 +17,232 @@ code {
         min-width: 20rem;
     }
 }
+.nav-item {
+    padding: 10px;
+}
+.navbar-stick {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+.routes-height {
+    height: 100vh;
+}
 
-.home {
+.largeText {
+    font-size: 1.2rem;
+}
+
+.top-margin {
+    margin-top: 5rem;
+}
+
+.nav-item a {
+    color: black;
+    text-decoration: none;
+}
+.logo img {
+    height: 40px;
+}
+
+/* card and bootcamp */
+.coursecard {
     display: flex;
+    flex-direction: row;
+    position: relative;
+    border: "1px solid #d3cede";
+    width: 100%;
+    border-radius: 10px;
+}
+
+.carddiv {
+    display: flex;
+    padding: 40px;
     flex-wrap: wrap;
+    width: 100%;
+    align-self: center;
     justify-content: center;
+}
+
+.card-buttons {
+    display: flex;
+    margin-top: 20px;
+    bottom: 0;
+    width: 100%;
+}
+
+.cardbutton {
+    margin-right: 10px;
+    padding: 5px 20px;
+}
+
+.cardimage {
+    border-radius: 10px 0 0 10px;
+    width: 40%;
+}
+
+.cardicons {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardicons i {
+    padding-top: 8px;
+}
+
+.courseh1 {
+    text-align: center;
+    margin-top: 80px;
+}
+
+@media only screen and (max-width: 700px) {
+    .carddiv {
+        width: 100%;
+        padding: 10px;
+    }
+    .coursecard {
+        margin: 10px 0 10px 0;
+        flex-direction: column;
+    }
+    .cardimage {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+    }
+    .cardtext {
+        font-size: small;
+    }
+    .card-buttons {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .cardbutton {
+        margin-top: 10px;
+    }
+}
+
+/* homepage learn section */
+.learnimage {
+    width: 80%;
+    height: 500px;
+    border-radius: 30px;
+    padding: 10px;
 }
 .learn {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: auto;
-    margin: 40px 0 40px 0;
-    width: 90%;
+    margin: 30px;
+}
+.titleh1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 40%;
+    padding: 10px;
 }
 
-img {
-    height: 500px;
-    width: 90%;
-    border-radius: 20px;
+.titleh1 h1 {
+    font-size: 50px;
 }
-
-@media only screen and (max-width: 600px) {
+.titleh1 h5 {
+    font-size: 20px;
+    color: grey;
+}
+@media only screen and (max-width: 700px) {
     .learn {
-        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
     }
-    img {
+    .learnimage {
         width: 100%;
         height: 200px;
     }
     .titleh1 {
-        padding: 10px;
+        width: 100%;
+    }
+    .titleh1 h1 {
+        font-size: 30px;
+    }
+    .titleh1 h5 {
+        font-size: 15px;
+    }
+}
+
+/* help section */
+.helpcard {
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+    border-radius: 10px;
+}
+.help-para {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 20px;
+    justify-content: center;
+}
+.help-form {
+    width: 50%;
+    padding: 20px;
+}
+@media only screen and (max-width: 700px) {
+    .helpcard {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+    .help-para {
+        width: 100%;
+    }
+    .help-form {
+        width: 100%;
+    }
+}
+
+/* banner */
+.banner {
+    width: 100%;
+}
+.bannerimage {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 500px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
+        url("https://csde.washington.edu/wp-content/uploads/2020/08/workshop-photo.jpg");
+}
+.banner-para h1 {
+    margin: 50px;
+    font-family: sans-serif;
+    font-size: 80px;
+    color: white;
+}
+.banner-para h5 {
+    margin: 10px;
+    align-content: center;
+    font-size: 20px;
+    color: white;
+}
+.banner-para {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    align-items: center;
+}
+@media only screen and (max-width: 700px) {
+    .banner-para h1 {
+        font-size: 40px;
+        margin-top: 60px;
+    }
+    .banner-para {
+        margin: 5px;
+    }
+    .banner-para h5 {
+        margin: 5px;
+    }
+    .bannerimage {
+        height: 400px;
     }
 }
