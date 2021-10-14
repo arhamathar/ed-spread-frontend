@@ -24,12 +24,14 @@ const useHttp = () => {
                     data: postData,
                     headers,
                 });
+                console.log(data);
 
                 setLoading(false);
-                toast.success(`${data.message}`);
+                if (data.message) toast.success(`${data.message}`);
                 history.push(redirectUrl);
                 return data;
             } catch (err) {
+                console.log(err);
                 toast.error(`${err.response.data.message}`);
                 setLoading(false);
             }

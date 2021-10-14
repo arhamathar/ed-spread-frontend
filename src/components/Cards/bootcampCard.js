@@ -9,10 +9,9 @@ import {
 } from "reactstrap";
 
 import CreateEditModal from "../Modals";
-// import useData from "../../Pages/Course/data";
 import useData from "./data";
 
-const Bootcamp = () => {
+const Bootcamp = (props) => {
     const {
         course: { title, description, price, type },
         showModal,
