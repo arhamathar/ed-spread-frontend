@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useHttp from "../../hooks/useHttp";
 
 const useData = () => {
@@ -14,6 +14,7 @@ const useData = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [course, setCourse] = useState(initialState);
+    const [users, setUsers] = useState([]);
 
     const toggle = () => setShowModal(!showModal);
 
@@ -37,7 +38,31 @@ const useData = () => {
         } catch (e) {}
     };
 
-    return { showModal, course, toggle, onChangeHandler, onSubmitHandler };
+    const getAllUsers = async () => {
+        try {
+            const response = await sendRequest(
+                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/all-users`,
+                "GET",
+                null,
+                "/dashboard"
+            );
+            setUsers(response.users);
+        } catch (e) {}
+    };
+
+    useEffect(() => {
+        getAllUsers();
+    }, []);
+
+    return {
+        showModal,
+        loading,
+        course,
+        users,
+        toggle,
+        onChangeHandler,
+        onSubmitHandler,
+    };
 };
 
 export default useData;
