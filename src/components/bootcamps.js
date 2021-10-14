@@ -1,11 +1,11 @@
 import React from "react";
-import Bootcamp from "./bootcamp";
+import Bootcamp from "./Cards/bootcampCard";
 
 const Bootcamps = () => {
     return (
         <div>
-            <div className='courseh1'>
-                <h1 className='inline-block'>Bootcamps</h1>
+            <div className="courseh1">
+                <h1 className="inline-block">Bootcamps</h1>
             </div>
             <div>
                 <Bootcamp />
