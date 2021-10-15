@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-const useData = () => {
+const useData = ({ bootcamp }) => {
+    const { title, description, price, image, type } = bootcamp;
     const initialState = {
-        title: "",
-        description: "",
-        price: 0,
-        image: "",
-        type: "BOOTCAMP",
+        title,
+        description,
+        price,
+        image,
+        type,
     };
 
     const [showModal, setShowModal] = useState(false);
