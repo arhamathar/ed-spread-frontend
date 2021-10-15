@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Row,
     Col,
@@ -11,8 +11,32 @@ import {
 } from "reactstrap";
 import { AvForm, AvField } from "availity-reactstrap-validation";
 import useData from "./data";
+import dotenv from "dotenv";
+dotenv.config();
 
 const Dashboard = () => {
+    const [image, setImage] = useState("");
+    const [url, setUrl] = useState("");
+
+    const postDetails = () => {
+        const data = new FormData();
+        data.append("file", image);
+        data.append("upload_preset", process.env.MONGODB_NAME);
+        data.append("cloud_name", process.env.USER);
+        fetch(process.env.MONGODB_API, {
+            method: "post",
+            body: data,
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                // setUrl(data.url);
+                console.log(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
     const {
         course: { title, description, price, type },
         users,
@@ -109,7 +133,10 @@ const Dashboard = () => {
                                     name='image'
                                     type='file'
                                     required
-                                    onChange={onChangeHandler}
+                                    // onChange={onChangeHandler}
+                                    onChange={(e) =>
+                                        setImage(e.target.files[0])
+                                    }
                                 />
                             </Col>
                         </Row>
@@ -136,7 +163,8 @@ const Dashboard = () => {
                     <Button
                         color='primary'
                         isLoading={loading}
-                        onClick={onSubmitHandler}
+                        // onClick={onSubmitHandler}
+                        onClick={postDetails}
                     >
                         Submit
                     </Button>
