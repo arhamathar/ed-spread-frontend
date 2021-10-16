@@ -15,7 +15,7 @@ import useData from './data';
 
 const Dashboard = () => {
     const {
-        course: { title, description, price, type },
+        course: { title, description, price, type, url },
         users,
         showModal,
         loading,
@@ -117,10 +117,22 @@ const Dashboard = () => {
                         <Row>
                             <Col md={12}>
                                 <AvField
+                                    label="Course Url"
+                                    name="url"
+                                    type="text"
+                                    placeholder="Enter Course Url"
+                                    required
+                                    onChange={onChangeHandler}
+                                    value={url}
+                                />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={12}>
+                                <AvField
                                     label="Description"
                                     name="description"
                                     type="textarea"
-                                    col={5}
                                     placeholder="Enter Course details"
                                     required
                                     onChange={onChangeHandler}

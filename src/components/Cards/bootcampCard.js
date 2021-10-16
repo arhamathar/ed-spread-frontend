@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
     Card,
     CardImg,
@@ -6,13 +6,21 @@ import {
     CardBody,
     CardTitle,
     Button,
-} from "reactstrap";
+} from 'reactstrap';
 
-import CreateEditModal from "../Modals";
-import useData from "./data";
+import DeleteModal from '../Modals/deleteModal';
+import CreateEditModal from '../Modals/createEditModal';
+import useData from './data';
 
-const Bootcamp = ({ bootcamp }) => {
-    const { course, showModal, toggle, onChangeHandler } = useData({
+const Bootcamp = ({ bootcamp, reload }) => {
+    const {
+        course,
+        showModal,
+        showDeleteModal,
+        toggle,
+        toggleDeleteModal,
+        onChangeHandler,
+    } = useData({
         bootcamp,
     });
 
@@ -51,7 +59,11 @@ const Bootcamp = ({ bootcamp }) => {
                             >
                                 Edit
                             </Button>
-                            <Button color="info" className="cardbutton">
+                            <Button
+                                color="info"
+                                className="cardbutton"
+                                onClick={toggleDeleteModal}
+                            >
                                 Delete
                             </Button>
                         </div>
@@ -66,6 +78,13 @@ const Bootcamp = ({ bootcamp }) => {
                 showModal={showModal}
                 toggle={toggle}
                 onChangeHandler={onChangeHandler}
+            />
+            <DeleteModal
+                title={title}
+                courseId={bootcamp._id}
+                showModal={showDeleteModal}
+                toggle={toggleDeleteModal}
+                reload={reload}
             />
         </div>
     );

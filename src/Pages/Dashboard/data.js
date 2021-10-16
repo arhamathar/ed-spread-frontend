@@ -9,6 +9,7 @@ const useData = () => {
         description: '',
         price: 0,
         image: '',
+        url: '',
         type: 'FREE',
     };
 
