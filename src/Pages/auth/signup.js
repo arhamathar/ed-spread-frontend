@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import { Button, Card } from "reactstrap";
-import { AvForm, AvField } from "availity-reactstrap-validation";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { Button, Card } from 'reactstrap';
+import { AvForm, AvField } from 'availity-reactstrap-validation';
 
-import useHttp from "../../hooks/useHttp";
+import useHttp from '../../hooks/useHttp';
 
 const Signup = () => {
-    const { loading, sendRequest } = useHttp();
+    const { sendRequest } = useHttp();
 
     const [signupUser, setSignupUser] = useState({
-        email: "",
-        password: "",
-        name: "",
-        mobile: "",
+        email: '',
+        password: '',
+        name: '',
+        mobile: '',
     });
 
     const onChangeHandler = (e) => {
@@ -27,13 +27,13 @@ const Signup = () => {
         try {
             const response = await sendRequest(
                 `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/signup`,
-                "POST",
+                'POST',
                 signupUser
             );
             console.log(response);
         } catch (e) {
             console.log(e.response);
-            toast.error("Something went Wrong!");
+            toast.error('Something went Wrong!');
         }
     };
 
@@ -68,17 +68,17 @@ const Signup = () => {
                         validate={{
                             required: {
                                 value: true,
-                                errorMessage: "Please enter your mobile number",
+                                errorMessage: 'Please enter your mobile number',
                             },
                             minLength: {
                                 value: 10,
                                 errorMessage:
-                                    "Your mobile number must be 10 digits long",
+                                    'Your mobile number must be 10 digits long',
                             },
                             maxLength: {
                                 value: 10,
                                 errorMessage:
-                                    "Your mobile number must be 10 digits long",
+                                    'Your mobile number must be 10 digits long',
                             },
                         }}
                     />
@@ -90,12 +90,12 @@ const Signup = () => {
                         validate={{
                             required: {
                                 value: true,
-                                errorMessage: "Please enter your password",
+                                errorMessage: 'Please enter your password',
                             },
                             minLength: {
                                 value: 6,
                                 errorMessage:
-                                    "Your password must be atleast 6 charachters long",
+                                    'Your password must be atleast 6 charachters long',
                             },
                         }}
                     />
@@ -106,7 +106,7 @@ const Signup = () => {
                 <div className="d-flex justify-content-between my-2">
                     <a href="/">Forgot Password ?</a>
                     <Link
-                        style={{ textDecoration: "none" }}
+                        style={{ textDecoration: 'none' }}
                         className=""
                         to="/login"
                     >

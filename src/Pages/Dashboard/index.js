@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
     Row,
     Col,
@@ -8,9 +8,10 @@ import {
     ModalHeader,
     ModalBody,
     ModalFooter,
-} from "reactstrap";
-import { AvForm, AvField } from "availity-reactstrap-validation";
-import useData from "./data";
+    Spinner,
+} from 'reactstrap';
+import { AvForm, AvField } from 'availity-reactstrap-validation';
+import useData from './data';
 
 const Dashboard = () => {
     const {
@@ -92,13 +93,12 @@ const Dashboard = () => {
                                     label="Type"
                                     name="type"
                                     type="select"
-                                    placeholder="BOOTCAMP"
                                     required
                                     onChange={onChangeHandler}
                                     value={type}
                                 >
-                                    <option>BOOTCAMP</option>
-                                    <option>COURSE</option>
+                                    <option>FREE</option>
+                                    <option>PAID</option>
                                 </AvField>
                             </Col>
                         </Row>
@@ -108,6 +108,7 @@ const Dashboard = () => {
                                     label="Image"
                                     name="image"
                                     type="file"
+                                    accept=".jpg,.png,.jpeg"
                                     required
                                     onChange={onChangeHandler}
                                 />
@@ -117,7 +118,7 @@ const Dashboard = () => {
                             <Col md={12}>
                                 <AvField
                                     label="Description"
-                                    name="decription"
+                                    name="description"
                                     type="textarea"
                                     col={5}
                                     placeholder="Enter Course details"
@@ -138,7 +139,7 @@ const Dashboard = () => {
                         isLoading={loading}
                         onClick={onSubmitHandler}
                     >
-                        Submit
+                        Submit {loading && <Spinner color="danger" size="lg" />}
                     </Button>
                 </ModalFooter>
             </Modal>
