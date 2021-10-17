@@ -77,8 +77,8 @@ const CreateEditModal = ({
                                 onChange={onChangeHandler}
                                 value={type}
                             >
-                                <option>BOOTCAMP</option>
-                                <option>COURSE</option>
+                                <option>FREE</option>
+                                <option>PAID</option>
                             </AvField>
                         </Col>
                     </Row>

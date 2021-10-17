@@ -1,14 +1,14 @@
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-        "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
 
@@ -51,7 +51,7 @@ code {
     display: flex;
     flex-direction: row;
     position: relative;
-    border: "1px solid #d3cede";
+    border: '1px solid #d3cede';
     width: 100%;
     border-radius: 10px;
 }
@@ -95,32 +95,6 @@ code {
     text-align: center;
     margin-top: 80px;
 }
-
-@media only screen and (max-width: 700px) {
-    .carddiv {
-        width: 100%;
-        padding: 10px;
-    }
-    .coursecard {
-        margin: 10px 0 10px 0;
-        flex-direction: column;
-    }
-    .cardimage {
-        width: 100%;
-        border-radius: 10px 10px 0 0;
-    }
-    .cardtext {
-        font-size: small;
-    }
-    .card-buttons {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .cardbutton {
-        margin-top: 10px;
-    }
-}
-
 /* homepage learn section */
 .learnimage {
     width: 80%;
@@ -148,26 +122,6 @@ code {
     font-size: 20px;
     color: grey;
 }
-@media only screen and (max-width: 700px) {
-    .learn {
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-    }
-    .learnimage {
-        width: 100%;
-        height: 200px;
-    }
-    .titleh1 {
-        width: 100%;
-    }
-    .titleh1 h1 {
-        font-size: 30px;
-    }
-    .titleh1 h5 {
-        font-size: 15px;
-    }
-}
 
 /* help section */
 .helpcard {
@@ -187,25 +141,12 @@ code {
     width: 50%;
     padding: 20px;
 }
-@media only screen and (max-width: 700px) {
-    .helpcard {
-        display: flex;
-        flex-direction: column;
-        margin: 10px;
-    }
-    .help-para {
-        width: 100%;
-    }
-    .help-form {
-        width: 100%;
-    }
-}
 
 /* banner */
 .banner {
     width: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
-        url("https://csde.washington.edu/wp-content/uploads/2020/08/workshop-photo.jpg")
+        url('https://csde.washington.edu/wp-content/uploads/2020/08/workshop-photo.jpg')
             no-repeat center center fixed;
     background-size: cover;
     position: relative;
@@ -224,8 +165,60 @@ code {
     position: absolute;
     top: 40%;
 }
+
 @media only screen and (max-width: 700px) {
+    .learn {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+    .learnimage {
+        width: 100%;
+        height: 200px;
+    }
+    .titleh1 {
+        width: 100%;
+    }
+    .titleh1 h1 {
+        font-size: 30px;
+    }
+    .titleh1 h5 {
+        font-size: 15px;
+    }
+    .helpcard {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+    .help-para {
+        width: 100%;
+    }
+    .help-form {
+        width: 100%;
+    }
     .banner-para h1 {
         font-size: 3.5rem;
+    }
+    .carddiv {
+        width: 100%;
+        padding: 10px;
+    }
+    .coursecard {
+        margin: 10px 0 10px 0;
+        flex-direction: column;
+    }
+    .cardimage {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+    }
+    .cardtext {
+        font-size: small;
+    }
+    .card-buttons {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .cardbutton {
+        margin-top: 10px;
     }
 }
