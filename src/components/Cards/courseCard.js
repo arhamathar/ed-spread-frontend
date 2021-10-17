@@ -89,7 +89,6 @@ const Course = ({ course, reload }) => {
                 toggle={toggleDeleteModal}
                 reload={reload}
             />
-            {console.log(showModal)}
         </div>
     );
 };

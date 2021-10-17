@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { Button, Card } from 'reactstrap';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 import useHttp from '../../hooks/useHttp';
+import { AuthContext } from '../../context/authContext';
 
 const Login = () => {
+    const auth = useContext(AuthContext);
     const { sendRequest } = useHttp();
 
     const [loginUser, setLoginUser] = useState({
@@ -22,16 +23,15 @@ const Login = () => {
 
     const onSubmitHandler = async () => {
         try {
-            const response = await sendRequest(
+            const { user } = await sendRequest(
                 `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/login`,
                 'POST',
                 loginUser
             );
-            console.log(response);
-        } catch (e) {
-            console.log(e.response);
-            toast.error('Something went Wrong!');
-        }
+
+            console.log(user.role);
+            auth.login(user.id, user.token, user.role);
+        } catch (e) {}
     };
 
     return (
