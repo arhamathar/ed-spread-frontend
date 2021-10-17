@@ -1,7 +1,7 @@
-import { useState, useCallback } from "react";
-import { useHistory } from "react-router";
-import axios from "axios";
-import { toast } from "react-toastify";
+import { useState, useCallback } from 'react';
+import { useHistory } from 'react-router';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const useHttp = () => {
     const history = useHistory();
@@ -11,10 +11,10 @@ const useHttp = () => {
     const sendRequest = useCallback(
         async (
             url,
-            method = "GET",
+            method = 'GET',
             postData = null,
-            redirectUrl = "/",
-            headers = { "Content-Type": "application/json" }
+            redirectUrl = '/',
+            headers = { 'Content-Type': 'application/json' }
         ) => {
             setLoading(true);
             try {
@@ -31,7 +31,7 @@ const useHttp = () => {
                 history.push(redirectUrl);
                 return data;
             } catch (err) {
-                console.log(err);
+                console.log(err.response);
                 toast.error(`${err.response.data.message}`);
                 setLoading(false);
             }

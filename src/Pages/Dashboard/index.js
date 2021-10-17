@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
     Row,
     Col,
@@ -8,13 +8,14 @@ import {
     ModalHeader,
     ModalBody,
     ModalFooter,
-} from "reactstrap";
-import { AvForm, AvField } from "availity-reactstrap-validation";
-import useData from "./data";
+    Spinner,
+} from 'reactstrap';
+import { AvForm, AvField } from 'availity-reactstrap-validation';
+import useData from './data';
 
 const Dashboard = () => {
     const {
-        course: { title, description, price, type },
+        course: { title, description, price, type, url },
         users,
         showModal,
         loading,
@@ -81,7 +82,7 @@ const Dashboard = () => {
                                     label="Price"
                                     name="price"
                                     type="number"
-                                    placeholder="$500"
+                                    placeholder="₹"
                                     required
                                     onChange={onChangeHandler}
                                     value={price}
@@ -92,13 +93,12 @@ const Dashboard = () => {
                                     label="Type"
                                     name="type"
                                     type="select"
-                                    placeholder="BOOTCAMP"
                                     required
                                     onChange={onChangeHandler}
                                     value={type}
                                 >
-                                    <option>BOOTCAMP</option>
-                                    <option>COURSE</option>
+                                    <option>FREE</option>
+                                    <option>PAID</option>
                                 </AvField>
                             </Col>
                         </Row>
@@ -108,6 +108,7 @@ const Dashboard = () => {
                                     label="Image"
                                     name="image"
                                     type="file"
+                                    accept=".jpg,.png,.jpeg"
                                     required
                                     onChange={onChangeHandler}
                                 />
@@ -116,10 +117,22 @@ const Dashboard = () => {
                         <Row>
                             <Col md={12}>
                                 <AvField
+                                    label="Course Url"
+                                    name="url"
+                                    type="text"
+                                    placeholder="Enter Course Url"
+                                    required
+                                    onChange={onChangeHandler}
+                                    value={url}
+                                />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col md={12}>
+                                <AvField
                                     label="Description"
-                                    name="decription"
+                                    name="description"
                                     type="textarea"
-                                    col={5}
                                     placeholder="Enter Course details"
                                     required
                                     onChange={onChangeHandler}
@@ -138,7 +151,7 @@ const Dashboard = () => {
                         isLoading={loading}
                         onClick={onSubmitHandler}
                     >
-                        Submit
+                        Submit {loading && <Spinner color="danger" size="lg" />}
                     </Button>
                 </ModalFooter>
             </Modal>

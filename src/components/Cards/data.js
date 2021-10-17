@@ -1,27 +1,43 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-const useData = () => {
+const useData = ({ bootcamp }) => {
+    const { title, description, price, image, type, url } = bootcamp;
     const initialState = {
-        title: "",
-        description: "",
-        price: 0,
-        image: "",
-        type: "BOOTCAMP",
+        title,
+        description,
+        price,
+        image,
+        type,
+        url,
     };
 
     const [showModal, setShowModal] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [course, setCourse] = useState(initialState);
 
-    const toggle = () => setShowModal(!showModal);
-
-    const onChangeHandler = (e) => {
-        setCourse((prev) => ({
-            ...prev,
-            [e.target.name]: e.target.value,
-        }));
+    const toggle = () => {
+        setShowModal(!showModal);
+        setCourse(initialState);
     };
 
-    return { showModal, course, toggle, onChangeHandler };
+    const toggleDeleteModal = () => setShowDeleteModal(!showDeleteModal);
+
+    const onChangeHandler = (e) => {
+        if (e.target.name !== 'image')
+            setCourse((prev) => ({
+                ...prev,
+                [e.target.name]: e.target.value,
+            }));
+    };
+
+    return {
+        showModal,
+        showDeleteModal,
+        course,
+        toggle,
+        toggleDeleteModal,
+        onChangeHandler,
+    };
 };
 
 export default useData;
