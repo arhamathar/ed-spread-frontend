@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
     Button,
     Row,
@@ -7,18 +7,36 @@ import {
     ModalHeader,
     ModalBody,
     ModalFooter,
-} from "reactstrap";
-import { AvForm, AvField } from "availity-reactstrap-validation";
+} from 'reactstrap';
+import { AvForm, AvField } from 'availity-reactstrap-validation';
+
+import useData from './editData';
 
 const CreateEditModal = ({
     title,
     description,
     price,
     type,
+    url,
+    image,
+    courseId,
     showModal,
     toggle,
+    reload,
     onChangeHandler,
 }) => {
+    const { onEditSubmitHandler, setImageFile } = useData({
+        title,
+        description,
+        price,
+        type,
+        url,
+        image,
+        courseId,
+        reload,
+        toggle,
+    });
+
     return (
         <Modal isOpen={showModal} toggle={toggle} size="lg">
             <ModalHeader as="h4" toggle={toggle}>
@@ -43,7 +61,7 @@ const CreateEditModal = ({
                                 label="Price"
                                 name="price"
                                 type="number"
-                                placeholder="$500"
+                                placeholder="₹"
                                 required
                                 onChange={onChangeHandler}
                                 value={price}
@@ -71,7 +89,23 @@ const CreateEditModal = ({
                                 name="image"
                                 type="file"
                                 required
+                                onChange={(e) =>
+                                    setImageFile(e.target.files[0])
+                                }
+                                accept=".jpg,.png,.jpeg"
+                            />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md={12}>
+                            <AvField
+                                label="Course Url"
+                                name="url"
+                                type="text"
+                                placeholder="Enter Course Url https://"
+                                required
                                 onChange={onChangeHandler}
+                                value={url}
                             />
                         </Col>
                     </Row>
@@ -95,7 +129,9 @@ const CreateEditModal = ({
                 <Button color="secondary" onClick={toggle}>
                     Close
                 </Button>
-                <Button color="primary">Submit</Button>
+                <Button color="primary" onClick={onEditSubmitHandler}>
+                    Submit
+                </Button>
             </ModalFooter>
         </Modal>
     );

@@ -31,7 +31,7 @@ const useHttp = () => {
                 history.push(redirectUrl);
                 return data;
             } catch (err) {
-                console.log(err);
+                console.log(err.response);
                 toast.error(`${err.response.data.message}`);
                 setLoading(false);
             }

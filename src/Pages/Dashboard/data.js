@@ -1,7 +1,7 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import useHttp from '../../hooks/useHttp';
+import { uploadImage } from '../../utils/uploadImage';
 
 const useData = () => {
     const initialState = {
@@ -32,32 +32,9 @@ const useData = () => {
         }
     };
 
-    const uploadImage = async () => {
-        try {
-            const formData = new FormData();
-            formData.append('file', course.image);
-            formData.append(
-                'upload_preset',
-                process.env.REACT_APP_CLOUDINARY_NAME
-            );
-            formData.append(
-                'cloud_name',
-                process.env.REACT_APP_CLOUDINARY_USER
-            );
-            const { data } = await axios.post(
-                `${process.env.REACT_APP_CLOUDINARY_API}`,
-                formData
-            );
-            setCourse((prev) => ({ ...prev, image: data.url }));
-            return data.url;
-        } catch (e) {
-            toast.error('Failed to upload Image, please try again');
-        }
-    };
-
     const onSubmitHandler = async () => {
         try {
-            const imageUrl = await uploadImage();
+            const imageUrl = await uploadImage(course);
             const courseData = { ...course, image: imageUrl };
             const response = await sendRequest(
                 `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/create`,

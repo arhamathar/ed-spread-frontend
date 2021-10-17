@@ -24,7 +24,7 @@ const Bootcamp = ({ bootcamp, reload }) => {
         bootcamp,
     });
 
-    const { title, description, price, type } = course;
+    const { title, description, price, type, image, url } = course;
 
     return (
         <div className="carddiv">
@@ -73,10 +73,14 @@ const Bootcamp = ({ bootcamp, reload }) => {
             <CreateEditModal
                 title={title}
                 description={description}
+                courseId={bootcamp._id}
                 price={price}
                 type={type}
+                image={image}
+                url={url}
                 showModal={showModal}
                 toggle={toggle}
+                reload={reload}
                 onChangeHandler={onChangeHandler}
             />
             <DeleteModal

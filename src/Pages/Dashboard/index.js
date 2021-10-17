@@ -82,7 +82,7 @@ const Dashboard = () => {
                                     label="Price"
                                     name="price"
                                     type="number"
-                                    placeholder="$500"
+                                    placeholder="₹"
                                     required
                                     onChange={onChangeHandler}
                                     value={price}
