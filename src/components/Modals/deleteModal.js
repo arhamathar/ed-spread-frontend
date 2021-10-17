@@ -16,7 +16,7 @@ const CreateEditModal = ({ title, courseId, showModal, toggle, reload }) => {
     const [confirmText, setConfirmText] = useState('');
 
     const onDeleteHandler = async () => {
-        if (confirmText === title) {
+        if (confirmText.trim() === title.trim()) {
             try {
                 const { data } = await axios.delete(
                     `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/delete/${courseId}`

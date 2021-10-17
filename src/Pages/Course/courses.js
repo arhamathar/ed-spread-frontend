@@ -4,7 +4,7 @@ import CourseCard from '../../components/Cards/courseCard';
 import useData from './data';
 
 const Courses = () => {
-    const { courses } = useData();
+    const { courses, reload } = useData();
 
     return (
         <div>
@@ -14,7 +14,11 @@ const Courses = () => {
             <div className="courses">
                 {courses.length > 0 &&
                     courses.map((course) => (
-                        <CourseCard key={course._id} course={course} />
+                        <CourseCard
+                            key={course._id}
+                            course={course}
+                            reload={reload}
+                        />
                     ))}
             </div>
         </div>

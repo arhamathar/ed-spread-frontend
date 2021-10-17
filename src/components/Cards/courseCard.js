@@ -7,11 +7,21 @@ import {
     CardTitle,
     Button,
 } from 'reactstrap';
-import useData from './courseData';
 
-const Course = ({ course }) => {
-    const { toggle, toggleDeleteModal } = useData({ course });
-    console.log(course);
+import useData from './courseData';
+import DeleteModal from '../Modals/deleteModal';
+
+const Course = ({ course, reload }) => {
+    const {
+        editCourse,
+        showModal,
+        showDeleteModal,
+        toggle,
+        toggleDeleteModal,
+    } = useData({
+        course,
+    });
+    const { title, description, price, type, image, url } = editCourse;
 
     return (
         <div className="carddiv">
@@ -46,13 +56,24 @@ const Course = ({ course }) => {
                             >
                                 Edit
                             </Button>
-                            <Button color="info" className="cardbutton">
+                            <Button
+                                color="info"
+                                className="cardbutton"
+                                onClick={toggleDeleteModal}
+                            >
                                 Delete
                             </Button>
                         </div>
                     </div>
                 </CardBody>
             </Card>
+            <DeleteModal
+                title={title}
+                courseId={course._id}
+                showModal={showDeleteModal}
+                toggle={toggleDeleteModal}
+                reload={reload}
+            />
         </div>
     );
 };
