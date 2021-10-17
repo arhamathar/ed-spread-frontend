@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { Button, Card } from 'reactstrap';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 
 import useHttp from '../../hooks/useHttp';
+import { AuthContext } from '../../context/authContext';
 
 const Signup = () => {
+    const auth = useContext(AuthContext);
     const { sendRequest } = useHttp();
 
     const [signupUser, setSignupUser] = useState({
@@ -25,16 +26,13 @@ const Signup = () => {
 
     const onSubmitHandler = async () => {
         try {
-            const response = await sendRequest(
+            const { user } = await sendRequest(
                 `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/signup`,
                 'POST',
                 signupUser
             );
-            console.log(response);
-        } catch (e) {
-            console.log(e.response);
-            toast.error('Something went Wrong!');
-        }
+            auth.login(user.id, user.token, user.role);
+        } catch (e) {}
     };
 
     return (
