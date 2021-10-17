@@ -3,15 +3,7 @@ import useHttp from '../../hooks/useHttp';
 
 const useData = () => {
     const { sendRequest } = useHttp();
-    // const initialState = {
-    //     title: '',
-    //     description: '',
-    //     price: 0,
-    //     image: '',
-    //     type: 'BOOTCAMP',
-    // };
 
-    const [showModal, setShowModal] = useState(false);
     const [courses, setCourses] = useState([]);
 
     const reload = () => {
@@ -34,16 +26,7 @@ const useData = () => {
         getAllCourses();
     }, [getAllCourses]);
 
-    const toggle = () => setShowModal(!showModal);
-
-    // const onChangeHandler = (e) => {
-    //     setCourses((prev) => ({
-    //         ...prev,
-    //         [e.target.name]: e.target.value,
-    //     }));
-    // };
-
-    return { showModal, courses, toggle, reload };
+    return { courses, reload };
 };
 
 export default useData;

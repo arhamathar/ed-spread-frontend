@@ -10,6 +10,7 @@ import {
 
 import useData from './courseData';
 import DeleteModal from '../Modals/deleteModal';
+import CreateEditModal from '../Modals/createEditModal';
 
 const Course = ({ course, reload }) => {
     const {
@@ -18,6 +19,7 @@ const Course = ({ course, reload }) => {
         showDeleteModal,
         toggle,
         toggleDeleteModal,
+        onChangeHandler,
     } = useData({
         course,
     });
@@ -67,6 +69,19 @@ const Course = ({ course, reload }) => {
                     </div>
                 </CardBody>
             </Card>
+            <CreateEditModal
+                title={title}
+                description={description}
+                courseId={course._id}
+                price={price}
+                type={type}
+                image={image}
+                url={url}
+                showModal={showModal}
+                toggle={toggle}
+                reload={reload}
+                onChangeHandler={onChangeHandler}
+            />
             <DeleteModal
                 title={title}
                 courseId={course._id}
@@ -74,6 +89,7 @@ const Course = ({ course, reload }) => {
                 toggle={toggleDeleteModal}
                 reload={reload}
             />
+            {console.log(showModal)}
         </div>
     );
 };

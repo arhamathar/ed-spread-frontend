@@ -9,7 +9,7 @@ const Courses = () => {
     return (
         <div>
             <div className="courseh1">
-                <h1 className="inline-block">Our Courses</h1>
+                <h1>Our Courses</h1>
             </div>
             <div className="courses">
                 {courses.length > 0 &&

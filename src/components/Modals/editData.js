@@ -36,7 +36,8 @@ const useData = ({
             await sendRequest(
                 `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/update/${courseId}`,
                 'PATCH',
-                courseData
+                courseData,
+                '/'
             );
             reload();
             toggle();
