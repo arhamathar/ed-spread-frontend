@@ -8,10 +8,10 @@ const Courses = () => {
 
     return (
         <div>
-            <div className="courseh1">
+            <div className='courseh1'>
                 <h1>Our Courses</h1>
             </div>
-            <div className="courses routes-height">
+            <div className='courses'>
                 {courses.length > 0 ? (
                     courses.map((course) => (
                         <CourseCard
@@ -21,7 +21,7 @@ const Courses = () => {
                         />
                     ))
                 ) : (
-                    <div className="jumbotron-fluid">No course to display</div>
+                    <div className='jumbotron-fluid'>No course to display</div>
                 )}
             </div>
         </div>
