@@ -1,5 +1,6 @@
-import React from "react";
-import { Button } from "reactstrap";
+import React from 'react';
+import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const Learn = () => {
     return (
@@ -12,7 +13,9 @@ const Learn = () => {
                     Vivamus vitae massa ac mauris iaculis euismod et nec metus.
                     Cras fermentum ac nunc ut auctor.
                 </h5>
-                <Button color='info'>Find course</Button>
+                <Button color='info'>
+                    <Link to='courses'>Find course</Link>
+                </Button>
             </div>
             <img
                 className='learnimage'

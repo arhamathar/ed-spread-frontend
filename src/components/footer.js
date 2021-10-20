@@ -1,6 +1,6 @@
-import React from "react";
-import SocialIconLinks from "./SocialIconLinks";
-import { Link } from "react-router-dom";
+import React from 'react';
+import SocialIconLinks from './SocialIconLinks';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -48,21 +48,21 @@ const Footer = () => {
                     <section class='mb-4'>
                         <SocialIconLinks
                             href={
-                                "https://www.google.com/url?q=http://www.youtube.com/channel/UCt4EU38IOgU9ww1Yrq_n-vA&sa=D&source=editors&ust=1632300022213000&usg=AFQjCNFoEAKaTrNwbawHpHOfo9RqBfD5Og"
+                                'https://www.google.com/url?q=http://www.youtube.com/channel/UCt4EU38IOgU9ww1Yrq_n-vA&sa=D&source=editors&ust=1632300022213000&usg=AFQjCNFoEAKaTrNwbawHpHOfo9RqBfD5Og'
                             }
-                            icon={"fab fa-youtube"}
+                            icon={'fab fa-youtube'}
                         />
                         <SocialIconLinks
                             href={
-                                "https://www.google.com/url?q=https://www.instagram.com/_edspread_/&sa=D&source=editors&ust=1632300022213000&usg=AFQjCNH49ur8Wn8xH_qUUPV1NzvneQohew"
+                                'https://www.google.com/url?q=https://www.instagram.com/_edspread_/&sa=D&source=editors&ust=1632300022213000&usg=AFQjCNH49ur8Wn8xH_qUUPV1NzvneQohew'
                             }
-                            icon={"fab fa-instagram"}
+                            icon={'fab fa-instagram'}
                         />
                         <SocialIconLinks
                             href={
-                                "https://www.google.com/url?q=https://www.linkedin.com/in/ed-spread-76946821a/&sa=D&source=editors&ust=1632300022213000&usg=AFQjCNFZ3fyhwHVMWfnGa2bncvwHLZeGvQ"
+                                'https://www.google.com/url?q=https://www.linkedin.com/in/ed-spread-76946821a/&sa=D&source=editors&ust=1632300022213000&usg=AFQjCNFZ3fyhwHVMWfnGa2bncvwHLZeGvQ'
                             }
-                            icon={"fab fa-linkedin"}
+                            icon={'fab fa-linkedin'}
                         />
                     </section>
                 </div>
