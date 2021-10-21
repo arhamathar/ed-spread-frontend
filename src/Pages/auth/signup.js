@@ -31,37 +31,44 @@ const Signup = () => {
                 'POST',
                 signupUser
             );
-            auth.login(user.id, user.token, user.role);
+            auth.login(
+                user.id,
+                user.token,
+                user.role,
+                user.email,
+                user.name,
+                user.mobile
+            );
         } catch (e) {}
     };
 
     return (
-        <div className='w-100 vh-100 bg-light py-5'>
-            <Card className=' login-card w-50 p-4 mx-auto mt-5 shadow'>
-                <p className='h3 text-dark center'>SIGN UP TO A NEW ACCOUNT </p>
+        <div className="w-100 vh-100 bg-light py-5">
+            <Card className=" login-card w-50 p-4 mx-auto mt-5 shadow">
+                <p className="h3 text-dark center">SIGN UP TO A NEW ACCOUNT </p>
                 <AvForm>
                     <AvField
-                        name='name'
-                        label='Full Name'
-                        type='text'
+                        name="name"
+                        label="Full Name"
+                        type="text"
                         required
-                        placeholder='John Smith'
+                        placeholder="John Smith"
                         onChange={(e) => onChangeHandler(e)}
                     />
                     <AvField
-                        name='email'
-                        label='Email'
-                        type='email'
+                        name="email"
+                        label="Email"
+                        type="email"
                         required
-                        placeholder='john@gmail.com'
+                        placeholder="john@gmail.com"
                         onChange={(e) => onChangeHandler(e)}
                     />
                     <AvField
-                        name='mobile'
-                        label='Mobile No.'
-                        type='mobile'
-                        placeholder='9999999999'
-                        pattern='^[0-9]*$'
+                        name="mobile"
+                        label="Mobile No."
+                        type="mobile"
+                        placeholder="9999999999"
+                        pattern="^[0-9]*$"
                         onChange={(e) => onChangeHandler(e)}
                         validate={{
                             required: {
@@ -81,9 +88,9 @@ const Signup = () => {
                         }}
                     />
                     <AvField
-                        name='password'
-                        label='Password'
-                        type='password'
+                        name="password"
+                        label="Password"
+                        type="password"
                         onChange={(e) => onChangeHandler(e)}
                         validate={{
                             required: {
@@ -97,16 +104,16 @@ const Signup = () => {
                             },
                         }}
                     />
-                    <Button color='dark' onClick={onSubmitHandler}>
+                    <Button color="dark" onClick={onSubmitHandler}>
                         SIGN UP
                     </Button>
                 </AvForm>
-                <div className='d-flex justify-content-between my-2'>
-                    <a href='/'>Forgot Password ?</a>
+                <div className="d-flex justify-content-between my-2">
+                    <a href="/">Forgot Password ?</a>
                     <Link
                         style={{ textDecoration: 'none' }}
-                        className=''
-                        to='/login'
+                        className=""
+                        to="/login"
                     >
                         LOG IN
                     </Link>

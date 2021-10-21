@@ -30,28 +30,34 @@ const Login = () => {
                 loginUser
             );
 
-            console.log(user.role);
-            auth.login(user.id, user.token, user.role);
+            auth.login(
+                user.id,
+                user.token,
+                user.role,
+                user.email,
+                user.name,
+                user.mobile
+            );
         } catch (e) {}
     };
 
     return (
-        <div className='w-100 vh-100 bg-light py-5 routes-height'>
-            <Card className='login-card w-50 p-4 mx-auto mt-5 shadow'>
-                <p className='h3 text-dark center'>LOG INTO YOUR ACCOUNT</p>
+        <div className="w-100 vh-100 bg-light py-5 routes-height">
+            <Card className="login-card w-50 p-4 mx-auto mt-5 shadow">
+                <p className="h3 text-dark center">LOG INTO YOUR ACCOUNT</p>
                 <AvForm>
                     <AvField
-                        name='email'
-                        label='Email'
-                        type='email'
+                        name="email"
+                        label="Email"
+                        type="email"
                         required
-                        placeholder='john@gmail.com'
+                        placeholder="john@gmail.com"
                         onChange={(e) => onChangeHandler(e)}
                     />
                     <AvField
-                        name='password'
-                        label='Password'
-                        type='password'
+                        name="password"
+                        label="Password"
+                        type="password"
                         onChange={(e) => onChangeHandler(e)}
                         validate={{
                             required: {
@@ -65,16 +71,16 @@ const Login = () => {
                             },
                         }}
                     />
-                    <Button color='dark' onClick={onSubmitHandler}>
+                    <Button color="dark" onClick={onSubmitHandler}>
                         LOG IN
                     </Button>
                 </AvForm>
-                <div className='d-flex justify-content-between my-2'>
-                    <a href='/'>Forgot Password ?</a>
+                <div className="d-flex justify-content-between my-2">
+                    <a href="/">Forgot Password ?</a>
                     <Link
                         style={{ textDecoration: 'none' }}
-                        className=''
-                        to='/signup'
+                        className=""
+                        to="/signup"
                     >
                         SIGN UP
                     </Link>

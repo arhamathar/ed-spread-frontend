@@ -61,17 +61,19 @@ const Navba = () => {
                                 Courses
                             </NavLink>
                         </NavItem>
-                        {auth.isLoggedIn && auth.role === 'ADMIN' && (
-                            <NavItem>
-                                <NavLink
-                                    onClick={() => setIsOpen(false)}
-                                    className="text-light"
-                                    to="/dashboard"
-                                >
-                                    Dashboard
-                                </NavLink>
-                            </NavItem>
-                        )}
+                        {auth.isLoggedIn &&
+                            (auth.role === 'ADMIN' ||
+                                auth.role === 'SUPER_USER') && (
+                                <NavItem>
+                                    <NavLink
+                                        onClick={() => setIsOpen(false)}
+                                        className="text-light"
+                                        to="/dashboard"
+                                    >
+                                        Dashboard
+                                    </NavLink>
+                                </NavItem>
+                            )}
                         {!auth.isLoggedIn && (
                             <NavItem>
                                 <NavLink
