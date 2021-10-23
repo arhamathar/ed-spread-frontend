@@ -70,7 +70,7 @@ const Login = () => {
                     </Button>
                 </AvForm>
                 <div className='d-flex justify-content-between my-2'>
-                    <a href='/'>Forgot Password ?</a>
+                    <a href='/reset'>Forgot Password ?</a>
                     <Link
                         style={{ textDecoration: 'none' }}
                         className=''

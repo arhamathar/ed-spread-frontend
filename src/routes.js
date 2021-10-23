@@ -1,15 +1,17 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
-import Login from "./Pages/auth/login";
-import Signup from "./Pages/auth/signup";
-import Courses from "./Pages/Course/courses";
-import Dashboard from "./Pages/Dashboard";
-import Home from "./Pages/home";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Login from './Pages/auth/login';
+import Signup from './Pages/auth/signup';
+import Courses from './Pages/Course/courses';
+import Dashboard from './Pages/Dashboard';
+import Home from './Pages/home';
+import EmailVarification from './Pages/auth/emailvarification';
+import ConfirmPass from './Pages/auth/confirmpass';
 
 const Routes = () => {
     return (
         <Switch>
-            <Route path='/login'>
+            <Route exact path='/login'>
                 <Login />
             </Route>
             <Route path='/signup'>
@@ -21,7 +23,13 @@ const Routes = () => {
             <Route path='/dashboard'>
                 <Dashboard />
             </Route>
-            <Route path='/'>
+            <Route exact path='/reset'>
+                <EmailVarification />
+            </Route>
+            <Route path='/reset/:token'>
+                <ConfirmPass />
+            </Route>
+            <Route exact path='/'>
                 <Home />
             </Route>
         </Switch>
