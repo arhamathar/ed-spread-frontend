@@ -34,9 +34,9 @@ const Login = () => {
                 user.id,
                 user.token,
                 user.role,
-                user.email,
+                user.mobile,
                 user.name,
-                user.mobile
+                user.email
             );
         } catch (e) {}
     };
