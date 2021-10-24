@@ -25,9 +25,13 @@ const Login = () => {
         try {
             const { user } = await sendRequest(
                 `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/login`,
-
                 'POST',
-                loginUser
+                loginUser,
+                '/',
+                {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + auth.token,
+                }
             );
 
             auth.login(

@@ -29,7 +29,12 @@ const Signup = () => {
             const { user } = await sendRequest(
                 `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/signup`,
                 'POST',
-                signupUser
+                signupUser,
+                '/',
+                {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + auth.token,
+                }
             );
             auth.login(
                 user.id,

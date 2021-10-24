@@ -42,7 +42,11 @@ const useData = () => {
                 `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/create`,
                 'POST',
                 courseData,
-                '/'
+                '/',
+                {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + auth.token,
+                }
             );
             console.log(response);
         } catch (e) {

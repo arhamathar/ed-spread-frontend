@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import useHttp from '../../hooks/useHttp';
 import { uploadImage } from '../../utils/uploadImage';
+import { AuthContext } from '../../context/authContext';
 
 const useData = ({
     title,
@@ -14,6 +15,7 @@ const useData = ({
     toggle,
     courseId,
 }) => {
+    const auth = useContext(AuthContext);
     const { sendRequest } = useHttp();
     const course = {
         title,
@@ -37,7 +39,11 @@ const useData = ({
                 `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/update/${courseId}`,
                 'PATCH',
                 courseData,
-                '/'
+                '/',
+                {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + auth.token,
+                }
             );
             reload();
             toggle();

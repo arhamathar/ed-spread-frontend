@@ -56,10 +56,16 @@ const Course = ({ course, reload }) => {
             return;
         }
         const orderDetails = { amount: price };
-
+        console.log(auth);
         const { data } = await axios.post(
             `${process.env.REACT_APP_BACKEND_URL_DEV}/api/payment/orders`,
-            orderDetails
+            orderDetails,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${auth.token}`,
+                },
+            }
         );
 
         if (!data) {
@@ -79,7 +85,7 @@ const Course = ({ course, reload }) => {
             handler: async function (response) {
                 const paymentData = {
                     amount,
-                    courseId: _id,
+                    course: _id,
                     user: auth.userId,
                     orderCreationId: id,
                     createdAt: created_at,
@@ -91,7 +97,13 @@ const Course = ({ course, reload }) => {
 
                 const { data } = await axios.post(
                     `${process.env.REACT_APP_BACKEND_URL_DEV}/api/payment/success`,
-                    paymentData
+                    paymentData,
+                    {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: `Bearer ${auth.token}`,
+                        },
+                    }
                 );
 
                 toast.success(data.message);
