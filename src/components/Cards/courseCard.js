@@ -150,7 +150,7 @@ const Course = ({ course, reload }) => {
                                 color="info"
                                 className="cardbutton"
                             >
-                                ₹ Buy Now
+                                &#8377;{course.price}
                             </Button>
                             <Button
                                 onClick={toggle}
