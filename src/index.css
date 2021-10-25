@@ -226,3 +226,24 @@ code {
         margin-top: 10px;
     }
 }
+/* about us */
+
+.abouth1 {
+    text-align: center;
+    margin-top: 80px;
+}
+.aboutus {
+    width: 80%;
+    margin: 20px;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutus p {
+    font-size: 20px;
+}
