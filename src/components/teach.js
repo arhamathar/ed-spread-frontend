@@ -1,5 +1,6 @@
-import React from "react";
-import { Button } from "reactstrap";
+import React from 'react';
+import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const Teach = () => {
     return (
@@ -17,7 +18,9 @@ const Teach = () => {
                     Vivamus vitae massa ac mauris iaculis euismod et nec metus.
                     Cras fermentum ac nunc ut auctor.
                 </h5>
-                <Button color='info'>Find out more</Button>
+                <Button color='info'>
+                    <Link to='about'>Find course</Link>
+                </Button>
             </div>
         </div>
     );
