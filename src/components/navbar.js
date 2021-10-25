@@ -29,25 +29,25 @@ const Navba = () => {
     return (
         <div>
             <Navbar
-                className='navbar-stick bg-dark navbar-dark'
+                className="navbar-stick bg-dark navbar-dark"
                 light
-                expand='md'
+                expand="md"
             >
-                <NavbarBrand className='logo text-light'>
-                    <img src={Logo} alt='logo' />
+                <NavbarBrand className="logo text-light">
+                    <img src={Logo} alt="logo" />
                     ED SPREAD
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav
-                        className='ml-auto text-light d-flex align-items-center largeText'
+                        className="ml-auto text-light d-flex align-items-center largeText"
                         navbar
                     >
                         <NavItem>
                             <NavLink
                                 onClick={() => setIsOpen(false)}
-                                className='text-light'
-                                to='/'
+                                className="text-light"
+                                to="/"
                             >
                                 Home
                             </NavLink>
@@ -55,38 +55,40 @@ const Navba = () => {
                         <NavItem>
                             <NavLink
                                 onClick={() => setIsOpen(false)}
-                                className='text-light'
-                                to='/courses'
+                                className="text-light"
+                                to="/about"
                             >
-                                Courses
+                                About
                             </NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink
                                 onClick={() => setIsOpen(false)}
-                                className='text-light'
-                                to='/about'
+                                className="text-light"
+                                to="/courses"
                             >
-                                About
+                                Courses
                             </NavLink>
                         </NavItem>
-                        {auth.isLoggedIn && auth.role === 'ADMIN' && (
-                            <NavItem>
-                                <NavLink
-                                    onClick={() => setIsOpen(false)}
-                                    className='text-light'
-                                    to='/dashboard'
-                                >
-                                    Dashboard
-                                </NavLink>
-                            </NavItem>
-                        )}
+                        {auth.isLoggedIn &&
+                            (auth.role === 'ADMIN' ||
+                                auth.role === 'SUPER_USER') && (
+                                <NavItem>
+                                    <NavLink
+                                        onClick={() => setIsOpen(false)}
+                                        className="text-light"
+                                        to="/dashboard"
+                                    >
+                                        Dashboard
+                                    </NavLink>
+                                </NavItem>
+                            )}
                         {!auth.isLoggedIn && (
                             <NavItem>
                                 <NavLink
                                     onClick={() => setIsOpen(false)}
-                                    className='text-light'
-                                    to='/login'
+                                    className="text-light"
+                                    to="/login"
                                 >
                                     Log In
                                 </NavLink>
@@ -96,8 +98,8 @@ const Navba = () => {
                             <NavItem>
                                 <NavLink
                                     onClick={() => setIsOpen(false)}
-                                    className='text-light'
-                                    to='/signup'
+                                    className="text-light"
+                                    to="/signup"
                                 >
                                     Sign Up
                                 </NavLink>
@@ -106,7 +108,7 @@ const Navba = () => {
                         {auth.isLoggedIn && (
                             <NavItem>
                                 <Button
-                                    color='transparent'
+                                    color="transparent"
                                     onClick={logoutHandler}
                                 >
                                     Log Out

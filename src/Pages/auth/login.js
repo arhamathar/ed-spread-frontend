@@ -24,7 +24,7 @@ const Login = () => {
     const onSubmitHandler = async () => {
         try {
             const { user } = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/login`,
+                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/user/login`,
                 'POST',
                 loginUser,
                 '/',
@@ -79,8 +79,8 @@ const Login = () => {
                         LOG IN
                     </Button>
                 </AvForm>
-                <div className='d-flex justify-content-between my-2'>
-                    <a href='/reset'>Forgot Password ?</a>
+                <div className="d-flex justify-content-between my-2">
+                    <a href="/reset">Forgot Password ?</a>
                     <Link
                         style={{ textDecoration: 'none' }}
                         className=""

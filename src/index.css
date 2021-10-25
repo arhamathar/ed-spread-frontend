@@ -64,7 +64,10 @@ code {
     align-self: center;
     justify-content: center;
 }
-
+.register {
+    text-decoration: none;
+    color: #fff;
+}
 .card-buttons {
     display: flex;
     margin-top: 20px;

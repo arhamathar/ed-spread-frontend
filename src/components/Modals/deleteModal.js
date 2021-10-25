@@ -21,7 +21,7 @@ const CreateEditModal = ({ title, courseId, showModal, toggle, reload }) => {
         if (confirmText.trim() === title.trim()) {
             try {
                 const { data } = await axios.delete(
-                    `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/delete/${courseId}`,
+                    `${process.env.REACT_APP_BACKEND_URL_PROD}/api/course/delete/${courseId}`,
                     {
                         headers: {
                             'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
     Card,
     CardImg,
@@ -10,9 +10,11 @@ import {
 
 import DeleteModal from '../Modals/deleteModal';
 import CreateEditModal from '../Modals/createEditModal';
+import { AuthContext } from '../../context/authContext';
 import useData from './data';
 
 const Bootcamp = ({ bootcamp, reload }) => {
+    const auth = useContext(AuthContext);
     const {
         course,
         showModal,
@@ -50,22 +52,35 @@ const Bootcamp = ({ bootcamp, reload }) => {
                         </div>
                         <div className="card-buttons" Name>
                             <Button color="info" className="cardbutton">
-                                Register
+                                <a
+                                    className="register"
+                                    href={url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    Register
+                                </a>
                             </Button>
-                            <Button
-                                onClick={toggle}
-                                color="info"
-                                className="cardbutton"
-                            >
-                                Edit
-                            </Button>
-                            <Button
-                                color="info"
-                                className="cardbutton"
-                                onClick={toggleDeleteModal}
-                            >
-                                Delete
-                            </Button>
+                            {auth.isLoggedIn &&
+                                (auth.role === 'ADMIN' ||
+                                    auth.role === 'SUPER_USER') && (
+                                    <>
+                                        <Button
+                                            onClick={toggle}
+                                            color="info"
+                                            className="cardbutton"
+                                        >
+                                            Edit
+                                        </Button>
+                                        <Button
+                                            color="info"
+                                            className="cardbutton"
+                                            onClick={toggleDeleteModal}
+                                        >
+                                            Delete
+                                        </Button>
+                                    </>
+                                )}
                         </div>
                     </div>
                 </CardBody>

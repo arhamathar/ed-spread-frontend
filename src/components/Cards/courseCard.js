@@ -58,7 +58,7 @@ const Course = ({ course, reload }) => {
         const orderDetails = { amount: price };
         console.log(auth);
         const { data } = await axios.post(
-            `${process.env.REACT_APP_BACKEND_URL_DEV}/api/payment/orders`,
+            `${process.env.REACT_APP_BACKEND_URL_PROD}/api/payment/orders`,
             orderDetails,
             {
                 headers: {
@@ -96,7 +96,7 @@ const Course = ({ course, reload }) => {
                 };
 
                 const { data } = await axios.post(
-                    `${process.env.REACT_APP_BACKEND_URL_DEV}/api/payment/success`,
+                    `${process.env.REACT_APP_BACKEND_URL_PROD}/api/payment/success`,
                     paymentData,
                     {
                         headers: {
@@ -150,22 +150,28 @@ const Course = ({ course, reload }) => {
                                 color="info"
                                 className="cardbutton"
                             >
-                                &#8377;{course.price}
+                                Buy &#8377;{course.price}
                             </Button>
-                            <Button
-                                onClick={toggle}
-                                color="info"
-                                className="cardbutton"
-                            >
-                                Edit
-                            </Button>
-                            <Button
-                                color="info"
-                                className="cardbutton"
-                                onClick={toggleDeleteModal}
-                            >
-                                Delete
-                            </Button>
+                            {auth.isLoggedIn &&
+                                (auth.role === 'ADMIN' ||
+                                    auth.role === 'SUPER_USER') && (
+                                    <>
+                                        <Button
+                                            onClick={toggle}
+                                            color="info"
+                                            className="cardbutton"
+                                        >
+                                            Edit
+                                        </Button>
+                                        <Button
+                                            color="info"
+                                            className="cardbutton"
+                                            onClick={toggleDeleteModal}
+                                        >
+                                            Delete
+                                        </Button>
+                                    </>
+                                )}
                         </div>
                     </div>
                 </CardBody>

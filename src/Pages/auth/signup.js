@@ -27,7 +27,7 @@ const Signup = () => {
     const onSubmitHandler = async () => {
         try {
             const { user } = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/signup`,
+                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/user/signup`,
                 'POST',
                 signupUser,
                 '/',
@@ -113,8 +113,8 @@ const Signup = () => {
                         SIGN UP
                     </Button>
                 </AvForm>
-                <div className='d-flex justify-content-between my-2'>
-                    <a href='/emailvarification'>Forgot Password ?</a>
+                <div className="d-flex justify-content-between my-2">
+                    <p>Already have an account?</p>
                     <Link
                         style={{ textDecoration: 'none' }}
                         className=""
