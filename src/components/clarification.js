@@ -1,6 +1,6 @@
-import React from "react";
-import { Button, Card } from "reactstrap";
-import { AvForm, AvField } from "availity-reactstrap-validation";
+import React from 'react';
+import { Button, Card } from 'reactstrap';
+import { AvForm, AvField } from 'availity-reactstrap-validation';
 
 const Clarification = () => {
     return (

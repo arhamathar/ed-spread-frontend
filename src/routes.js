@@ -4,13 +4,15 @@ import Login from './Pages/auth/login';
 import Signup from './Pages/auth/signup';
 import Courses from './Pages/Course/courses';
 import Dashboard from './Pages/Dashboard';
-import About from './Pages/aboutus';
 import Home from './Pages/home';
+import EmailVarification from './Pages/auth/emailvarification';
+import ConfirmPass from './Pages/auth/confirmpass';
+import About from './Pages/aboutus';
 
 const Routes = () => {
     return (
         <Switch>
-            <Route path='/login'>
+            <Route exact path='/login'>
                 <Login />
             </Route>
             <Route path='/signup'>
@@ -25,7 +27,13 @@ const Routes = () => {
             <Route path='/about'>
                 <About />
             </Route>
-            <Route path='/'>
+            <Route exact path='/reset'>
+                <EmailVarification />
+            </Route>
+            <Route path='/reset/:token'>
+                <ConfirmPass />
+            </Route>
+            <Route exact path='/'>
                 <Home />
             </Route>
         </Switch>

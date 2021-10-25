@@ -113,8 +113,8 @@ const Signup = () => {
                         SIGN UP
                     </Button>
                 </AvForm>
-                <div className="d-flex justify-content-between my-2">
-                    <a href="/">Forgot Password ?</a>
+                <div className='d-flex justify-content-between my-2'>
+                    <a href='/emailvarification'>Forgot Password ?</a>
                     <Link
                         style={{ textDecoration: 'none' }}
                         className=""
