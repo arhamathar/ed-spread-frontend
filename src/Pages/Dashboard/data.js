@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { toast } from 'react-toastify';
 import useHttp from '../../hooks/useHttp';
 import { uploadImage } from '../../utils/uploadImage';
+import { AuthContext } from '../../context/authContext';
 
 const useData = () => {
     const initialState = {
@@ -12,6 +13,7 @@ const useData = () => {
         url: '',
         type: 'FREE',
     };
+    const auth = useContext(AuthContext);
 
     const { loading, sendRequest } = useHttp();
 
@@ -40,7 +42,11 @@ const useData = () => {
                 `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/create`,
                 'POST',
                 courseData,
-                '/'
+                '/',
+                {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + auth.token,
+                }
             );
             console.log(response);
         } catch (e) {
@@ -54,7 +60,11 @@ const useData = () => {
                 `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/all-users`,
                 'GET',
                 null,
-                '/dashboard'
+                '/dashboard',
+                {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + auth.token,
+                }
             );
             setUsers(response.users);
         } catch (e) {}

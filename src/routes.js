@@ -7,6 +7,7 @@ import Dashboard from './Pages/Dashboard';
 import Home from './Pages/home';
 import EmailVarification from './Pages/auth/emailvarification';
 import ConfirmPass from './Pages/auth/confirmpass';
+import About from './Pages/aboutus';
 
 const Routes = () => {
     return (
@@ -22,6 +23,9 @@ const Routes = () => {
             </Route>
             <Route path='/dashboard'>
                 <Dashboard />
+            </Route>
+            <Route path='/about'>
+                <About />
             </Route>
             <Route exact path='/reset'>
                 <EmailVarification />
