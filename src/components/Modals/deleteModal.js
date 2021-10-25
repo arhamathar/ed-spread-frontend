@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import {
@@ -11,15 +11,23 @@ import {
     ModalFooter,
 } from 'reactstrap';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
+import { AuthContext } from '../../context/authContext';
 
 const CreateEditModal = ({ title, courseId, showModal, toggle, reload }) => {
+    const auth = useContext(AuthContext);
     const [confirmText, setConfirmText] = useState('');
 
     const onDeleteHandler = async () => {
         if (confirmText.trim() === title.trim()) {
             try {
                 const { data } = await axios.delete(
-                    `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/delete/${courseId}`
+                    `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/delete/${courseId}`,
+                    {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: 'Bearer ' + auth.token,
+                        },
+                    }
                 );
                 toast.success(data.message);
                 toggle();

@@ -10,11 +10,31 @@ import { AuthContext } from './context/authContext';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
-    const { token, login, logout, userId, isLoggedIn, role } = useAuth();
+    const {
+        token,
+        login,
+        logout,
+        userId,
+        isLoggedIn,
+        role,
+        mobile,
+        name,
+        email,
+    } = useAuth();
 
     return (
         <AuthContext.Provider
-            value={{ token, userId, login, logout, isLoggedIn, role }}
+            value={{
+                token,
+                userId,
+                login,
+                logout,
+                isLoggedIn,
+                role,
+                mobile,
+                name,
+                email,
+            }}
         >
             <BrowserRouter>
                 <Navbar />

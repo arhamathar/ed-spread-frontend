@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
     Card,
     CardImg,
@@ -9,12 +9,16 @@ import {
 } from 'reactstrap';
 import Logo from '../../assests/symbol.png';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 import useData from './courseData';
 import DeleteModal from '../Modals/deleteModal';
 import CreateEditModal from '../Modals/createEditModal';
+import { AuthContext } from '../../context/authContext';
 
 const Course = ({ course, reload }) => {
+    const auth = useContext(AuthContext);
+
     const {
         editCourse,
         showModal,
@@ -26,6 +30,7 @@ const Course = ({ course, reload }) => {
         course,
     });
     const { title, description, price, type, image, url } = editCourse;
+    const { _id } = course;
 
     function loadScript(src) {
         return new Promise((resolve) => {
@@ -41,57 +46,72 @@ const Course = ({ course, reload }) => {
         });
     }
 
-    async function displayRazorpay() {
+    async function createOrder() {
         const res = await loadScript(
             'https://checkout.razorpay.com/v1/checkout.js'
         );
 
         if (!res) {
-            alert('Razorpay SDK failed to load. Are you online?');
+            toast.error('Something went wrong');
             return;
         }
+        const orderDetails = { amount: price };
+        console.log(auth);
+        const { data } = await axios.post(
+            `${process.env.REACT_APP_BACKEND_URL_DEV}/api/payment/orders`,
+            orderDetails,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${auth.token}`,
+                },
+            }
+        );
 
-        // creating a new order
-        const result = await axios.post('http://localhost:5000/payment/orders');
-
-        if (!result) {
-            alert('Server error. Are you online?');
+        if (!data) {
+            toast.error('Something went wrong');
             return;
         }
-
-        // Getting the order details back
-        const { amount, id: order_id, currency } = result.data;
+        const { amount, id, currency, created_at, receipt } = data.order;
 
         const options = {
-            key: 'rzp_test_j5p3NGEdIM3YAo', // Enter the Key ID generated from the Dashboard
+            key: process.env.REACT_APP_RAZORPAY_KEY, // Enter the Key ID generated from the Dashboard
             amount: amount.toString(),
-            currency: currency,
+            currency,
             name: 'Ed Spread',
-            description: 'Test Transaction',
+            description: 'Thank you for buying',
             image: { Logo },
-            order_id: order_id,
+            order_id: id,
             handler: async function (response) {
-                const data = {
-                    orderCreationId: order_id,
+                const paymentData = {
+                    amount,
+                    course: _id,
+                    user: auth.userId,
+                    orderCreationId: id,
+                    createdAt: created_at,
+                    receipt,
                     razorpayPaymentId: response.razorpay_payment_id,
                     razorpayOrderId: response.razorpay_order_id,
                     razorpaySignature: response.razorpay_signature,
                 };
 
-                const result = await axios.post(
-                    'http://localhost:5000/payment/success',
-                    data
+                const { data } = await axios.post(
+                    `${process.env.REACT_APP_BACKEND_URL_DEV}/api/payment/success`,
+                    paymentData,
+                    {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: `Bearer ${auth.token}`,
+                        },
+                    }
                 );
 
-                alert(result.data.msg);
+                toast.success(data.message);
             },
             prefill: {
-                name: 'Soumya Dey',
-                email: 'SoumyaDey@example.com',
-                contact: '9999999999',
-            },
-            notes: {
-                address: 'Soumya Dey Corporate Office',
+                name: auth.name,
+                email: auth.email,
+                contact: auth.mobile,
             },
             theme: {
                 color: '#61dafb',
@@ -103,45 +123,45 @@ const Course = ({ course, reload }) => {
     }
 
     return (
-        <div className='carddiv'>
-            <Card className='coursecard'>
+        <div className="carddiv">
+            <Card className="coursecard">
                 <CardImg
-                    className='cardimage'
+                    className="cardimage"
                     top
-                    width='100%'
+                    width="100%"
                     src={course.image}
-                    alt='Card image cap'
+                    alt="Card image cap"
                 />
-                <CardBody className='cardbody'>
-                    <CardTitle tag='h5'>{course.title}</CardTitle>
-                    <CardText className='cardtext'>
+                <CardBody className="cardbody">
+                    <CardTitle tag="h5">{course.title}</CardTitle>
+                    <CardText className="cardtext">
                         {course.description}
                     </CardText>
                     <div>
-                        <div className='cardicons'>
-                            <i class='fa fa-map-marker' aria-hidden='true'>
+                        <div className="cardicons">
+                            <i class="fa fa-map-marker" aria-hidden="true">
                                 online
                             </i>
                             {/* <i class="fas fa-calendar-alt"> 28 oct, 8:00pm</i> */}
                         </div>
-                        <div className='card-buttons' Name>
+                        <div className="card-buttons" Name>
                             <Button
-                                onClick={displayRazorpay}
-                                color='info'
-                                className='cardbutton'
+                                onClick={createOrder}
+                                color="info"
+                                className="cardbutton"
                             >
                                 &#8377;{course.price}
                             </Button>
                             <Button
                                 onClick={toggle}
-                                color='info'
-                                className='cardbutton'
+                                color="info"
+                                className="cardbutton"
                             >
                                 Edit
                             </Button>
                             <Button
-                                color='info'
-                                className='cardbutton'
+                                color="info"
+                                className="cardbutton"
                                 onClick={toggleDeleteModal}
                             >
                                 Delete
