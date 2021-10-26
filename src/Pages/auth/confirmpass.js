@@ -1,38 +1,29 @@
 import React, { useState } from 'react';
 import { Button, Card } from 'reactstrap';
-import { AvForm, AvField } from 'availity-reactstrap-validation';
-import useHttp from '../../hooks/useHttp';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AvForm, AvField } from 'availity-reactstrap-validation';
+
+import useHttp from '../../hooks/useHttp';
 
 const ConfirmPass = () => {
     const { sendRequest } = useHttp();
     const { token } = useParams();
-    console.log(token);
 
-    const [password, setPassword] = useState({
-        newPassword: '',
-        confirmPassword: '',
-    });
-
-    const onChangeHandler = (e) => {
-        setPassword((prev) => ({
-            ...prev,
-            [e.target.name]: e.target.value,
-        }));
-    };
+    const [password, setPassword] = useState(null);
+    const [confirmPassword, setConfirmPassword] = useState(null);
 
     const onSubmitHandler = async () => {
-        if (password.newpassword === password.confirmpassword) {
-            console.log('ssssssssssssssssssyo');
+        if (password === confirmPassword) {
             try {
-                const { user } = await sendRequest(
+                await sendRequest(
                     `${process.env.REACT_APP_BACKEND_URL_PROD}/api/user/resetPassword/${token}`,
-                    'POST',
-                    password
+                    'PATCH',
+                    { resetPassword: password }
                 );
-                // console.log(user.role);
-                // auth.login(user.id, user.token, user.role);
             } catch (e) {}
+        } else {
+            toast.warn('Password does not match');
         }
     };
 
@@ -45,7 +36,8 @@ const ConfirmPass = () => {
                         name="newpassword"
                         label="New Password"
                         type="password"
-                        onChange={(e) => onChangeHandler(e)}
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
                         validate={{
                             required: {
                                 value: true,
@@ -63,9 +55,9 @@ const ConfirmPass = () => {
                         name="confirmpassword"
                         label="Confirm Password"
                         type="password"
-                        onChange={(e) => onChangeHandler(e)}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        value={confirmPassword}
                         validate={{
-                            match: { value: 'newpassword' },
                             required: {
                                 value: true,
                                 errorMessage: 'Please confirm your password',

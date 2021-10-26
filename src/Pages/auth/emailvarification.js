@@ -14,14 +14,12 @@ const EmailVarification = () => {
 
     const onSubmitHandler = async () => {
         try {
-            const { user } = await sendRequest(
+            await sendRequest(
                 `${process.env.REACT_APP_BACKEND_URL_PROD}/api/user/forgotPassword`,
                 'POST',
-                { email }
+                { email },
+                '/login'
             );
-            console.log('hurray');
-            // history.push('/signup');
-            // auth.login(user.id, user.token, user.role);
         } catch (e) {}
     };
 
