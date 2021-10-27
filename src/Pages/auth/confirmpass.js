@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Button, Card } from 'reactstrap';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 
-import useHttp from '../../hooks/useHttp';
-
 const ConfirmPass = () => {
-    const { sendRequest } = useHttp();
+    const history = useHistory();
+
     const { token } = useParams();
 
     const [password, setPassword] = useState(null);
@@ -16,12 +16,15 @@ const ConfirmPass = () => {
     const onSubmitHandler = async () => {
         if (password === confirmPassword) {
             try {
-                await sendRequest(
-                    `${process.env.REACT_APP_BACKEND_URL_PROD}/api/user/resetPassword/${token}`,
-                    'PATCH',
+                const { data } = await axios.patch(
+                    `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/resetPassword/${token}`,
                     { resetPassword: password }
                 );
-            } catch (e) {}
+                toast.success(data.message);
+                history.push('/login');
+            } catch (e) {
+                toast.error(e.response.data.message);
+            }
         } else {
             toast.warn('Password does not match');
         }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Login from './Pages/auth/login';
 import Signup from './Pages/auth/signup';
@@ -8,32 +8,41 @@ import Home from './Pages/home';
 import EmailVarification from './Pages/auth/emailvarification';
 import ConfirmPass from './Pages/auth/confirmpass';
 import About from './Pages/aboutus';
+import { AuthContext } from './context/authContext';
 
 const Routes = () => {
+    const auth = useContext(AuthContext);
     return (
         <Switch>
-            <Route exact path='/login'>
-                <Login />
-            </Route>
-            <Route path='/signup'>
-                <Signup />
-            </Route>
-            <Route path='/courses'>
+            {!auth.token && (
+                <Route exact path="/login">
+                    <Login />
+                </Route>
+            )}
+            {!auth.token && (
+                <Route exact path="/signup">
+                    <Signup />
+                </Route>
+            )}
+            <Route exact path="/courses">
                 <Courses />
             </Route>
-            <Route path='/dashboard'>
-                <Dashboard />
-            </Route>
-            <Route path='/about'>
+            {auth.token &&
+                (auth.role === 'SUPER_USER' || auth.role === 'ADMIN') && (
+                    <Route exact path="/dashboard">
+                        <Dashboard />
+                    </Route>
+                )}
+            <Route exact path="/about">
                 <About />
             </Route>
-            <Route exact path='/reset'>
+            <Route exact path="/reset">
                 <EmailVarification />
             </Route>
-            <Route path='/reset/:token'>
+            <Route path="/reset/:token">
                 <ConfirmPass />
             </Route>
-            <Route exact path='/'>
+            <Route exact path="/">
                 <Home />
             </Route>
         </Switch>

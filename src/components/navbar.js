@@ -34,8 +34,13 @@ const Navba = () => {
                 expand="md"
             >
                 <NavbarBrand className="logo text-light">
-                    <img src={Logo} alt="logo" />
-                    ED SPREAD
+                    <NavLink
+                        to="/"
+                        style={{ textDecoration: 'none', color: '#fff' }}
+                    >
+                        <img src={Logo} alt="logo" />
+                        ED SPREAD
+                    </NavLink>
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>

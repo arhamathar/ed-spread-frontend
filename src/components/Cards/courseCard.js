@@ -47,6 +47,9 @@ const Course = ({ course, reload }) => {
     }
 
     async function createOrder() {
+        if (!auth.token) {
+            return toast.error('Please login to purchase course');
+        }
         const res = await loadScript(
             'https://checkout.razorpay.com/v1/checkout.js'
         );

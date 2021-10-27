@@ -3,10 +3,15 @@ import { Button, Card } from 'reactstrap';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 
 const Clarification = () => {
+    const onSubmitHandler = (e, err, val) => {
+        window.location =
+            'mailto:Edspread2@gmail.com?subject=Requesting Clarification to find courses';
+    };
+
     return (
-        <div className=''>
-            <Card className='helpcard mt-5 shadow'>
-                <div className='help-para'>
+        <div className="">
+            <Card className="helpcard mt-5 shadow">
+                <div className="help-para">
                     <h1>Need Help?</h1>
                     <h5>
                         Our specialists will contact you for details and
@@ -14,30 +19,33 @@ const Clarification = () => {
                         course.
                     </h5>
                 </div>
-                <div className='help-form'>
-                    <AvForm>
+                <div className="help-form">
+                    <AvForm
+                        onSubmit={onSubmitHandler}
+                        action="mailto:myforms@mydomain.com"
+                    >
                         <AvField
-                            name='name'
-                            type='text'
+                            name="name"
+                            type="text"
                             required
-                            placeholder='Name'
+                            placeholder="Name"
                             // onChange={(e) => onChangeHandler(e)}
                         />
                         <AvField
-                            name='email'
-                            type='email'
+                            name="email"
+                            type="email"
                             required
-                            placeholder='Email'
+                            placeholder="Email"
                             // onChange={(e) => onChangeHandler(e)}
                         />
                         <AvField
-                            name='phone'
-                            type='Number'
+                            name="phone"
+                            type="Number"
                             required
-                            placeholder='Phone'
+                            placeholder="Phone"
                             // onChange={(e) => onChangeHandler(e)}
                         />
-                        <Button color='info'>Request Clarification</Button>
+                        <Button color="info">Request Clarification</Button>
                     </AvForm>
                 </div>
             </Card>

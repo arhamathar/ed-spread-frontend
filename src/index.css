@@ -27,7 +27,7 @@ code {
     z-index: 1;
 }
 .routes-height {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .largeText {
