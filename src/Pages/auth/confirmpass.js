@@ -17,7 +17,7 @@ const ConfirmPass = () => {
         if (password === confirmPassword) {
             try {
                 const { data } = await axios.patch(
-                    `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/resetPassword/${token}`,
+                    `${process.env.REACT_APP_BACKEND_URL_PROD}/api/user/resetPassword/${token}`,
                     { resetPassword: password }
                 );
                 toast.success(data.message);
@@ -31,14 +31,14 @@ const ConfirmPass = () => {
     };
 
     return (
-        <div className="w-100 vh-100 bg-light py-5 routes-height">
-            <Card className="login-card w-50 p-4 mx-auto mt-5 shadow">
-                <p className="h3 text-dark center">Set New Password</p>
+        <div className='w-100 vh-100 bg-light py-5 routes-height'>
+            <Card className='login-card w-50 p-4 mx-auto mt-5 shadow'>
+                <p className='h3 text-dark center'>Set New Password</p>
                 <AvForm>
                     <AvField
-                        name="newpassword"
-                        label="New Password"
-                        type="password"
+                        name='newpassword'
+                        label='New Password'
+                        type='password'
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
                         validate={{
@@ -55,9 +55,9 @@ const ConfirmPass = () => {
                     />
 
                     <AvField
-                        name="confirmpassword"
-                        label="Confirm Password"
-                        type="password"
+                        name='confirmpassword'
+                        label='Confirm Password'
+                        type='password'
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         value={confirmPassword}
                         validate={{
@@ -72,7 +72,7 @@ const ConfirmPass = () => {
                             },
                         }}
                     />
-                    <Button color="dark" onClick={onSubmitHandler}>
+                    <Button color='dark' onClick={onSubmitHandler}>
                         Save
                     </Button>
                 </AvForm>

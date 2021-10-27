@@ -15,7 +15,7 @@ const EmailVarification = () => {
     const onSubmitHandler = async () => {
         try {
             await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/forgotPassword`,
+                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/user/forgotPassword`,
                 'POST',
                 { email },
                 '/login'
@@ -24,20 +24,20 @@ const EmailVarification = () => {
     };
 
     return (
-        <div className="w-100 vh-100 bg-light py-5 routes-height">
-            <Card className="login-card w-50 p-4 mx-auto mt-5 shadow">
-                <p className="h3 text-dark center">Verify Email</p>
+        <div className='w-100 vh-100 bg-light py-5 routes-height'>
+            <Card className='login-card w-50 p-4 mx-auto mt-5 shadow'>
+                <p className='h3 text-dark center'>Verify Email</p>
                 <AvForm>
                     <AvField
-                        name="email"
-                        label="Email"
-                        type="email"
+                        name='email'
+                        label='Email'
+                        type='email'
                         required
-                        placeholder="john@gmail.com"
+                        placeholder='john@gmail.com'
                         onChange={(e) => onChangeHandler(e)}
                         value={email}
                     />
-                    <Button color="dark" onClick={onSubmitHandler}>
+                    <Button color='dark' onClick={onSubmitHandler}>
                         Send Token
                     </Button>
                 </AvForm>
