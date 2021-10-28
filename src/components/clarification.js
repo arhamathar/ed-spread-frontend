@@ -4,8 +4,10 @@ import { AvForm, AvField } from 'availity-reactstrap-validation';
 
 const Clarification = () => {
     const onSubmitHandler = (e, err, val) => {
-        window.location =
-            'mailto:Edspread2@gmail.com?subject=Requesting Clarification to find courses';
+        const NAME = val.name,
+            EMAIL = val.email,
+            MOBILE = val.phone;
+        window.location = `mailto:Edspread2@gmail.com?subject=Requesting Clarification to find courses&body=NAME->${NAME}, EMAIL->${EMAIL}, MOBILE->${MOBILE}`;
     };
 
     return (
@@ -29,21 +31,18 @@ const Clarification = () => {
                             type="text"
                             required
                             placeholder="Name"
-                            // onChange={(e) => onChangeHandler(e)}
                         />
                         <AvField
                             name="email"
                             type="email"
                             required
                             placeholder="Email"
-                            // onChange={(e) => onChangeHandler(e)}
                         />
                         <AvField
                             name="phone"
                             type="Number"
                             required
                             placeholder="Phone"
-                            // onChange={(e) => onChangeHandler(e)}
                         />
                         <Button color="info">Request Clarification</Button>
                     </AvForm>

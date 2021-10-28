@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from './Pages/auth/login';
 import Signup from './Pages/auth/signup';
 import Courses from './Pages/Course/courses';
@@ -12,6 +12,7 @@ import { AuthContext } from './context/authContext';
 
 const Routes = () => {
     const auth = useContext(AuthContext);
+
     return (
         <Switch>
             {!auth.token && (
@@ -45,6 +46,7 @@ const Routes = () => {
             <Route exact path="/">
                 <Home />
             </Route>
+            {auth.token ? <Redirect to="/" /> : <Redirect to="/login" />}
         </Switch>
     );
 };
