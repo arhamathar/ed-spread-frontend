@@ -113,7 +113,7 @@ const CreateEditModal = ({
                         <Col md={12}>
                             <AvField
                                 label="Description"
-                                name="decription"
+                                name="description"
                                 type="textarea"
                                 col={5}
                                 placeholder="Enter Course details"
