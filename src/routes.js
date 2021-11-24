@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from './Pages/auth/login';
 import Signup from './Pages/auth/signup';
 import Courses from './Pages/Course/courses';
+import MyCourses from './Pages/Course/MyCourses';
 import Dashboard from './Pages/Dashboard';
 import Home from './Pages/home';
 import EmailVarification from './Pages/auth/emailvarification';
@@ -28,6 +29,11 @@ const Routes = () => {
             <Route exact path="/courses">
                 <Courses />
             </Route>
+            {auth.token && (
+                <Route exact path='/my-courses'>
+                    <MyCourses />
+                </Route>
+            )}
             {auth.token &&
                 (auth.role === 'SUPER_USER' || auth.role === 'ADMIN') && (
                     <Route exact path="/dashboard">

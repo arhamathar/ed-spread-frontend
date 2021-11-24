@@ -66,6 +66,17 @@ const Navba = () => {
                                 About
                             </NavLink>
                         </NavItem>
+                        {auth.isLoggedIn && (
+                            <NavItem>
+                                <NavLink
+                                    onClick={() => setIsOpen(false)}
+                                    className="text-light"
+                                    to="/my-courses"
+                                >
+                                    My Courses
+                                </NavLink>
+                            </NavItem>
+                        )}
                         <NavItem>
                             <NavLink
                                 onClick={() => setIsOpen(false)}
