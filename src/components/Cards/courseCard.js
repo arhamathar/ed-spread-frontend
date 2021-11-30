@@ -16,7 +16,7 @@ import DeleteModal from '../Modals/deleteModal';
 import CreateEditModal from '../Modals/createEditModal';
 import { AuthContext } from '../../context/authContext';
 
-const Course = ({ course, reload }) => {
+const Course = ({ course, reload, purchased }) => {
     const auth = useContext(AuthContext);
 
     const {
@@ -147,35 +147,44 @@ const Course = ({ course, reload }) => {
                             </i>
                             {/* <i class="fas fa-calendar-alt"> 28 oct, 8:00pm</i> */}
                         </div>
-                        <div className="card-buttons" Name>
-                            <Button
-                                onClick={createOrder}
-                                color="info"
-                                className="cardbutton"
-                            >
-                                Buy &#8377;{course.price}
-                            </Button>
-                            {auth.isLoggedIn &&
-                                (auth.role === 'ADMIN' ||
-                                    auth.role === 'SUPER_USER') && (
-                                    <>
-                                        <Button
-                                            onClick={toggle}
-                                            color="info"
-                                            className="cardbutton"
-                                        >
-                                            Edit
-                                        </Button>
-                                        <Button
-                                            color="info"
-                                            className="cardbutton"
-                                            onClick={toggleDeleteModal}
-                                        >
-                                            Delete
-                                        </Button>
-                                    </>
-                                )}
-                        </div>
+                        {!purchased && (
+                            <div className="card-buttons" Name>
+                                <Button
+                                    onClick={createOrder}
+                                    color="info"
+                                    className="cardbutton"
+                                >
+                                    Buy &#8377;{course.price}
+                                </Button>
+                                {auth.isLoggedIn &&
+                                    (auth.role === 'ADMIN' ||
+                                        auth.role === 'SUPER_USER') && (
+                                        <>
+                                            <Button
+                                                onClick={toggle}
+                                                color="info"
+                                                className="cardbutton"
+                                            >
+                                                Edit
+                                            </Button>
+                                            <Button
+                                                color="info"
+                                                className="cardbutton"
+                                                onClick={toggleDeleteModal}
+                                            >
+                                                Delete
+                                            </Button>
+                                        </>
+                                    )}
+                            </div>
+                        )}
+                        {purchased && (
+                            <div className="card-buttons">
+                                <a href={course.url}>
+                                    <Button>View</Button>
+                                </a>
+                            </div>
+                        )}
                     </div>
                 </CardBody>
             </Card>

@@ -39,7 +39,11 @@ const MyCourse = () => {
             <div className="courses">
                 {courses.length > 0 ? (
                     courses.map((course) => (
-                        <CourseCard key={course._id} course={course} />
+                        <CourseCard
+                            key={course._id}
+                            course={course}
+                            purchased={true}
+                        />
                     ))
                 ) : (
                     <div className="jumbotron-fluid">
