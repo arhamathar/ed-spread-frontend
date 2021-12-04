@@ -43,25 +43,20 @@ const CreateEditModal = ({ title, courseId, showModal, toggle, reload }) => {
     return (
         <Modal isOpen={showModal} toggle={toggle}>
             <ModalHeader as='h4' toggle={toggle}>
-                Are you absolutely sure?
+                DO you have any coupon ?
             </ModalHeader>
             <ModalBody>
                 <AvForm>
                     <Row>
                         <Col>
                             <p>
-                                This action cannot be undone. This will
-                                permanently delete the{' '}
-                                <span className='font-weight-bold'>
-                                    {title}
-                                </span>{' '}
-                                course from the database.
+                                You can use the coupon and help your friend earn
+                                points.
                             </p>
                             <AvField
-                                label={`Please type the course title (bold text) to confirm.`}
-                                name='confirm'
+                                label={`Please type the coupon code.`}
+                                name='coupon'
                                 type='text'
-                                required
                                 value={confirmText}
                                 onChange={(e) => setConfirmText(e.target.value)}
                             />
@@ -74,7 +69,7 @@ const CreateEditModal = ({ title, courseId, showModal, toggle, reload }) => {
                     Cancel
                 </Button>
                 <Button color='danger' onClick={onDeleteHandler}>
-                    Delete
+                    Continue
                 </Button>
             </ModalFooter>
         </Modal>

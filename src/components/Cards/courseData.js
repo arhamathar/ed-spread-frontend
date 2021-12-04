@@ -14,6 +14,7 @@ const useData = ({ course }) => {
     const [showModal, setShowModal] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [editCourse, setEditCourse] = useState(initialState);
+    const [showReferalModal, setShowReferalModal] = useState(false);
 
     const toggle = () => {
         setShowModal(!showModal);
@@ -21,6 +22,8 @@ const useData = ({ course }) => {
     };
 
     const toggleDeleteModal = () => setShowDeleteModal(!showDeleteModal);
+
+    const toggleReferalModel = () => setShowReferalModal(!showReferalModal);
 
     const onChangeHandler = (e) => {
         if (e.target.name !== 'image')
@@ -33,8 +36,10 @@ const useData = ({ course }) => {
     return {
         showModal,
         showDeleteModal,
+        showReferalModal,
         editCourse,
         toggle,
+        toggleReferalModel,
         toggleDeleteModal,
         onChangeHandler,
     };

@@ -39,7 +39,7 @@ const useData = () => {
             const imageUrl = await uploadImage(course);
             const courseData = { ...course, image: imageUrl };
             const response = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/course/create`,
+                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/create`,
                 'POST',
                 courseData,
                 '/',
@@ -57,7 +57,7 @@ const useData = () => {
     const getAllUsers = async () => {
         try {
             const response = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/user/all-users`,
+                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/all-users`,
                 'GET',
                 null,
                 '/dashboard',

@@ -14,7 +14,7 @@ const MyCourse = () => {
     const getMyCourses = useCallback(async () => {
         try {
             const resp = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/course/my-course/${auth.userId}`,
+                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/my-course/${auth.userId}`,
                 'GET',
                 null,
                 '/my-courses',
@@ -33,10 +33,10 @@ const MyCourse = () => {
 
     return (
         <>
-            <div className="courseh1">
+            <div className='courseh1'>
                 <h1>Your Purchases</h1>
             </div>
-            <div className="courses">
+            <div className='courses'>
                 {courses.length > 0 ? (
                     courses.map((course) => (
                         <CourseCard
@@ -46,7 +46,7 @@ const MyCourse = () => {
                         />
                     ))
                 ) : (
-                    <div className="jumbotron-fluid">
+                    <div className='jumbotron-fluid'>
                         You have not purchased any course, Buy One Now :)
                     </div>
                 )}
