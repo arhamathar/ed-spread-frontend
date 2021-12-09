@@ -20,6 +20,8 @@ const App = () => {
         mobile,
         name,
         email,
+        referralPoints,
+        referralCode,
     } = useAuth();
 
     return (
@@ -34,6 +36,8 @@ const App = () => {
                 mobile,
                 name,
                 email,
+                referralPoints,
+                referralCode,
             }}
         >
             <BrowserRouter>

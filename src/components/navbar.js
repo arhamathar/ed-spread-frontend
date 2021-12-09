@@ -12,14 +12,17 @@ import {
 import { NavLink } from 'react-router-dom';
 import Logo from '../assests/symbol.png';
 import { AuthContext } from '../context/authContext';
+import MyReferralPoints from './Modals/myReferralPoints';
 
 const Navba = () => {
     const auth = useContext(AuthContext);
     const history = useHistory();
 
     const [isOpen, setIsOpen] = useState(false);
+    const [showReferralModal, setShowReferralModal] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
+    const toggleReferralModal = () => setShowReferralModal(!showReferralModal);
 
     const logoutHandler = () => {
         auth.logout();
@@ -29,30 +32,30 @@ const Navba = () => {
     return (
         <div>
             <Navbar
-                className="navbar-stick bg-dark navbar-dark"
+                className='navbar-stick bg-dark navbar-dark'
                 light
-                expand="md"
+                expand='md'
             >
-                <NavbarBrand className="logo text-light">
+                <NavbarBrand className='logo text-light'>
                     <NavLink
-                        to="/"
+                        to='/'
                         style={{ textDecoration: 'none', color: '#fff' }}
                     >
-                        <img src={Logo} alt="logo" />
+                        <img src={Logo} alt='logo' />
                         ED SPREAD
                     </NavLink>
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav
-                        className="ml-auto text-light d-flex align-items-center largeText"
+                        className='ml-auto text-light d-flex align-items-center largeText'
                         navbar
                     >
                         <NavItem>
                             <NavLink
                                 onClick={() => setIsOpen(false)}
-                                className="text-light"
-                                to="/"
+                                className='text-light'
+                                to='/'
                             >
                                 Home
                             </NavLink>
@@ -60,8 +63,8 @@ const Navba = () => {
                         <NavItem>
                             <NavLink
                                 onClick={() => setIsOpen(false)}
-                                className="text-light"
-                                to="/about"
+                                className='text-light'
+                                to='/about'
                             >
                                 About
                             </NavLink>
@@ -70,18 +73,28 @@ const Navba = () => {
                             <NavItem>
                                 <NavLink
                                     onClick={() => setIsOpen(false)}
-                                    className="text-light"
-                                    to="/my-courses"
+                                    className='text-light'
+                                    to='/my-courses'
                                 >
                                     My Courses
                                 </NavLink>
                             </NavItem>
                         )}
                         <NavItem>
+                            <Button
+                                color='info'
+                                onClick={() =>
+                                    setShowReferralModal(!showReferralModal)
+                                }
+                            >
+                                My Referrals
+                            </Button>
+                        </NavItem>
+                        <NavItem>
                             <NavLink
                                 onClick={() => setIsOpen(false)}
-                                className="text-light"
-                                to="/courses"
+                                className='text-light'
+                                to='/courses'
                             >
                                 Courses
                             </NavLink>
@@ -92,8 +105,8 @@ const Navba = () => {
                                 <NavItem>
                                     <NavLink
                                         onClick={() => setIsOpen(false)}
-                                        className="text-light"
-                                        to="/dashboard"
+                                        className='text-light'
+                                        to='/dashboard'
                                     >
                                         Dashboard
                                     </NavLink>
@@ -103,8 +116,8 @@ const Navba = () => {
                             <NavItem>
                                 <NavLink
                                     onClick={() => setIsOpen(false)}
-                                    className="text-light"
-                                    to="/login"
+                                    className='text-light'
+                                    to='/login'
                                 >
                                     Log In
                                 </NavLink>
@@ -114,8 +127,8 @@ const Navba = () => {
                             <NavItem>
                                 <NavLink
                                     onClick={() => setIsOpen(false)}
-                                    className="text-light"
-                                    to="/signup"
+                                    className='text-light'
+                                    to='/signup'
                                 >
                                     Sign Up
                                 </NavLink>
@@ -124,7 +137,7 @@ const Navba = () => {
                         {auth.isLoggedIn && (
                             <NavItem>
                                 <Button
-                                    color="transparent"
+                                    color='transparent'
                                     onClick={logoutHandler}
                                 >
                                     Log Out
@@ -134,6 +147,10 @@ const Navba = () => {
                     </Nav>
                 </Collapse>
             </Navbar>
+            <MyReferralPoints
+                showModal={showReferralModal}
+                toggle={toggleReferralModal}
+            />
         </div>
     );
 };

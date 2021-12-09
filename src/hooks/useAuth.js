@@ -8,21 +8,46 @@ const useAuth = () => {
     const [mobile, setMobile] = useState('');
     const [email, setEmail] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [referralPoints, setReferralPoints] = useState(0);
+    const [referralCode, setReferralCode] = useState('');
 
-    const login = useCallback((userId, token, role, mobile, name, email) => {
-        setToken(token);
-        setUserId(userId);
-        setIsLoggedIn(true);
-        setRole(role);
-        setEmail(email);
-        setMobile(mobile);
-        setName(name);
-        console.log(mobile, name, email);
-        localStorage.setItem(
-            'userData',
-            JSON.stringify({ userId, token, role, mobile, name, email })
-        );
-    }, []);
+    const login = useCallback(
+        (
+            userId,
+            token,
+            role,
+            mobile,
+            name,
+            email,
+            referralPoints,
+            referralCode
+        ) => {
+            setToken(token);
+            setUserId(userId);
+            setIsLoggedIn(true);
+            setRole(role);
+            setEmail(email);
+            setMobile(mobile);
+            setName(name);
+            setReferralPoints(referralPoints);
+            setReferralCode(referralCode);
+
+            localStorage.setItem(
+                'userData',
+                JSON.stringify({
+                    userId,
+                    token,
+                    role,
+                    mobile,
+                    name,
+                    email,
+                    referralPoints,
+                    referralCode,
+                })
+            );
+        },
+        []
+    );
 
     const logout = useCallback(() => {
         setToken(null);
@@ -35,8 +60,26 @@ const useAuth = () => {
     useEffect(() => {
         const userData = JSON.parse(localStorage.getItem('userData'));
         if (userData && userData.token) {
-            const { userId, token, role, mobile, name, email } = userData;
-            login(userId, token, role, mobile, name, email);
+            const {
+                userId,
+                token,
+                role,
+                mobile,
+                name,
+                email,
+                referralPoints,
+                referralCode,
+            } = userData;
+            login(
+                userId,
+                token,
+                role,
+                mobile,
+                name,
+                email,
+                referralPoints,
+                referralCode
+            );
         }
     }, [login]);
 
@@ -50,6 +93,8 @@ const useAuth = () => {
         mobile,
         name,
         email,
+        referralPoints,
+        referralCode,
     };
 };
 

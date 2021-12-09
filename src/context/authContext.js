@@ -8,6 +8,8 @@ export const AuthContext = createContext({
     name: '',
     mobile: '',
     email: '',
+    referralPoints: '',
+    referralCode: '',
     login: () => {},
     logout: () => {},
 });
