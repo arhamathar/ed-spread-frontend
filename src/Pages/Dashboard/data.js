@@ -34,6 +34,8 @@ const useData = () => {
         }
     };
 
+    const subtractReferralPoints = () => {};
+
     const onSubmitHandler = async () => {
         try {
             const imageUrl = await uploadImage(course);

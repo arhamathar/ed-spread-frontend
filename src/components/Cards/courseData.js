@@ -15,6 +15,7 @@ const useData = ({ course }) => {
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [editCourse, setEditCourse] = useState(initialState);
     const [showReferalModal, setShowReferalModal] = useState(false);
+    const [referralCode, setReferralCode] = useState('');
 
     const toggle = () => {
         setShowModal(!showModal);
@@ -41,6 +42,8 @@ const useData = ({ course }) => {
         toggleDeleteModal,
         onChangeHandler,
         toggleReferalModel,
+        referralCode,
+        setReferralCode,
     };
 };
 

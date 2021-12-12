@@ -29,9 +29,12 @@ const Course = ({ course, reload, purchased }) => {
         onChangeHandler,
         showReferalModal,
         toggleReferalModel,
+        referralCode,
+        setReferralCode,
     } = useData({
         course,
     });
+
     const { title, description, price, type, image, url } = editCourse;
     const { _id } = course;
 
@@ -99,20 +102,28 @@ const Course = ({ course, reload, purchased }) => {
                     razorpayPaymentId: response.razorpay_payment_id,
                     razorpayOrderId: response.razorpay_order_id,
                     razorpaySignature: response.razorpay_signature,
+                    referralCode: referralCode,
                 };
 
-                const { data } = await axios.post(
-                    `${process.env.REACT_APP_BACKEND_URL_DEV}/api/payment/success`,
-                    paymentData,
-                    {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            Authorization: `Bearer ${auth.token}`,
-                        },
-                    }
-                );
+                try {
+                    const { data } = await axios.post(
+                        `${process.env.REACT_APP_BACKEND_URL_DEV}/api/payment/success`,
+                        paymentData,
+                        {
+                            headers: {
+                                'Content-Type': 'application/json',
+                                Authorization: `Bearer ${auth.token}`,
+                            },
+                        }
+                    );
 
-                toast.success(data.message);
+                    toast.success(data.message);
+                    toggleReferalModel();
+                } catch (e) {
+                    toast.error(
+                        e.response.data.message || 'Something went wrong'
+                    );
+                }
             },
             prefill: {
                 name: auth.name,
@@ -219,6 +230,8 @@ const Course = ({ course, reload, purchased }) => {
                 toggle={toggleReferalModel}
                 reload={reload}
                 createOrder={createOrder}
+                referralCode={referralCode}
+                setReferralCode={setReferralCode}
             />
         </div>
     );

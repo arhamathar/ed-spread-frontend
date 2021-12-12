@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     Button,
     Row,
@@ -10,9 +10,13 @@ import {
 } from 'reactstrap';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 
-const ReferralModal = ({ showModal, toggle, createOrder }) => {
-    const [confirmText, setConfirmText] = useState('');
-
+const ReferralModal = ({
+    referralCode,
+    setReferralCode,
+    showModal,
+    toggle,
+    createOrder,
+}) => {
     return (
         <Modal isOpen={showModal} toggle={toggle}>
             <ModalHeader as='h4' toggle={toggle}>
@@ -27,11 +31,13 @@ const ReferralModal = ({ showModal, toggle, createOrder }) => {
                                 points.
                             </p>
                             <AvField
-                                label={`Please type the coupon code.`}
+                                label={`Type the referral code or press continue`}
                                 name='coupon'
                                 type='text'
-                                value={confirmText}
-                                onChange={(e) => setConfirmText(e.target.value)}
+                                value={referralCode}
+                                onChange={(e) =>
+                                    setReferralCode(e.target.value)
+                                }
                             />
                         </Col>
                     </Row>
