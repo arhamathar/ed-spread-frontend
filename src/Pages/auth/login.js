@@ -34,8 +34,6 @@ const Login = () => {
                 }
             );
 
-            console.log(user.referralCode, user.referralPoints, '==========');
-
             auth.login(
                 user.id,
                 user.token,

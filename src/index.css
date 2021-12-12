@@ -46,6 +46,10 @@ code {
     height: 40px;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 /* card and bootcamp */
 .coursecard {
     display: flex;
