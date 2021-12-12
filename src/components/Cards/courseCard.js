@@ -13,6 +13,7 @@ import { toast } from 'react-toastify';
 
 import useData from './courseData';
 import DeleteModal from '../Modals/deleteModal';
+import ReferralModal from '../Modals/ReferralModal';
 import CreateEditModal from '../Modals/createEditModal';
 import { AuthContext } from '../../context/authContext';
 
@@ -26,6 +27,8 @@ const Course = ({ course, reload, purchased }) => {
         toggle,
         toggleDeleteModal,
         onChangeHandler,
+        showReferalModal,
+        toggleReferalModel,
     } = useData({
         course,
     });
@@ -58,10 +61,10 @@ const Course = ({ course, reload, purchased }) => {
             toast.error('Something went wrong');
             return;
         }
-        const orderDetails = { amount: price };
-        console.log(auth);
+        const orderDetails = { amount: price, courseId: course._id };
+
         const { data } = await axios.post(
-            `${process.env.REACT_APP_BACKEND_URL_PROD}/api/payment/orders`,
+            `${process.env.REACT_APP_BACKEND_URL_DEV}/api/payment/orders`,
             orderDetails,
             {
                 headers: {
@@ -99,7 +102,7 @@ const Course = ({ course, reload, purchased }) => {
                 };
 
                 const { data } = await axios.post(
-                    `${process.env.REACT_APP_BACKEND_URL_PROD}/api/payment/success`,
+                    `${process.env.REACT_APP_BACKEND_URL_DEV}/api/payment/success`,
                     paymentData,
                     {
                         headers: {
@@ -126,33 +129,34 @@ const Course = ({ course, reload, purchased }) => {
     }
 
     return (
-        <div className="carddiv">
-            <Card className="coursecard">
+        <div className='carddiv'>
+            <Card className='coursecard'>
                 <CardImg
-                    className="cardimage"
+                    className='cardimage'
                     top
-                    width="100%"
+                    width='100%'
                     src={course.image}
-                    alt="Card image cap"
+                    alt='Card image cap'
                 />
-                <CardBody className="cardbody">
-                    <CardTitle tag="h5">{course.title}</CardTitle>
-                    <CardText className="cardtext">
+                <CardBody className='cardbody'>
+                    <CardTitle tag='h5'>{course.title}</CardTitle>
+                    <CardText className='cardtext'>
                         {course.description}
                     </CardText>
                     <div>
-                        <div className="cardicons">
-                            <i class="fa fa-map-marker" aria-hidden="true">
+                        <div className='cardicons'>
+                            <i class='fa fa-map-marker' aria-hidden='true'>
                                 online
                             </i>
                             {/* <i class="fas fa-calendar-alt"> 28 oct, 8:00pm</i> */}
                         </div>
                         {!purchased && (
-                            <div className="card-buttons" Name>
+                            <div className='card-buttons' Name>
                                 <Button
-                                    onClick={createOrder}
-                                    color="info"
-                                    className="cardbutton"
+                                    // onClick={createOrder}
+                                    onClick={toggleReferalModel}
+                                    color='info'
+                                    className='cardbutton'
                                 >
                                     Buy &#8377;{course.price}
                                 </Button>
@@ -162,14 +166,14 @@ const Course = ({ course, reload, purchased }) => {
                                         <>
                                             <Button
                                                 onClick={toggle}
-                                                color="info"
-                                                className="cardbutton"
+                                                color='info'
+                                                className='cardbutton'
                                             >
                                                 Edit
                                             </Button>
                                             <Button
-                                                color="info"
-                                                className="cardbutton"
+                                                color='info'
+                                                className='cardbutton'
                                                 onClick={toggleDeleteModal}
                                             >
                                                 Delete
@@ -179,7 +183,7 @@ const Course = ({ course, reload, purchased }) => {
                             </div>
                         )}
                         {purchased && (
-                            <div className="card-buttons">
+                            <div className='card-buttons'>
                                 <a href={course.url}>
                                     <Button>View</Button>
                                 </a>
@@ -207,6 +211,14 @@ const Course = ({ course, reload, purchased }) => {
                 showModal={showDeleteModal}
                 toggle={toggleDeleteModal}
                 reload={reload}
+            />
+            <ReferralModal
+                title={title}
+                courseId={course._id}
+                showModal={showReferalModal}
+                toggle={toggleReferalModel}
+                reload={reload}
+                createOrder={createOrder}
             />
         </div>
     );

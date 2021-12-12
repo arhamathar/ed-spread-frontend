@@ -13,7 +13,7 @@ const useData = () => {
     const getAllCourses = useCallback(async () => {
         try {
             const resp = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/course/courses`,
+                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/courses`,
                 'GET',
                 null,
                 '/courses'

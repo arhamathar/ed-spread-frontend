@@ -21,7 +21,7 @@ const CreateEditModal = ({ title, courseId, showModal, toggle, reload }) => {
         if (confirmText.trim() === title.trim()) {
             try {
                 const { data } = await axios.delete(
-                    `${process.env.REACT_APP_BACKEND_URL_PROD}/api/course/delete/${courseId}`,
+                    `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/delete/${courseId}`,
                     {
                         headers: {
                             'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ const CreateEditModal = ({ title, courseId, showModal, toggle, reload }) => {
 
     return (
         <Modal isOpen={showModal} toggle={toggle}>
-            <ModalHeader as="h4" toggle={toggle}>
+            <ModalHeader as='h4' toggle={toggle}>
                 Are you absolutely sure?
             </ModalHeader>
             <ModalBody>
@@ -52,15 +52,15 @@ const CreateEditModal = ({ title, courseId, showModal, toggle, reload }) => {
                             <p>
                                 This action cannot be undone. This will
                                 permanently delete the{' '}
-                                <span className="font-weight-bold">
+                                <span className='font-weight-bold'>
                                     {title}
                                 </span>{' '}
                                 course from the database.
                             </p>
                             <AvField
                                 label={`Please type the course title (bold text) to confirm.`}
-                                name="confirm"
-                                type="text"
+                                name='confirm'
+                                type='text'
                                 required
                                 value={confirmText}
                                 onChange={(e) => setConfirmText(e.target.value)}
@@ -70,10 +70,10 @@ const CreateEditModal = ({ title, courseId, showModal, toggle, reload }) => {
                 </AvForm>
             </ModalBody>
             <ModalFooter>
-                <Button color="secondary" onClick={toggle}>
+                <Button color='secondary' onClick={toggle}>
                     Cancel
                 </Button>
-                <Button color="danger" onClick={onDeleteHandler}>
+                <Button color='danger' onClick={onDeleteHandler}>
                     Delete
                 </Button>
             </ModalFooter>

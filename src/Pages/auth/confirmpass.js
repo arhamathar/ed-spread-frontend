@@ -17,7 +17,7 @@ const ConfirmPass = () => {
         if (password === confirmPassword) {
             try {
                 const { data } = await axios.patch(
-                    `${process.env.REACT_APP_BACKEND_URL_PROD}/api/user/resetPassword/${token}`,
+                    `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/resetPassword/${token}`,
                     { resetPassword: password }
                 );
                 toast.success(data.message);

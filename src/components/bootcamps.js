@@ -15,7 +15,7 @@ const Bootcamps = () => {
     const getAllBootcamps = useCallback(async () => {
         try {
             const resp = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/course/bootcamps`,
+                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/bootcamps`,
                 'GET',
                 null,
                 '/'
@@ -30,8 +30,8 @@ const Bootcamps = () => {
 
     return (
         <div>
-            <div className="courseh1">
-                <h1 className="inline-block">Bootcamps</h1>
+            <div className='courseh1'>
+                <h1 className='inline-block'>Bootcamps</h1>
             </div>
             <div>
                 {bootcamps.length > 0 &&
