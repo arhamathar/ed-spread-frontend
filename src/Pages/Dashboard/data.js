@@ -20,8 +20,14 @@ const useData = () => {
     const [showModal, setShowModal] = useState(false);
     const [course, setCourse] = useState(initialState);
     const [users, setUsers] = useState([]);
+    const [subtractPointsModal, setSubtractPointsModal] = useState(false);
+    const [email, setEmail] = useState('');
+    const [points, setPoints] = useState(0);
 
     const toggle = () => setShowModal(!showModal);
+
+    const toggleSubtractPontsModal = () =>
+        setSubtractPointsModal(!subtractPointsModal);
 
     const onChangeHandler = (e) => {
         if (e.target.name === 'image') {
@@ -34,7 +40,35 @@ const useData = () => {
         }
     };
 
-    const subtractReferralPoints = () => {};
+    const subtractReferralPoints = async () => {
+        const postData = {
+            email,
+            referralPoints: points,
+        };
+        if (!email || points === 0) {
+            toast.warn('Email and Points are required');
+            return;
+        }
+        try {
+            const response = await sendRequest(
+                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/editPoints`,
+                'POST',
+                postData,
+                '/dashboard',
+                {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + auth.token,
+                }
+            );
+            console.log(response);
+            toggleSubtractPontsModal();
+            setEmail('');
+            setPoints(0);
+            getAllUsers();
+        } catch (e) {
+            toast.error('Something went wrong, please try again');
+        }
+    };
 
     const onSubmitHandler = async () => {
         try {
@@ -80,10 +114,17 @@ const useData = () => {
         showModal,
         loading,
         course,
+        email,
+        points,
         users,
         toggle,
         onChangeHandler,
         onSubmitHandler,
+        subtractReferralPoints,
+        subtractPointsModal,
+        toggleSubtractPontsModal,
+        setEmail,
+        setPoints,
     };
 };
 

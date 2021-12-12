@@ -17,21 +17,35 @@ const Dashboard = () => {
     const {
         course: { title, description, price, type, url },
         users,
+        email,
+        points,
         showModal,
         loading,
         toggle,
         onChangeHandler,
         onSubmitHandler,
+        setEmail,
+        setPoints,
+        subtractReferralPoints,
+        subtractPointsModal,
+        toggleSubtractPontsModal,
     } = useData();
 
     return (
         <div className='routes-height'>
             <div className='mx-4 d-flex justify-content-between top-margin'>
                 <p className='h5 text-muted'>ALL USERS INFORMATION</p>
-                <Button onClick={toggle} color='info'>
-                    Add Course
-                </Button>
-                <Button onClick={() => {}}>Edit Points</Button>
+                <div>
+                    <Button onClick={toggle} color='info'>
+                        Add Course
+                    </Button>
+                    <Button
+                        color='secondary ml-2'
+                        onClick={toggleSubtractPontsModal}
+                    >
+                        Edit Points
+                    </Button>
+                </div>
             </div>
             <div className='mx-4'>
                 <Table responsive hover striped bordered className='my-5'>
@@ -156,6 +170,44 @@ const Dashboard = () => {
                         onClick={onSubmitHandler}
                     >
                         Submit {loading && <Spinner color='danger' size='lg' />}
+                    </Button>
+                </ModalFooter>
+            </Modal>
+            <Modal
+                isOpen={subtractPointsModal}
+                toggle={toggleSubtractPontsModal}
+            >
+                <ModalHeader as='h4' toggle={toggleSubtractPontsModal}>
+                    Subtract Referral Points
+                </ModalHeader>
+                <ModalBody>
+                    <AvForm>
+                        <AvField
+                            label='Email'
+                            name='email'
+                            type='email'
+                            placeholder='john@gmail.com'
+                            required
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+                        />
+                        <AvField
+                            label='Referral Points'
+                            name='points'
+                            type='number'
+                            placeholder='john@gmail.com'
+                            required
+                            onChange={(e) => setPoints(e.target.value)}
+                            value={points}
+                        />
+                    </AvForm>
+                </ModalBody>
+                <ModalFooter>
+                    <Button color='danger' onClick={toggleSubtractPontsModal}>
+                        Close
+                    </Button>
+                    <Button color='primary' onClick={subtractReferralPoints}>
+                        Subtract
                     </Button>
                 </ModalFooter>
             </Modal>
