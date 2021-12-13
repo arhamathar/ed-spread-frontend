@@ -15,7 +15,7 @@ const Bootcamps = () => {
     const getAllBootcamps = useCallback(async () => {
         try {
             const resp = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/bootcamps`,
+                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/course/bootcamps`,
                 'GET',
                 null,
                 '/'

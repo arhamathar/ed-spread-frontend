@@ -67,7 +67,7 @@ const Course = ({ course, reload, purchased }) => {
         const orderDetails = { amount: price, courseId: course._id };
 
         const { data } = await axios.post(
-            `${process.env.REACT_APP_BACKEND_URL_DEV}/api/payment/orders`,
+            `${process.env.REACT_APP_BACKEND_URL_PROD}/api/payment/orders`,
             orderDetails,
             {
                 headers: {
@@ -107,7 +107,7 @@ const Course = ({ course, reload, purchased }) => {
 
                 try {
                     const { data } = await axios.post(
-                        `${process.env.REACT_APP_BACKEND_URL_DEV}/api/payment/success`,
+                        `${process.env.REACT_APP_BACKEND_URL_PROD}/api/payment/success`,
                         paymentData,
                         {
                             headers: {

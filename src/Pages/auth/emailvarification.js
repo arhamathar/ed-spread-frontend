@@ -15,7 +15,7 @@ const EmailVarification = () => {
     const onSubmitHandler = async () => {
         try {
             await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/forgotPassword`,
+                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/user/forgotPassword`,
                 'POST',
                 { email },
                 '/login'

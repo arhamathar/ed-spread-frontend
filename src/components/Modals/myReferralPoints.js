@@ -38,6 +38,15 @@ const MyReferralPoints = ({ showModal, toggle }) => {
                     <Button color='danger' onClick={toggle}>
                         Close
                     </Button>
+                    <a
+                        href='https://forms.gle/KeMR5PyMCviJQxN96'
+                        target='_blank'
+                        rel='noreferrer'
+                    >
+                        <Button color='dark' onClick={() => {}}>
+                            Redeem Now
+                        </Button>
+                    </a>
                 </ModalFooter>
             </Modal>
         </div>

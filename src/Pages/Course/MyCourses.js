@@ -14,7 +14,7 @@ const MyCourse = () => {
     const getMyCourses = useCallback(async () => {
         try {
             const resp = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/my-course/${auth.userId}`,
+                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/course/my-course/${auth.userId}`,
                 'GET',
                 null,
                 '/my-courses',

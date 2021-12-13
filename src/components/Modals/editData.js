@@ -36,7 +36,7 @@ const useData = ({
                 courseData = { ...course, image: imageUrl };
             }
             await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/update/${courseId}`,
+                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/course/update/${courseId}`,
                 'PATCH',
                 courseData,
                 '/',

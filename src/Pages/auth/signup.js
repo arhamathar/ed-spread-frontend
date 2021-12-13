@@ -27,7 +27,7 @@ const Signup = () => {
     const onSubmitHandler = async () => {
         try {
             const { user } = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/signup`,
+                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/user/signup`,
                 'POST',
                 signupUser,
                 '/',

@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
+import axios from 'axios';
 import { toast } from 'react-toastify';
 import useHttp from '../../hooks/useHttp';
 import { uploadImage } from '../../utils/uploadImage';
@@ -50,23 +51,24 @@ const useData = () => {
             return;
         }
         try {
-            const response = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/editPoints`,
-                'POST',
+            const { data } = await axios.post(
+                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/user/editPoints`,
                 postData,
-                '/dashboard',
                 {
-                    'Content-Type': 'application/json',
-                    Authorization: 'Bearer ' + auth.token,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + auth.token,
+                    },
                 }
             );
-            console.log(response);
+            console.log(data);
+            toast.success(data.message);
             toggleSubtractPontsModal();
             setEmail('');
             setPoints(0);
             getAllUsers();
         } catch (e) {
-            toast.error('Something went wrong, please try again');
+            toast.error(e.response.data.message);
         }
     };
 
@@ -75,7 +77,7 @@ const useData = () => {
             const imageUrl = await uploadImage(course);
             const courseData = { ...course, image: imageUrl };
             const response = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/course/create`,
+                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/course/create`,
                 'POST',
                 courseData,
                 '/',
@@ -93,7 +95,7 @@ const useData = () => {
     const getAllUsers = async () => {
         try {
             const response = await sendRequest(
-                `${process.env.REACT_APP_BACKEND_URL_DEV}/api/user/all-users`,
+                `${process.env.REACT_APP_BACKEND_URL_PROD}/api/user/all-users`,
                 'GET',
                 null,
                 '/dashboard',
