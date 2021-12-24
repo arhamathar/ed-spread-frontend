@@ -32,7 +32,7 @@ const Navba = () => {
     return (
         <div>
             <Navbar
-                className='navbar-stick bg-dark navbar-dark'
+                className='navbar navbar-stick navbar-dark '
                 light
                 expand='md'
             >
@@ -82,7 +82,7 @@ const Navba = () => {
                         )}
                         <NavItem>
                             <Button
-                                color='info'
+                                className='text-light bg-transparent btn:focus'
                                 onClick={() =>
                                     setShowReferralModal(!showReferralModal)
                                 }
@@ -127,7 +127,7 @@ const Navba = () => {
                             <NavItem>
                                 <NavLink
                                     onClick={() => setIsOpen(false)}
-                                    className='text-light'
+                                    className='btn-primary signup'
                                     to='/signup'
                                 >
                                     Sign Up
