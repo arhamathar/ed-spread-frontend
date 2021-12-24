@@ -50,7 +50,7 @@ const Signup = () => {
     };
 
     return (
-        <div className='w-100 vh-100 bg-light py-5'>
+        <div className='w-100 vh-100 bg-light py-5 login'>
             <Card className=' login-card w-50 p-4 mx-auto mt-5 shadow'>
                 <p className='h3 text-dark center'>SIGN UP TO A NEW ACCOUNT </p>
                 <AvForm>

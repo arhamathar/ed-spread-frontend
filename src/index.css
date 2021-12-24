@@ -389,6 +389,12 @@ code {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: radial-gradient(
+        circle,
+        rgb(10, 50, 90) 10%,
+        rgba(9, 22, 36, 1) 90%
+    );
+    color: white;
 }
 
 .aboutus p {
@@ -460,4 +466,13 @@ code {
     text-align: center;
     color: white;
     padding-bottom: 20px;
+}
+/* login */
+
+.login {
+    background-image: radial-gradient(
+        circle,
+        rgb(10, 50, 90) 10%,
+        rgba(9, 22, 36, 1) 90%
+    );
 }
