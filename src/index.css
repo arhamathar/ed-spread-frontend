@@ -274,13 +274,15 @@ code {
         url('https://csde.washington.edu/wp-content/uploads/2020/08/workshop-photo.jpg')
             no-repeat center center fixed; */
     background-size: cover;
+    display: flex;
+    /* flex-direction: column; */
     background-color: #000080;
     position: relative;
 }
 
 .banner-ani {
     width: 40%;
-    position: absolute;
+    /* position: absolute; */
     margin-left: 60%;
     margin-top: 7%;
 }
@@ -318,6 +320,33 @@ code {
 }
 
 @media only screen and (max-width: 700px) {
+    .learn-button {
+        margin-left: 30%;
+        /* margin-top: 10px; */
+    }
+    .banner-para h1 {
+        font-size: 4rem;
+    }
+    .banner-para h5 {
+        font-size: 1rem;
+    }
+    .navbar {
+        background-color: black;
+        margin: 0;
+        padding: 2px;
+    }
+    .banner-input {
+        margin: 0;
+        width: 50%;
+        padding: 10px 0 4px 10px;
+    }
+    .banner-ani {
+        display: none;
+        /* flex-direction: column; */
+    }
+    .banner-para {
+        width: 100%;
+    }
     .learn {
         display: flex;
         flex-direction: column;
@@ -325,7 +354,7 @@ code {
     }
     .learnimage {
         width: 100%;
-        height: 200px;
+        height: auto;
     }
     .titleh1 {
         width: 100%;
@@ -341,8 +370,15 @@ code {
         flex-direction: column;
         margin: 10px;
     }
+    .help {
+        width: 100%;
+    }
+    .clarification {
+        padding-top: 20px;
+    }
     .help-para {
         width: 100%;
+        height: 380px;
     }
     .help-form {
         width: 100%;
@@ -371,6 +407,17 @@ code {
     }
     .cardbutton {
         margin-top: 10px;
+    }
+    .teach-button {
+        margin-left: 0px;
+        /* margin-right: 10px; */
+    }
+    .footer {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer2 {
+        width: 100%;
     }
 }
 /* about us */
@@ -404,7 +451,7 @@ code {
 
 .teach-button {
     color: black;
-    margin-left: 250px;
+    /* margin-left: 250px; */
     padding: 5px;
     margin-top: 10px;
 }

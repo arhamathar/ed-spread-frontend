@@ -1,9 +1,9 @@
 import React from 'react';
-import Animation from '../assests/4.png';
+import Animation from '../assests/5.png';
 
 const Banner = () => {
     return (
-        <div className='banner routes-height bannerimage'>
+        <div className='banner routes-height'>
             <div className='banner-para'>
                 <h1>WELCOME TO ED-SPREAD</h1>
                 <h5>Learn the newest technologies and explore with us</h5>
