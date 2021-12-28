@@ -21,6 +21,9 @@ code {
 .navbar {
     z-index: 3;
 }
+.solid-navbar{
+    background-color: rgb(10, 50, 90);
+}
 .nav-item {
     padding: 10px;
 }
@@ -424,7 +427,7 @@ code {
     );
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
     .learn-button {
         margin-left: 30%;
         /* margin-top: 10px; */
@@ -436,7 +439,6 @@ code {
         font-size: 1rem;
     }
     .navbar {
-        background-color: black;
         margin: 0;
         padding: 2px;
     }

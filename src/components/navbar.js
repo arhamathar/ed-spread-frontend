@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
     Collapse,
@@ -28,11 +28,32 @@ const Navba = () => {
         auth.logout();
         history.push('/login');
     };
+    const [colorChange, setColorchange] = useState(false);
+    const changeNavbarColor = () =>{
+        if(window.scrollY >= 200){
+        setColorchange(true);
+        }
+        else{
+        setColorchange(false);
+        }
+    };
+    window.addEventListener('scroll', changeNavbarColor);
+
+    const [matches, setMatches] = useState(
+        window.matchMedia("(max-width: 768px)").matches
+    )
+    
+    useEffect(() => {
+        window
+        .matchMedia("(max-width: 768px)")
+        .addEventListener('change', e => setMatches( e.matches ));
+    }, [matches]);
+
 
     return (
         <div>
             <Navbar
-                className='navbar navbar-stick navbar-dark '
+                className={`navbar navbar-stick navbar-dark ${colorChange ? 'solid-navbar' : ''}`}
                 light
                 expand='md'
             >
@@ -46,7 +67,7 @@ const Navba = () => {
                     </NavLink>
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
+                <Collapse isOpen={isOpen} navbar className={`${matches ? 'solid-navbar' : ''}`}>
                     <Nav
                         className='ml-auto text-light d-flex align-items-center largeText'
                         navbar
