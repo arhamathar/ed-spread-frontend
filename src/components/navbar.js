@@ -30,7 +30,7 @@ const Navba = () => {
     };
     const [colorChange, setColorchange] = useState(false);
     const changeNavbarColor = () =>{
-        if(window.scrollY >= 200){
+        if(window.scrollY >= 150){
         setColorchange(true);
         }
         else{
@@ -148,7 +148,7 @@ const Navba = () => {
                             <NavItem>
                                 <NavLink
                                     onClick={() => setIsOpen(false)}
-                                    className='btn-primary signup'
+                                    className='btn-primary signup text-white'
                                     to='/signup'
                                 >
                                     Sign Up

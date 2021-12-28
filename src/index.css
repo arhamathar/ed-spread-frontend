@@ -13,6 +13,10 @@ code {
         monospace;
 }
 
+a {
+    text-decoration: none;
+}
+
 @media (max-width: 600px) {
     .login-card {
         min-width: 20rem;
@@ -170,13 +174,13 @@ code {
     font-size: 5rem;
     font-family: Alfa Slab One;
     color: white;
-    padding: 8px;
+    padding: 10px 0;
 }
 .titleh1 h5 {
     font-size: 1.5rem;
     color: white;
     font-family: Alfa Slab One;
-    padding: 5px;
+    padding: 5px 0;
 }
 .titleh1 a {
     text-decoration: none;
@@ -184,16 +188,8 @@ code {
 }
 .learn-button {
     border-radius: 0;
-    color: black;
-    margin-left: 40%;
+    color: #fff;
     margin-top: 10px;
-}
-.learn-button a {
-    color: black;
-}
-
-.learn-button a:hover {
-    color: white;
 }
 
 /* help section */
@@ -277,48 +273,41 @@ code {
             no-repeat center center fixed; */
     background-size: cover;
     display: flex;
-    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
     background-color: #000080;
-    position: relative;
 }
 
 .banner-ani {
-    width: 40%;
-    /* position: absolute; */
-    margin-left: 60%;
-    margin-top: 7%;
+    width: 50%;
 }
 .banner-ani img {
-    height: 480px;
+    width: 100%;
 }
 
 .banner-para h1 {
     font-size: 5rem;
+    margin-left: 3rem;
     font-family: Alfa Slab One;
 }
 .banner-para h5 {
     font-size: 1.5rem;
+    margin-left: 3rem;
 }
 .banner-para {
-    text-align: center;
-    color: white;
-    font-family: sans-serif;
+    text-align: left;
     width: 60%;
-    position: absolute;
-    top: 25%;
 }
 
 .banner-input {
     background-color: rgb(10, 50, 90);
     padding: 10px 0 4px 20px;
-    margin: 40px 0px 5px 5px;
+    margin-left: 3rem;
+    margin-top: 2rem;
     border: 0;
     width: 60%;
-}
-
-.banner-button {
-    border-radius: 0;
-    color: black;
+    color: #fff;
 }
 
 /* footer */
@@ -411,8 +400,7 @@ code {
 /* teach */
 
 .teach-button {
-    color: black;
-    margin-left: 250px;
+    color: #fff;
     padding: 5px;
     margin-top: 10px;
 }
@@ -428,35 +416,33 @@ code {
 }
 
 @media only screen and (max-width: 768px) {
-    .learn-button {
-        margin-left: 30%;
-        /* margin-top: 10px; */
-    }
     .banner-para h1 {
-        font-size: 4rem;
+        margin-left: 0;
+        font-size: 3.5rem;
     }
     .banner-para h5 {
-        font-size: 1rem;
+        font-size: 1.25rem;
+        margin-left: 0;
     }
     .navbar {
         margin: 0;
         padding: 2px;
     }
     .banner-input {
-        margin: 0;
-        width: 50%;
-        padding: 10px 0 4px 10px;
+        margin-left: 0;
+        padding: 10px 0 10px 10px;
     }
     .banner {
         display: flex;
         flex-direction: column;
     }
     .banner-ani {
-        display: none;
-        /* flex-direction: column; */
+        display:none;
     }
     .banner-para {
         width: 100%;
+        text-align: center;
+        margin: 10rem auto;
     }
     .learn {
         display: flex;
@@ -471,10 +457,7 @@ code {
         width: 100%;
     }
     .titleh1 h1 {
-        font-size: 30px;
-    }
-    .titleh1 h5 {
-        font-size: 15px;
+        font-size: 3rem;
     }
     .helpcard {
         display: flex;
@@ -519,10 +502,6 @@ code {
     }
     .cardbutton {
         margin-top: 10px;
-    }
-    .teach-button {
-        margin-left: 80px;
-        /* margin-right: 10px; */
     }
     .footer {
         display: flex;
