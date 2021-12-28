@@ -8,6 +8,26 @@ body {
     font-size: 1.25rem;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
@@ -39,7 +59,12 @@ a {
     z-index: 1;
 }
 .routes-height {
-    min-height: 100vh;
+    min-height: 100vh;   
+    background-image: radial-gradient(
+        circle,
+        rgb(10, 50, 90) 10%,
+        rgba(9, 22, 36, 1) 90%
+    );
 }
 
 .largeText {
@@ -47,7 +72,7 @@ a {
 }
 
 .top-margin {
-    margin-top: 5rem;
+    padding-top: 5rem;
 }
 
 .nav-item a {
@@ -60,10 +85,6 @@ a {
 
 .pointer {
     cursor: pointer;
-}
-
-.signup {
-    padding: 10px;
 }
 
 /* card and bootcamp */
@@ -99,7 +120,6 @@ a {
 
 .cardbutton {
     color: black;
-    /* margin-right: 10px; */
     padding: 5px 20px;
     border-radius: 0;
 }
@@ -225,7 +245,7 @@ a {
 .help-para {
     font-family: Alfa Slab One;
     border-radius: 5%;
-    /* width: 50%; */
+    max-width: 25rem;
     padding: 20px;
     height: 350px;
     color: white;
@@ -238,8 +258,8 @@ a {
 }
 
 .help-form h2 {
+    margin-top: 50px;
     color: rgb(64, 152, 224);
-    padding-top: 50px;
 }
 .help-form h1 {
     padding-bottom: 10px;
@@ -477,6 +497,9 @@ a {
     .help-form {
         width: 100%;
         text-align: center;
+    }
+    .help-form h2{        
+        margin-top: 0;
     }
     .banner-para h1 {
         font-size: 3.5rem;

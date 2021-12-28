@@ -34,13 +34,13 @@ const Dashboard = () => {
     return (
         <div className='routes-height'>
             <div className='mx-4 d-flex justify-content-between top-margin'>
-                <p className='h5 text-muted'>ALL USERS INFORMATION</p>
+                <p className='h5 text-light'>ALL USERS INFORMATION</p>
                 <div>
-                    <Button onClick={toggle} color='info'>
+                    <Button onClick={toggle} color='primary'>
                         Add Course
                     </Button>
                     <Button
-                        color='secondary ml-2'
+                        color='dark ml-2'
                         onClick={toggleSubtractPontsModal}
                     >
                         Edit Points
@@ -48,8 +48,8 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className='mx-4'>
-                <Table responsive hover striped bordered className='my-5'>
-                    <thead className='thead-light'>
+                <Table responsive hover striped bordered className='my-5 text-light'>
+                    <thead className='thead-transparent text-center'>
                         <tr>
                             <th>S.No.</th>
                             <th>Name</th>

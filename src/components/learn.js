@@ -16,9 +16,9 @@ const Learn = () => {
                     able to do several tasks with the courses taught here. You
                     will enjoy learning the technologies here.
                 </h5>
-                <button class='btn btn-primary learn-button '>
+                <Button color='primary' className='learn-button text-white'>
                     <Link to='courses'>Find course</Link>
-                </button>
+                </Button>
             </div>
         </div>
     );

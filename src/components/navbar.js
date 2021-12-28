@@ -158,7 +158,7 @@ const Navba = () => {
                         {auth.isLoggedIn && (
                             <NavItem>
                                 <Button
-                                    color='transparent'
+                                    color='secondary'
                                     onClick={logoutHandler}
                                 >
                                     Log Out

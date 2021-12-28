@@ -166,7 +166,7 @@ const Course = ({ course, reload, purchased }) => {
                                 <Button
                                     // onClick={createOrder}
                                     onClick={toggleReferalModel}
-                                    color='info'
+                                    color='primary'
                                     className='cardbutton'
                                 >
                                     Buy &#8377;{course.price}
@@ -177,13 +177,13 @@ const Course = ({ course, reload, purchased }) => {
                                         <>
                                             <Button
                                                 onClick={toggle}
-                                                color='info'
+                                                color='warning'
                                                 className='cardbutton'
                                             >
                                                 Edit
                                             </Button>
                                             <Button
-                                                color='info'
+                                                color='danger'
                                                 className='cardbutton'
                                                 onClick={toggleDeleteModal}
                                             >
@@ -196,7 +196,7 @@ const Course = ({ course, reload, purchased }) => {
                         {purchased && (
                             <div className='card-buttons'>
                                 <a href={course.url}>
-                                    <Button>View</Button>
+                                    <Button color='dark'>View</Button>
                                 </a>
                             </div>
                         )}

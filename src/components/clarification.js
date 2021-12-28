@@ -69,9 +69,9 @@ const Clarification = () => {
                             required
                             placeholder='Phone-Number'
                         />
-                        <button class='btn btn-primary'>
+                        <Button color='primary'>
                             Request Clarification
-                        </button>
+                        </Button>
                     </AvForm>
                 </div>
             </Card>

@@ -15,12 +15,12 @@ const Teach = () => {
                     we clear the doubts at any time regarding that concept. You
                     will enjoy the way here we teach
                 </h5>
+                <Link to='/about'>
+                    <button className='btn-primary teach-button' color='info'>
+                        Find out more
+                    </button>
+                </Link>
             </div>
-            <Link to='/about'>
-                <button className='btn-primary teach-button' color='info'>
-                    Find out more
-                </button>
-            </Link>
             <img className='learnimage' src={Animation} alt='image1' />
         </div>
     );
