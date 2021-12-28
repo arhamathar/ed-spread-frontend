@@ -22,23 +22,25 @@ const Clarification = () => {
                             clarification. We’ll be glad to help you find the
                             course.
                         </h5>
-                        <div className='clarification-iconf'>
-                            <SocialIconLinks
-                                href={
-                                    'https://www.google.com/url?q=http://www.youtube.com/channel/UCt4EU38IOgU9ww1Yrq_n-vA&sa=D&source=editors&ust=1632300022213000&usg=AFQjCNFoEAKaTrNwbawHpHOfo9RqBfD5Og'
-                                }
-                                icon={'fas fa-envelope'}
-                            />
-                            <h5>support@edspread.in</h5>
-                        </div>
                         <div className='clarification-icon'>
-                            <SocialIconLinks
-                                href={
-                                    'https://www.google.com/url?q=http://www.youtube.com/channel/UCt4EU38IOgU9ww1Yrq_n-vA&sa=D&source=editors&ust=1632300022213000&usg=AFQjCNFoEAKaTrNwbawHpHOfo9RqBfD5Og'
-                                }
-                                icon={'fas fa-phone'}
-                            />
-                            <h5>+91 78426 05842</h5>
+                            <div>
+                                <SocialIconLinks
+                                    href={
+                                        'https://www.google.com/url?q=http://www.youtube.com/channel/UCt4EU38IOgU9ww1Yrq_n-vA&sa=D&source=editors&ust=1632300022213000&usg=AFQjCNFoEAKaTrNwbawHpHOfo9RqBfD5Og'
+                                    }
+                                    icon={'fas fa-envelope'}
+                                />
+                                <h5>support@edspread.in</h5>
+                            </div>
+                            <div>
+                                <SocialIconLinks
+                                    href={
+                                        'https://www.google.com/url?q=http://www.youtube.com/channel/UCt4EU38IOgU9ww1Yrq_n-vA&sa=D&source=editors&ust=1632300022213000&usg=AFQjCNFoEAKaTrNwbawHpHOfo9RqBfD5Og'
+                                    }
+                                    icon={'fas fa-phone'}
+                                />
+                                <h5>+91 78426 05842</h5>
+                            </div>
                         </div>
                     </div>
                 </div>

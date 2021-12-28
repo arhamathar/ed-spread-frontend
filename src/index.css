@@ -5,6 +5,7 @@ body {
         'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 1.25rem;
 }
 
 code {
@@ -22,7 +23,7 @@ code {
     z-index: 3;
 }
 .solid-navbar{
-    background-color: rgb(10, 50, 90);
+    background-color: rgba(9, 22, 36, 1);
 }
 .nav-item {
     padding: 10px;
@@ -203,8 +204,7 @@ code {
         rgba(9, 22, 36, 1) 90%
     ); */
     background-color: rgba(9, 22, 36, 1);
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 50px auto;
     /* height: 500px; */
 }
 
@@ -229,7 +229,7 @@ code {
 .help-para {
     font-family: Alfa Slab One;
     border-radius: 5%;
-    width: 50%;
+    /* width: 50%; */
     padding: 20px;
     height: 350px;
     color: white;
@@ -248,13 +248,12 @@ code {
 .help-form h1 {
     padding-bottom: 10px;
 }
-.help-form input {
-    width: 80%;
+.clarification-icon {
+    padding-bottom: 20px;
 }
 
-.clarification-icon {
+.clarification-icon div {
     display: flex;
-    padding-bottom: 10px;
 }
 
 .help-para h1 {
@@ -325,7 +324,9 @@ code {
 /* footer */
 .footer {
     background-color: rgba(9, 22, 36, 1);
-    display: flex;
+    display: flex; 
+    justify-content: space-between;
+    align-items: self-start;
 }
 
 .footer1 {
@@ -341,7 +342,6 @@ code {
     justify-content: center;
 }
 .footer1 h5 {
-    width: 60%;
     padding-top: 10px;
 }
 .footer2 {
@@ -479,7 +479,7 @@ code {
     .helpcard {
         display: flex;
         flex-direction: column;
-        margin: 10px;
+        padding: 1.5rem;
     }
     .help {
         width: 100%;
@@ -493,6 +493,7 @@ code {
     }
     .help-form {
         width: 100%;
+        text-align: center;
     }
     .banner-para h1 {
         font-size: 3.5rem;

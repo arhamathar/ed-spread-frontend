@@ -93,7 +93,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div>© 2021 All Rights Reserved: Developed By Ed-Spread</div>
+            <p>© 2021 All Rights Reserved: Developed By Ed-Spread</p>
         </div>
         //     <div>
         //         <footer class="bg-dark text-center text-white">
