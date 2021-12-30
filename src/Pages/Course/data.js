@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import useHttp from '../../hooks/useHttp';
 
 const useData = () => {
-    const { sendRequest } = useHttp();
+    const { sendRequest,loading } = useHttp();
 
     const [courses, setCourses] = useState([]);
 
@@ -26,7 +26,7 @@ const useData = () => {
         getAllCourses();
     }, [getAllCourses]);
 
-    return { courses, reload };
+    return { courses, loading, reload };
 };
 
 export default useData;
