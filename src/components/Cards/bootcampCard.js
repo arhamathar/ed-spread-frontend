@@ -29,32 +29,31 @@ const Bootcamp = ({ bootcamp, reload }) => {
     const { title, description, price, type, image, url } = course;
 
     return (
-        <div className="carddiv">
-            <Card className="coursecard">
+        <div className='carddiv'>
+            <Card className='coursecard'>
                 <CardImg
-                    className="cardimage"
+                    className='cardimage'
                     top
-                    width="100%"
+                    width='100%'
                     src={bootcamp.image}
-                    alt="Card image cap"
+                    alt='Card image cap'
                 />
-                <CardBody className="cardbody">
-                    <CardTitle tag="h5">{bootcamp.title}</CardTitle>
-                    <CardText className="cardtext">
+                <CardBody className='cardbody'>
+                    <CardTitle tag='h5'>{bootcamp.title}</CardTitle>
+                    <CardText className='cardtext'>
                         {bootcamp.description}
                     </CardText>
                     <div>
-                        <div className="cardicons">
-                            <i class="fa fa-map-marker" aria-hidden="true">
-                                online
+                        <div className='cardicons'>
+                            <i className='fal fa-map-marker-alt'>
+                                <span className='mx-2'>Online</span>
                             </i>
-                            {/* <i class="fas fa-calendar-alt"> 28 oct, 8:00pm</i> */}
                         </div>
-                        <div className="card-buttons" Name>
-                            <Button color="info" className="cardbutton">
+                        <div className='card-buttons'>
+                            <Button className='cardbutton mr-3' color='primary'>
                                 <a
                                     className="register"
-                                    href={url}
+                                    href={bootcamp.url}
                                     target="_blank"
                                     rel="noreferrer"
                                 >
@@ -67,14 +66,14 @@ const Bootcamp = ({ bootcamp, reload }) => {
                                     <>
                                         <Button
                                             onClick={toggle}
-                                            color="info"
-                                            className="cardbutton"
+                                            color="warning"
+                                            className="cardbutton mr-3"
                                         >
                                             Edit
                                         </Button>
                                         <Button
-                                            color="info"
-                                            className="cardbutton"
+                                            color="danger"
+                                            className="cardbutton mr-3"
                                             onClick={toggleDeleteModal}
                                         >
                                             Delete

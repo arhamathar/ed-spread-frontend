@@ -29,19 +29,19 @@ const Bootcamps = () => {
     }, [getAllBootcamps]);
 
     return (
-        <div>
+        <div className='bootcamps'>
             <div className='courseh1'>
                 <h1 className='inline-block'>Bootcamps</h1>
             </div>
             <div>
                 {bootcamps.length > 0 &&
                     bootcamps.map((bootcamp) => (
-                        <BootcampCard
-                            key={bootcamp._id}
-                            bootcamp={bootcamp}
-                            reload={reload}
-                        />
-                    ))}
+                    <BootcampCard
+                        key={bootcamp._id}
+                        bootcamp={bootcamp}
+                        reload={reload}
+                    />
+                ))}
             </div>
         </div>
     );

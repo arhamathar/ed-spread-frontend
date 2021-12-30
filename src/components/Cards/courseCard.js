@@ -156,18 +156,16 @@ const Course = ({ course, reload, purchased }) => {
                     </CardText>
                     <div>
                         <div className='cardicons'>
-                            <i class='fa fa-map-marker' aria-hidden='true'>
-                                online
+                            <i class="fal fa-map-marker-alt">
+                               <span className='mx-2'>Online</span>
                             </i>
-                            {/* <i class="fas fa-calendar-alt"> 28 oct, 8:00pm</i> */}
                         </div>
                         {!purchased && (
-                            <div className='card-buttons' Name>
+                            <div className='card-buttons'>
                                 <Button
-                                    // onClick={createOrder}
                                     onClick={toggleReferalModel}
-                                    color='info'
-                                    className='cardbutton'
+                                    color='primary'
+                                    className='cardbutton mr-3'
                                 >
                                     Buy &#8377;{course.price}
                                 </Button>
@@ -177,14 +175,14 @@ const Course = ({ course, reload, purchased }) => {
                                         <>
                                             <Button
                                                 onClick={toggle}
-                                                color='info'
-                                                className='cardbutton'
+                                                color='warning'
+                                                className='cardbutton mr-3'
                                             >
                                                 Edit
                                             </Button>
                                             <Button
-                                                color='info'
-                                                className='cardbutton'
+                                                color='danger'
+                                                className='cardbutton mr-3'
                                                 onClick={toggleDeleteModal}
                                             >
                                                 Delete
@@ -196,7 +194,7 @@ const Course = ({ course, reload, purchased }) => {
                         {purchased && (
                             <div className='card-buttons'>
                                 <a href={course.url}>
-                                    <Button>View</Button>
+                                    <Button color='primary'>View</Button>
                                 </a>
                             </div>
                         )}

@@ -1,21 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Open+Sans:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;700&display=swap');
+
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-        'Helvetica Neue', sans-serif;
+    font-family: 'Arvo', serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Source Serif Pro', serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 1.25rem;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-        monospace;
-}
+::-webkit-scrollbar { width: 10px; } 
+/* Track */ 
+::-webkit-scrollbar-track { background: #f1f1f1; } 
+/* Handle */ 
+::-webkit-scrollbar-thumb { background: #888; } 
+/* Handle on hover */ 
+::-webkit-scrollbar-thumb:hover { background: #555; }
 
-@media (max-width: 600px) {
-    .login-card {
-        min-width: 20rem;
-    }
+.navbar {
+    z-index: 3;
+    font-family: 'Arvo', serif;
+}
+.solid-navbar{
+    background-color: rgba(9, 22, 36, 1);
 }
 .nav-item {
     padding: 10px;
@@ -27,15 +35,19 @@ code {
     z-index: 1;
 }
 .routes-height {
-    min-height: 100vh;
+    min-height: 100vh;  
+    background-image: radial-gradient(
+        circle,
+        rgb(10, 50, 90) 10%,
+        rgba(9, 22, 36, 1) 90%
+    );
 }
-
 .largeText {
     font-size: 1.2rem;
 }
 
 .top-margin {
-    margin-top: 5rem;
+    padding-top: 5rem;
 }
 
 .nav-item a {
@@ -43,11 +55,16 @@ code {
     text-decoration: none;
 }
 .logo img {
-    height: 40px;
+    height: 50px;
 }
 
 .pointer {
     cursor: pointer;
+}
+
+.signup {
+    padding: 10px;
+    border-radius: 0;
 }
 
 /* card and bootcamp */
@@ -58,9 +75,11 @@ code {
     border: '1px solid #d3cede';
     width: 100%;
     border-radius: 10px;
+    background-color: transparent;
 }
 
 .carddiv {
+    background-color: transparent;
     display: flex;
     padding: 40px;
     flex-wrap: wrap;
@@ -76,16 +95,17 @@ code {
     display: flex;
     margin-top: 20px;
     bottom: 0;
-    width: 100%;
+    /* width: 15%; */
 }
 
 .cardbutton {
-    margin-right: 10px;
+    color: #fff;
     padding: 5px 20px;
+    border-radius: 0;
 }
 
 .cardimage {
-    border-radius: 10px 0 0 10px;
+    border-radius: 0;
     width: 40%;
 }
 
@@ -100,84 +120,352 @@ code {
 
 .courseh1 {
     text-align: center;
-    margin-top: 80px;
+    padding-top: 90px;
+}
+.courseh1 h1 {
+    color: white;
+    font-family: 'Source Serif Pro', serif;
+}
+
+.bootcamps {
+    background-image: radial-gradient(
+        circle,
+        rgb(10, 50, 90) 10%,
+        rgba(9, 22, 36, 1) 90%
+    );
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.cardbody {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
 }
 /* homepage learn section */
+
 .learnimage {
-    width: 80%;
-    height: 500px;
-    border-radius: 30px;
-    padding: 10px;
+    width: 40%;
+    padding: 20px;
 }
 .learn {
+    background-image: radial-gradient(
+        circle,
+        rgb(10, 50, 90) 10%,
+        rgba(9, 22, 36, 1) 90%
+    );
     display: flex;
-    margin: 30px;
+    background-size: cover;
+    background-color: #000080;
+    position: relative;
+    padding: 1.25rem;
 }
 .titleh1 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: 40%;
-    padding: 10px;
+    width: 60%;
+    padding: 20px;
 }
 
 .titleh1 h1 {
-    font-size: 50px;
+    font-size: 4rem;
+    font-family: 'Source Serif Pro', serif;
+    color: white;
+    padding: 10px 0;
 }
 .titleh1 h5 {
-    font-size: 20px;
-    color: grey;
+    font-size: 1.5rem;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    padding: 5px 0;
 }
 .titleh1 a {
     text-decoration: none;
     color: white;
 }
+.learn-button {
+    border-radius: 0;
+    color: #fff;
+    margin-top: 10px;
+}
 
 /* help section */
+.clarification {
+    /* background-image: radial-gradient(
+        circle,
+        rgb(10, 50, 90) 10%,
+        rgba(9, 22, 36, 1) 90%
+    ); */
+    background-color: rgba(9, 22, 36, 1);
+    padding-top: 50px auto;
+    /* height: 500px; */
+}
+
 .helpcard {
+    background-color: transparent;
     display: flex;
     flex-direction: row;
-    margin: 50px;
-    border-radius: 10px;
+    /* margin: 50px; */
+    /* border-radius: 10px; */
 }
-.help-para {
+.help {
     display: flex;
+    height: 500px;
     flex-direction: column;
     width: 50%;
     padding: 20px;
+    text-align: center;
     justify-content: center;
+    align-items: center;
+}
+
+.help-para {
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 5%;
+    max-width: 25rem;
+    padding: 20px;
+    height: 350px;
+    color: white;
+    background-color: rgb(0, 110, 255);
 }
 .help-form {
     width: 50%;
     padding: 20px;
+    color: white;
+    max-width: 35rem;
+}
+
+.help-form h2 {
+    margin-top: 50px;
+    color: rgb(64, 152, 224);
+}
+.help-form h1 {
+    padding-bottom: 10px;
+}
+.clarification-icon {
+    padding-bottom: 20px;
+}
+
+.clarification-icon div {
+    display: flex;
+}
+
+.help-para h1 {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.help-para h5 {
+    padding: 10px;
 }
 
 /* banner */
 .banner {
     width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
+    background-image: radial-gradient(
+        circle,
+        rgb(10, 50, 90) 10%,
+        rgba(9, 22, 36, 1) 90%
+    );
+    /* background: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
         url('https://csde.washington.edu/wp-content/uploads/2020/08/workshop-photo.jpg')
-            no-repeat center center fixed;
+            no-repeat center center fixed; */
     background-size: cover;
-    position: relative;
-}
-.banner-para h1 {
-    font-size: 5rem;
-}
-.banner-para h5 {
-    font-size: 2rem;
-}
-.banner-para {
-    text-align: center;
-    color: white;
-    font-family: sans-serif;
-    width: 100%;
-    position: absolute;
-    top: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    background-color: #000080;
 }
 
-@media only screen and (max-width: 700px) {
+.banner-ani {
+    width: 50%;
+    position: relative;
+}
+.banner-ani img {
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: -13rem;
+}
+
+.banner-para h1 {
+    font-size: 5rem;
+    margin-left: 3rem;
+    font-family: 'Arvo', serif;
+    font-weight: 700;
+}
+.banner-para h5 {
+    font-size: 1.5rem;
+    margin-left: 3rem;
+    font-family: 'Open Sans', sans-serif;
+}
+.banner-para {
+    text-align: left;
+    width: 60%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.banner-input {
+    background-color: rgb(10, 50, 90);
+    padding: 10px 0 4px 20px;
+    margin-left: 3rem;
+    margin-top: 2rem;
+    border: 0;
+    width: 60%;
+    color: #fff;
+}
+
+/* footer */
+.footer {
+    background-color: rgba(0,0,0,0.9);
+    display: flex; 
+    justify-content: space-between;
+    align-items: self-start;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer1 {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 33%;
+    /* height: 300px; */
+    padding: 30px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.footer1 h5 {
+    padding-top: 10px;
+}
+.footer2 {
+    width: 33%;
+    padding: 39px;
+    color: white;
+    text-align: center;
+}
+.footer2 li {
+    padding-top: 10px;
+}
+
+.footer3 {
+    width: 34%;
+    text-align: center;
+    padding: 39px;
+    color: white;
+}
+.clarification-iconf {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.footer4 {
+    padding-top: 30px;
+}
+.foot {
+    background-color: rgba(0,0,0,0.9);
+    text-align: center;
+    color: white;
+}
+
+.foot p {
+    background-color: rgba(0,0,0,0.9);
+    margin: 0;
+    padding: 2rem;
+}
+/* about us */
+
+.abouth1 {
+    text-align: center;
+    margin-top: 80px;
+}
+.aboutus {
+    width: 80%;
+    margin: 20px;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(
+        circle,
+        rgb(10, 50, 90) 10%,
+        rgba(9, 22, 36, 1) 90%
+    );
+    color: white;
+}
+
+.aboutus p {
+    font-size: 20px;
+}
+
+/* Referral page */
+
+
+/* teach */
+
+.teach-button {
+    color: #fff;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* login */
+
+.login {
+    background-image: radial-gradient(
+        circle,
+        rgb(10, 50, 90) 10%,
+        rgba(9, 22, 36, 1) 90%
+    );
+}
+
+
+@media only screen and (max-width: 768px) {
+    .banner-para h1 {
+        margin-left: 0;
+        font-size: 3rem;
+    }
+    .banner-para h5 {
+        font-size: 1.25rem;
+        margin-left: 0;
+    }
+    .navbar {
+        margin: 0;
+        padding: 2px;
+    }
+    .banner-input {
+        margin-left: 0;
+        padding: 10px 0 10px 10px;
+    }
+    .banner {
+        display: flex;
+        flex-direction: column;
+    }
+    .banner-ani {
+        width: 100%;
+        position: static!important;
+    }
+    .banner-ani img {
+        width: 100%;
+        position: static!important;
+    }
+
+    .banner-para {
+        width: 100%;
+        text-align: center;
+        margin: 6rem auto 0;
+    }
     .learn {
         display: flex;
         flex-direction: column;
@@ -185,30 +473,36 @@ code {
     }
     .learnimage {
         width: 100%;
-        height: 200px;
+        height: auto;
     }
     .titleh1 {
         width: 100%;
     }
     .titleh1 h1 {
-        font-size: 30px;
-    }
-    .titleh1 h5 {
-        font-size: 15px;
+        font-size: 3rem;
     }
     .helpcard {
         display: flex;
         flex-direction: column;
-        margin: 10px;
+        padding: 1.5rem;
+    }
+    .help {
+        width: 100%;
+    }
+    .clarification {
+        padding-top: 20px;
     }
     .help-para {
         width: 100%;
+        height: 380px;
     }
     .help-form {
         width: 100%;
+        text-align: center;
+        margin:auto;
     }
-    .banner-para h1 {
-        font-size: 3.5rem;
+    .help-form h2{        
+        margin-top: 0;
     }
     .carddiv {
         width: 100%;
@@ -232,25 +526,32 @@ code {
     .cardbutton {
         margin-top: 10px;
     }
-}
-/* about us */
-
-.abouth1 {
-    text-align: center;
-    margin-top: 80px;
-}
-.aboutus {
-    width: 80%;
-    margin: 20px;
-}
-
-.about {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    .footer {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer3 {
+        width: 100%;
+    }
+    .footer2 {
+        width: 100%;
+    }
+    .footer1 {
+        width: 100%;
+    }
 }
 
-.aboutus p {
-    font-size: 20px;
+@media (max-width: 600px) {
+    .login-card {
+        min-width: 20rem;
+    }
+    .referralCard p {
+        font-size: 1.25rem;
+    }
+    .banner-para h1 {
+        font-size: 2.25rem;
+    }
+    .banner-para h5 {
+        padding: 0 1rem;
+    }
 }

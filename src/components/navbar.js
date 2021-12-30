@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
     Collapse,
@@ -12,27 +12,45 @@ import {
 import { NavLink } from 'react-router-dom';
 import Logo from '../assests/symbol.png';
 import { AuthContext } from '../context/authContext';
-import MyReferralPoints from './Modals/myReferralPoints';
 
 const Navba = () => {
     const auth = useContext(AuthContext);
     const history = useHistory();
 
     const [isOpen, setIsOpen] = useState(false);
-    const [showReferralModal, setShowReferralModal] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
-    const toggleReferralModal = () => setShowReferralModal(!showReferralModal);
 
     const logoutHandler = () => {
         auth.logout();
         history.push('/login');
     };
+    const [colorChange, setColorchange] = useState(false);
+    const changeNavbarColor = () =>{
+        if(window.scrollY >= 150){
+        setColorchange(true);
+        }
+        else{
+        setColorchange(false);
+        }
+    };
+    window.addEventListener('scroll', changeNavbarColor);
+
+    const [matches, setMatches] = useState(
+        window.matchMedia("(max-width: 768px)").matches
+    )
+    
+    useEffect(() => {
+        window
+        .matchMedia("(max-width: 768px)")
+        .addEventListener('change', e => setMatches( e.matches ));
+    }, [matches]);
+
 
     return (
         <div>
             <Navbar
-                className='navbar-stick bg-dark navbar-dark'
+                className={`navbar navbar-stick navbar-dark ${colorChange ? 'solid-navbar' : ''}`}
                 light
                 expand='md'
             >
@@ -46,7 +64,7 @@ const Navba = () => {
                     </NavLink>
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
+                <Collapse isOpen={isOpen} navbar className={`${matches ? 'solid-navbar' : ''}`}>
                     <Nav
                         className='ml-auto text-light d-flex align-items-center largeText'
                         navbar
@@ -81,14 +99,13 @@ const Navba = () => {
                             </NavItem>
                         )}
                         <NavItem>
-                            <Button
-                                color='info'
-                                onClick={() =>
-                                    setShowReferralModal(!showReferralModal)
-                                }
+                            <NavLink
+                                onClick={() => setIsOpen(false)}
+                                className='text-light'
+                                to='/my-referral'
                             >
                                 My Referrals
-                            </Button>
+                            </NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink
@@ -127,7 +144,7 @@ const Navba = () => {
                             <NavItem>
                                 <NavLink
                                     onClick={() => setIsOpen(false)}
-                                    className='text-light'
+                                    className='btn-primary signup text-white'
                                     to='/signup'
                                 >
                                     Sign Up
@@ -137,7 +154,7 @@ const Navba = () => {
                         {auth.isLoggedIn && (
                             <NavItem>
                                 <Button
-                                    color='transparent'
+                                    color='primary'
                                     onClick={logoutHandler}
                                 >
                                     Log Out
@@ -147,10 +164,6 @@ const Navba = () => {
                     </Nav>
                 </Collapse>
             </Navbar>
-            <MyReferralPoints
-                showModal={showReferralModal}
-                toggle={toggleReferralModal}
-            />
         </div>
     );
 };

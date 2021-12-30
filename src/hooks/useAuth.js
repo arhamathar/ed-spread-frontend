@@ -43,6 +43,7 @@ const useAuth = () => {
                     email,
                     referralPoints,
                     referralCode,
+                    isLoggedIn
                 })
             );
         },
