@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Login from './Pages/auth/login';
 import Signup from './Pages/auth/signup';
 import Courses from './Pages/Course/courses';
+import MyReferral from './Pages/MyReferral';
 import MyCourses from './Pages/Course/MyCourses';
 import Dashboard from './Pages/Dashboard';
 import Home from './Pages/home';
@@ -48,6 +49,9 @@ const Routes = () => {
             </Route>
             <Route path="/reset/:token">
                 <ConfirmPass />
+            </Route>
+            <Route exact path='/my-referral'>
+                <MyReferral />
             </Route>
             <Route exact path="/">
                 <Home />

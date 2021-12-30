@@ -12,17 +12,14 @@ import {
 import { NavLink } from 'react-router-dom';
 import Logo from '../assests/symbol.png';
 import { AuthContext } from '../context/authContext';
-import MyReferralPoints from './Modals/myReferralPoints';
 
 const Navba = () => {
     const auth = useContext(AuthContext);
     const history = useHistory();
 
     const [isOpen, setIsOpen] = useState(false);
-    const [showReferralModal, setShowReferralModal] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
-    const toggleReferralModal = () => setShowReferralModal(!showReferralModal);
 
     const logoutHandler = () => {
         auth.logout();
@@ -102,14 +99,13 @@ const Navba = () => {
                             </NavItem>
                         )}
                         <NavItem>
-                            <Button
-                                className='text-light bg-transparent btn:focus'
-                                onClick={() =>
-                                    setShowReferralModal(!showReferralModal)
-                                }
+                            <NavLink
+                                onClick={() => setIsOpen(false)}
+                                className='text-light'
+                                to='/my-referral'
                             >
                                 My Referrals
-                            </Button>
+                            </NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink
@@ -168,10 +164,6 @@ const Navba = () => {
                     </Nav>
                 </Collapse>
             </Navbar>
-            <MyReferralPoints
-                showModal={showReferralModal}
-                toggle={toggleReferralModal}
-            />
         </div>
     );
 };

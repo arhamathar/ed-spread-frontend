@@ -16,9 +16,9 @@ const Teach = () => {
                     will enjoy the way here we teach
                 </h5>
                 <Link to='/about'>
-                    <button className='btn-primary teach-button' color='info'>
+                    <Button color='primary' className='teach-button'>
                         Find out more
-                    </button>
+                    </Button>
                 </Link>
             </div>
             <img className='learnimage' src={Animation} alt='image1' />
