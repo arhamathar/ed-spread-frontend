@@ -34,15 +34,14 @@ const Bootcamps = () => {
                 <h1 className='inline-block'>Bootcamps</h1>
             </div>
             <div>
-                {/* {bootcamps.length > 0 &&
-                    bootcamps.map((bootcamp) => ( */}
-                <BootcampCard
-                // key={bootcamp._id}
-                // bootcamp={bootcamp}
-                // reload={reload}
-                />
-                <BootcampCard />
-                {/* ))} */}
+                {bootcamps.length > 0 &&
+                    bootcamps.map((bootcamp) => (
+                    <BootcampCard
+                        key={bootcamp._id}
+                        bootcamp={bootcamp}
+                        reload={reload}
+                    />
+                ))}
             </div>
         </div>
     );

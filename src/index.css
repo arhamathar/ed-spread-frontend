@@ -10,10 +10,6 @@ body {
     font-size: 1.25rem;
 }
 
-a {
-    text-decoration: none;
-}
-
 ::-webkit-scrollbar { width: 10px; } 
 /* Track */ 
 ::-webkit-scrollbar-track { background: #f1f1f1; } 
@@ -418,6 +414,10 @@ a {
     color: #fff;
     padding: 5px;
     margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* login */
