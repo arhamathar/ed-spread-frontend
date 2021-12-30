@@ -6,6 +6,7 @@ import Navbar from './components/navbar';
 import Routes from './routes';
 import useAuth from './hooks/useAuth';
 import { AuthContext } from './context/authContext';
+import ScrollToTop from './hooks/ScrollToTop';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -41,6 +42,7 @@ const App = () => {
             }}
         >
             <BrowserRouter>
+                <ScrollToTop />
                 <Navbar />
                 <Routes />
                 <ToastContainer />
