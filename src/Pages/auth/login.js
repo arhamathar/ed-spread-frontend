@@ -47,6 +47,12 @@ const Login = () => {
         } catch (e) {}
     };
 
+    const onEnterKeyPressed = (e) => {
+        if(e.key === 'Enter') {
+            onSubmitHandler()
+        }
+    }
+
     return (
         <div className='w-100 vh-100 bg-light py-5 routes-height login'>
             <Card className='login-card w-50 p-4 mx-auto mt-5 shadow'>
@@ -59,12 +65,14 @@ const Login = () => {
                         required
                         placeholder='john@gmail.com'
                         onChange={(e) => onChangeHandler(e)}
+                        onKeyPress={onEnterKeyPressed}
                     />
                     <AvField
                         name='password'
                         label='Password'
                         type='password'
                         onChange={(e) => onChangeHandler(e)}
+                        onKeyPress={onEnterKeyPressed}
                         validate={{
                             required: {
                                 value: true,
@@ -77,7 +85,7 @@ const Login = () => {
                             },
                         }}
                     />
-                    <Button color='dark' onClick={onSubmitHandler}>
+                    <Button color='dark' onClick={onSubmitHandler} onKeyPress={onEnterKeyPressed}>
                         LOG IN
                     </Button>
                 </AvForm>
