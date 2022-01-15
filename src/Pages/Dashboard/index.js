@@ -55,20 +55,29 @@ const Dashboard = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Mobile</th>
+                            <th>Date</th>
                             <th>Course</th>
                             <th>Points</th>
                         </tr>
                     </thead>
                     <tbody>
                         {users.map((user, ind) => {
-                            const { id, name, mobile, email, title, points } =
-                                user;
+                            const { id, name, mobile, email, title, points, purchasedDate } = user;
+                            const date = new Date(purchasedDate);
+
                             return (
                                 <tr key={id}>
                                     <th scope='row'>{ind + 1}</th>
                                     <td>{name}</td>
                                     <td>{email}</td>
                                     <td>{mobile}</td>
+                                    <td>
+                                        {date.getDate() +
+                                            '-' +
+                                            (date.getMonth() + 1) +
+                                            '-' +
+                                            date.getFullYear()}
+                                    </td>
                                     <td>{title}</td>
                                     <td>{points || 0}</td>
                                 </tr>
