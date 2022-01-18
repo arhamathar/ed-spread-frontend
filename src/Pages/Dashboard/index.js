@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
     Row,
     Col,
@@ -29,6 +29,10 @@ const Dashboard = () => {
         subtractReferralPoints,
         subtractPointsModal,
         toggleSubtractPontsModal,
+        addRow,
+        deleteRow,
+        courseUrls,
+        onVideoUrlChangeHandler,
     } = useData();
 
     return (
@@ -167,6 +171,79 @@ const Dashboard = () => {
                                 />
                             </Col>
                         </Row>
+                        {courseUrls.map((courseUrl, index) => {
+                            return (
+                                <Fragment key={courseUrl.$key}>
+                                    <Row>
+                                        <Col md={2}>
+                                            <AvField
+                                                label='Serial No.'
+                                                name={`serialNo${index}`}
+                                                type='number'
+                                                required
+                                                onChange={(e) =>
+                                                    onVideoUrlChangeHandler(
+                                                        e,
+                                                        'serialNo',
+                                                        index
+                                                    )
+                                                }
+                                                value={courseUrl.serialNo}
+                                            />
+                                        </Col>
+                                        <Col md={10}>
+                                            <AvField
+                                                label='Video Title'
+                                                name={`videoTitle${index}`}
+                                                type='string'
+                                                required
+                                                placeholder='Enter Video Title'
+                                                onChange={(e) =>
+                                                    onVideoUrlChangeHandler(
+                                                        e,
+                                                        'videoTitle',
+                                                        index
+                                                    )
+                                                }
+                                                value={courseUrl.videoTitle}
+                                            />
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col md={11}>
+                                            <AvField
+                                                label='Video Url'
+                                                name={`videoUrl${index}`}
+                                                type='string'
+                                                required
+                                                placeholder='Enter Video Url'
+                                                onChange={(e) =>
+                                                    onVideoUrlChangeHandler(
+                                                        e,
+                                                        'url',
+                                                        index
+                                                    )
+                                                }
+                                                value={courseUrl.url}
+                                            />
+                                        </Col>
+                                        <Col md={1} className='mt-2'>
+                                            <Button
+                                                color='danger'
+                                                className='mt-4'
+                                                onClick={() => deleteRow(index)}
+                                            >
+                                                <i class='fas fa-minus-circle'></i>
+                                            </Button>
+                                        </Col>
+                                    </Row>
+                                    <hr />
+                                </Fragment>
+                            );
+                        })}
+                        <Button outline color='info' onClick={() => addRow()}>
+                            Add Course Url
+                        </Button>
                     </AvForm>
                 </ModalBody>
                 <ModalFooter>

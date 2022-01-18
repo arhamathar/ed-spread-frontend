@@ -24,11 +24,39 @@ const useData = () => {
     const [subtractPointsModal, setSubtractPointsModal] = useState(false);
     const [email, setEmail] = useState('');
     const [points, setPoints] = useState(0);
+    const [courseUrls, setCourseUrls] = useState([
+        {
+            serialNo: 1,
+            url: '',
+            videoTitle: '',
+            $key: Math.random(),
+        },
+    ]);
+
 
     const toggle = () => setShowModal(!showModal);
 
     const toggleSubtractPontsModal = () =>
         setSubtractPointsModal(!subtractPointsModal);
+
+    const addRow = () => {
+        const ca = [...courseUrls];
+        // const lastCourseUrl = courseUrls[courseUrls.length > 0 ? courseUrls.length - 1 : 0]
+
+        ca.push({
+            serialNo: 1,
+            url: '',
+            videoTitle: '',
+            $key: Math.random(),
+        });
+        setCourseUrls(ca);
+    };
+    
+    const deleteRow = (index) => {
+        const ca = [...courseUrls];
+        ca.splice(index, 1);
+        setCourseUrls(ca);
+    };
 
     const onChangeHandler = (e) => {
         if (e.target.name === 'image') {
@@ -38,6 +66,15 @@ const useData = () => {
                 ...prev,
                 [e.target.name]: e.target.value,
             }));
+        }
+    };
+
+    const onVideoUrlChangeHandler = (e, key, index) => {
+        const videoUrls = [...courseUrls];
+        if (key === 'serialNo') {
+            videoUrls[index].serialNo = +e.target.value;
+        } else {
+            videoUrls[index][key] = e.target.value || '';
         }
     };
 
@@ -126,7 +163,11 @@ const useData = () => {
         subtractPointsModal,
         toggleSubtractPontsModal,
         setEmail,
-        setPoints,
+        setPoints,        
+        addRow,
+        deleteRow,
+        courseUrls,
+        onVideoUrlChangeHandler,
     };
 };
 
