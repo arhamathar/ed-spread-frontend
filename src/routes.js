@@ -7,6 +7,7 @@ import MyReferral from './Pages/MyReferral';
 import MyCourses from './Pages/Course/MyCourses';
 import Dashboard from './Pages/Dashboard';
 import Home from './Pages/home';
+import PrivacyPolicy from './Pages/PrivacyPolicy'
 import EmailVarification from './Pages/auth/emailvarification';
 import ConfirmPass from './Pages/auth/confirmpass';
 import About from './Pages/aboutus';
@@ -55,6 +56,9 @@ const Routes = () => {
             </Route>
             <Route exact path="/">
                 <Home />
+            </Route>
+            <Route exact path='/privacy-policy'>
+                <PrivacyPolicy />
             </Route>
             {auth.token ? <Redirect to="/" /> : <Redirect to="/login" />}
         </Switch>

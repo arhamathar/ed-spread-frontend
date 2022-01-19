@@ -44,6 +44,11 @@ const Footer = () => {
                                 Referrals
                             </Link>
                         </li>
+                        <li>
+                            <Link className='text-light' to='/privacy-policy'>
+                                Privacy Policy
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div className='footer3'>

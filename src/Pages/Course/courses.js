@@ -11,13 +11,13 @@ const Courses = () => {
         <div className='bootcamps routes-height'>
             <div className='courseh1'>
                 <h1>Our Courses</h1>
-            </div>
+            </div>            
+            {loading && (
+                <div className=''>
+                    <Spinner />
+                </div>
+            )}
             <div className='courses'>
-                {loading && (
-                    <div className='text-center mx-auto'>
-                        <Spinner />
-                    </div>
-                )}
                 {courses.length > 0 && !loading ? (
                         courses.map((course) => (
                             <CourseCard
