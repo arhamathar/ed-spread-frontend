@@ -12,6 +12,7 @@ import EmailVarification from './Pages/auth/emailvarification';
 import ConfirmPass from './Pages/auth/confirmpass';
 import About from './Pages/aboutus';
 import { AuthContext } from './context/authContext';
+import RefundPolicy from './Pages/RefundPolicy';
 
 const Routes = () => {
     const auth = useContext(AuthContext);
@@ -59,6 +60,9 @@ const Routes = () => {
             </Route>
             <Route exact path='/privacy-policy'>
                 <PrivacyPolicy />
+            </Route>
+            <Route exact path='/refund-policy'>
+                <RefundPolicy />
             </Route>
             {auth.token ? <Redirect to="/" /> : <Redirect to="/login" />}
         </Switch>
