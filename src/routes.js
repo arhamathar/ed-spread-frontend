@@ -13,6 +13,7 @@ import ConfirmPass from './Pages/auth/confirmpass';
 import About from './Pages/aboutus';
 import { AuthContext } from './context/authContext';
 import RefundPolicy from './Pages/RefundPolicy';
+import TermsAndCondition from './Pages/TermsAndCondition';
 
 const Routes = () => {
     const auth = useContext(AuthContext);
@@ -63,6 +64,9 @@ const Routes = () => {
             </Route>
             <Route exact path='/refund-policy'>
                 <RefundPolicy />
+            </Route>
+            <Route exact path='/terms-condition'>
+                <TermsAndCondition />
             </Route>
             {auth.token ? <Redirect to="/" /> : <Redirect to="/login" />}
         </Switch>

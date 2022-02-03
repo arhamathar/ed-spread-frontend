@@ -54,6 +54,11 @@ const Footer = () => {
                                 Refund Policy
                             </Link>
                         </li>
+                        <li>
+                            <Link className='text-light' to='/terms-condition'>
+                                Refund Policy
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div className='footer3'>
