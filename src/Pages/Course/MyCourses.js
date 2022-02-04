@@ -3,11 +3,12 @@ import React, { useState, useEffect, useContext, useCallback } from 'react';
 import useHttp from '../../hooks/useHttp';
 import { AuthContext } from '../../context/authContext';
 import CourseCard from '../../components/Cards/courseCard';
+import Spinner from '../../components/Spinner';
 
 const MyCourse = () => {
     const auth = useContext(AuthContext);
 
-    const { sendRequest } = useHttp();
+    const { sendRequest, loading } = useHttp();
 
     const [courses, setCourses] = useState([]);
 
@@ -36,6 +37,11 @@ const MyCourse = () => {
             <div className='courseh1'>
                 <h1>Your Purchases</h1>
             </div>
+            {loading && (
+                <div className='text-light'>
+                    <Spinner />
+                </div>
+            )}
             <div className='courses'>
                 {courses.length > 0 ? (
                     courses.map((course) => (
