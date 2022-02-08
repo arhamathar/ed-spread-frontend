@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { BrowserRouter } from 'react-router-dom';
 import Footer from './components/footer';
@@ -11,6 +11,12 @@ import ScrollToTop from './hooks/ScrollToTop';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
+    useEffect(() => {
+        document.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+        });
+    }, []);
+
     const {
         token,
         login,
